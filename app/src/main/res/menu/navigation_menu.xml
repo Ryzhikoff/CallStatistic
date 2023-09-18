@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemMainPage"
+        android:checkable="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_main" />
+    <item
+        android:id="@+id/itemTotalStatistic"
+        android:checkable="true"
+        android:icon="@drawable/ic_total_statistic"
+        android:title="@string/menu_total_statistic" />
+    <item
+        android:id="@+id/itemIncoming"
+        android:checkable="true"
+        android:icon="@drawable/ic_incoming"
+        android:title="@string/incoming" />
+    <item
+        android:id="@+id/itemReceived"
+        android:checkable="true"
+        android:icon="@drawable/ic_outgoing"
+        android:title="@string/outgoing" />
+
+</menu>

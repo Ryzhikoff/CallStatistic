@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="view.fragments.IncomingFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <evgeniy.ryzhikov.callstatistics.view.customview.YandexBanner
+        android:id="@+id/yandexBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_lvl_1"
+        android:text="@string/incoming"
+        android:textSize="@dimen/label_text_lvl_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yandexBanner" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/leftContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/barrier"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainLabel">
+
+        <com.lb.auto_fit_textview.AutoResizeTextView
+            android:id="@+id/labelCountIncomingNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_lvl_2"
+            android:gravity="center"
+            android:text="Количество контактов со входящими"
+            android:textSize="@dimen/label_text_lvl_2" />
+
+        <com.lb.auto_fit_textview.AutoResizeTextView
+            android:id="@+id/tvTotalNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_lvl_2"
+            android:text="120"
+            android:textSize="@dimen/label_text_lvl_2" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/rightContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/barrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/mainLabel">
+
+        <com.lb.auto_fit_textview.AutoResizeTextView
+            android:id="@+id/labelCountIncomingTalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_lvl_2"
+            android:gravity="center"
+            android:text="Всего входящих:"
+            android:textSize="@dimen/label_text_lvl_2" />
+
+        <com.lb.auto_fit_textview.AutoResizeTextView
+            android:id="@+id/tvTotalTalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_lvl_2"
+            android:gravity="center"
+            android:text="120"
+            android:textSize="@dimen/label_text_lvl_2" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:orientation="horizontal"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="leftContainer, rightContainer " />
+
+    <TextView
+        android:id="@+id/labelMostCalling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_lvl_2"
+        android:gravity="center"
+        android:text="Топ10 самых звонивших:"
+        android:textSize="@dimen/label_text_lvl_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMostCalling"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_tops"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelMostCalling"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

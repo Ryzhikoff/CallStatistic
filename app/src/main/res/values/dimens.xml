@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_main_ui">20dp</dimen>
+
+    <dimen name="label_text_lvl_1">25sp</dimen>
+    <dimen name="label_text_lvl_2">20sp</dimen>
+    <dimen name="margin_lvl_2">10dp</dimen>
+    <dimen name="margin_lvl_1">20dp</dimen>
+    <dimen name="ads_yandex_banner_height">50dp</dimen>
+    <dimen name="label_text_lvl_3">15sp</dimen>
+    <dimen name="margin_item_tops">5dp</dimen>
+</resources>

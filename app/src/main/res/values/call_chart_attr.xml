@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CallChart">
+        <attr name="contactName" format="string" />
+        <attr name="phoneNumber" format="string" />
+        <attr name="countCalls" format="integer" />
+        <attr name="sizeTextContactName" format="float" />
+        <attr name="sizeTextPhoneNumber" format="float" />
+        <attr name="roundX" format="float" />
+        <attr name="roundY" format="float" />
+
+        <attr name="colorChart" format="color" />
+        <attr name="colorPhoneNumber" format="color" />
+        <attr name="colorContactName" format="color" />
+        <attr name="colorCountCalls" format="color" />
+
+        <attr name="spaceBetweenText" format="float"/>
+        <attr name="spaceBetweenTextAndChart" format="float"/>
+        <attr name="spaceAroundChart" format="float"/>
+        <attr name="delayAppearance" format="integer"/>
+
+    </declare-styleable>
+</resources>
