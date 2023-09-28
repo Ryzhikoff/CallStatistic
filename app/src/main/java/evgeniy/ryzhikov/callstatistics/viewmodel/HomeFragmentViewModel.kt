@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.viewmodel
+package evgeniy.ryzhikov.callstatistics.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

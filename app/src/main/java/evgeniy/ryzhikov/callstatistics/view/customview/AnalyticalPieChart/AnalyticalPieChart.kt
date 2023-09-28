@@ -18,6 +18,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 
 /**
  * CustomView AnalyticalPieChart
@@ -124,6 +125,8 @@ class AnalyticalPieChart @JvmOverloads constructor(
     private var textRowList: MutableList<StaticLayout> = mutableListOf()
     private var dataList: List<Pair<Int, String>> = listOf()
     private var animationSweepAngle: Int = 0
+
+    var isConvertDuration: Boolean = false
 
     /**
      * В INIT блоке инициализируются все необходимые поля и переменные.
@@ -290,7 +293,11 @@ class AnalyticalPieChart @JvmOverloads constructor(
             }
         }
 
-        canvas.drawText(totalAmount.toString(), textAmountXNumber, textAmountY, amountTextPaint)
+        var _totalAmount = totalAmount.toString()
+        if (isConvertDuration) {
+            _totalAmount = convertDuration(_totalAmount.toLong(), isSeparated = true)
+        }
+        canvas.drawText(_totalAmount.toString(), textAmountXNumber, textAmountY, amountTextPaint)
         canvas.drawText(textAmountStr, textAmountXDescription, textAmountYDescription, descriptionTextPain)
     }
 
@@ -349,8 +356,9 @@ class AnalyticalPieChart @JvmOverloads constructor(
 
         textAmountY = circleCenterY
 
+        val _totalAmount = if (isConvertDuration) convertDuration(totalAmount.toLong(), isSeparated = true) else totalAmount.toString()
         val sizeTextAmountNumber = getWidthOfAmountText(
-            totalAmount.toString(),
+            _totalAmount,
             amountTextPaint
         )
 
@@ -367,7 +375,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
         var textHeight = 0
         dataList.forEach {
             val textLayoutNumber = getMultilineText(
-                text = it.first.toString(),
+                text = if (isConvertDuration) convertDuration(it.first.toLong(), isSeparated = true) else it.first.toString(),
                 textPaint = numberTextPaint,
                 width = maxWidth
             )

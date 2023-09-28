@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter"
                 android:text="Основное:"
                 android:textSize="30sp" />
 
@@ -62,7 +63,7 @@
                 app:pieChartCircleSectionSpace="2"
                 app:pieChartCircleStrokeWidth="6dp"
                 app:pieChartColors="@array/analyticalPieChartColorArray"
-                app:pieChartTextAmount="@string/analyticalPieChartAmount"
+                app:pieChartTextAmount="@string/label_total_calls"
                 app:pieChartTextAmountColor="?android:attr/textColor"
                 app:pieChartTextDescriptionColor="?android:attr/textColorHint"
                 app:pieChartTextDescriptionSize="14sp"
@@ -72,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Продолжительность:  " />
+                android:text="@string/label_total_duration" />
 
             <TextView
                 android:id="@+id/tvTotalDuration"

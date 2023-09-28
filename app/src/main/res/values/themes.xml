@@ -11,4 +11,21 @@
     </style>
 
     <style name="Theme.CallStatistics" parent="Base.Theme.CallStatistics" />
+
+    <style name="TextCallStatistic" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Level1" parent="TextCallStatistic">
+        <item name="android:textSize">@dimen/label_text_lvl_1</item>
+    </style>
+
+    <style name="Level2" parent="TextCallStatistic">
+        <item name="android:textSize">@dimen/label_text_lvl_2</item>
+    </style>
+
+    <style name="Level3" parent="TextCallStatistic">
+        <item name="android:textSize">@dimen/label_text_lvl_3</item>
+    </style>
 </resources>

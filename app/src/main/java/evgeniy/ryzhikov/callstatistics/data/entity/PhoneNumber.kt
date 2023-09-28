@@ -35,7 +35,7 @@ data class PhoneNumber(
     @ColumnInfo(name = "counter_rejected") var counterRejected: Int = 0,
     @ColumnInfo(name = "counter_blocked") var counterBlocked: Int = 0,
     @ColumnInfo(name = "counter_answered_externally") var counterAnsweredExternally: Int = 0
-) {
+) : PhoneData {
     companion object {
         fun addPhoneTalk(phoneNumber: PhoneNumber?, phoneTalk: PhoneTalk): PhoneNumber {
             val number = phoneNumber ?: PhoneNumber()

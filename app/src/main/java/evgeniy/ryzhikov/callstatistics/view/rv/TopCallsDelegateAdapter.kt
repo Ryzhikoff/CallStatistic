@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import evgeniy.ryzhikov.callstatistics.databinding.ItemTopsBinding
 
-class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopCalls, TopItemInterface, TopCallsDelegateAdapter.ViewHolder>() {
-    class ViewHolder(binding: ItemTopsBinding) : RecyclerView.ViewHolder(binding.root) {
+class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopItem, TopItemInterface, TopCallsDelegateAdapter.ViewHolder>() {
+    class ViewHolder(val binding: ItemTopsBinding) : RecyclerView.ViewHolder(binding.root) {
         val contactName = binding.contactName
         val phoneNumber = binding.phoneNumber
         val counterCalls = binding.countCalls
     }
 
     override fun isForViewType(item: TopItemInterface, items: MutableList<TopItemInterface>, position: Int): Boolean {
-        return item is TopCalls
+        return item is TopItem
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
@@ -23,11 +23,13 @@ class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopCalls, TopItemInte
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(item: TopCalls, holder: ViewHolder, payloads: MutableList<Any>) {
-        println("item.contactName")
+    override fun onBindViewHolder(item: TopItem, holder: ViewHolder, payloads: MutableList<Any>) {
         holder.contactName.text = item.contactName
         holder.phoneNumber.text = item.phoneNumber
-        holder.counterCalls.text = item.countCalls.toString()
+        holder.counterCalls.text = item.value
+        holder.binding.itemContainer.setOnClickListener {
+            item.clickListener.onClick(item.phoneData)
+        }
     }
 
 }

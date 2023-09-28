@@ -11,7 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <evgeniy.ryzhikov.callstatistics.view.customview.YandexBanner
         android:id="@+id/yandexBanner"
@@ -27,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_lvl_1"
         android:text="@string/incoming"
-        android:textSize="@dimen/label_text_lvl_1"
+        style="@style/Level1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/yandexBanner" />
@@ -38,7 +42,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/barrier"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainLabel">
@@ -100,28 +103,37 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="leftContainer, rightContainer " />
 
-    <TextView
-        android:id="@+id/labelMostCalling"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_lvl_2"
-        android:gravity="center"
-        android:text="Топ10 самых звонивших:"
-        android:textSize="@dimen/label_text_lvl_3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMostCalling"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         tools:listitem="@layout/item_tops"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/forward"
+        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:backgroundTint="@color/invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelMostCalling"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/rvMostCalling"
+        app:layout_constraintTop_toTopOf="@id/rvMostCalling"
+        app:layout_constraintBottom_toBottomOf="@id/rvMostCalling"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_forward"
+        android:backgroundTint="@color/invisible"
+        app:layout_constraintStart_toEndOf="@id/rvMostCalling"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvMostCalling"
+        app:layout_constraintBottom_toBottomOf="@id/rvMostCalling"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

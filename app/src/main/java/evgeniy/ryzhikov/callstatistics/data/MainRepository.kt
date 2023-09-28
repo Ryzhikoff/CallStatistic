@@ -10,6 +10,7 @@ class MainRepository(
     private val phoneTalkDao: PhoneTalkDao
 ) {
     private var allPhonesNumbers = listOf<PhoneNumber>()
+    private var allPhoneTalk = listOf<PhoneTalk>()
 
     fun getAllPhoneNumbers(): List<PhoneNumber> {
         return allPhonesNumbers.ifEmpty {
@@ -18,7 +19,12 @@ class MainRepository(
         }
     }
 
-    fun getAllTalk() = phoneTalkDao.getAllPhoneTalk()
+    fun getAllPhoneTalk(): List<PhoneTalk> {
+        return allPhoneTalk.ifEmpty {
+            allPhoneTalk = phoneTalkDao.getAllPhoneTalk()
+            allPhoneTalk
+        }
+    }
 
     fun insertListPhoneNumber(list: List<PhoneNumber>) {
         phoneNumberDao.insertAll(list)

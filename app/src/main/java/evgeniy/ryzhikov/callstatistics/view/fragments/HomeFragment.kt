@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentHomeBinding
 import evgeniy.ryzhikov.callstatistics.utils.GeneralData
-import evgeniy.ryzhikov.callstatistics.view.viewmodel.HomeFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.utils.convertDuration
+import evgeniy.ryzhikov.callstatistics.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -45,25 +47,32 @@ class HomeFragment : Fragment() {
         with(binding) {
             tvTotalNumbers.text = generalData.totalNumbers.toString()
             tvTotalTalk.text = generalData.totalTalks.toString()
-            tvTotalDuration.text = generalData.duration.toString()
+            tvTotalDuration.text = convertDuration(duration = generalData.duration, isSeparated = true)
 
-            chartCalls.setDataChart(
-                listOf(
-                    Pair(generalData.incoming, "Входящие"),
-                    Pair(generalData.outgoing, "Исходящие"),
-                    Pair(generalData.missed, "Пропущенные"),
-                    Pair(generalData.rejected, "Отклоненные"),
-                    Pair(generalData.blocked, "Заблокированные"),
-                    Pair(generalData.answeredExternally, "Принятые на другом устройстве"),
-                )
-            )
+            val listOfPair = mutableListOf<Pair<Int, String>>()
+
+            if (generalData.incoming > 0)
+                listOfPair.add(Pair(generalData.incoming, resources.getString(R.string.incoming)))
+            if (generalData.outgoing > 0)
+                listOfPair.add(Pair(generalData.outgoing, resources.getString(R.string.outgoing)))
+            if (generalData.missed > 0)
+                listOfPair.add(Pair(generalData.missed, resources.getString(R.string.missed)))
+            if (generalData.rejected > 0)
+                listOfPair.add(Pair(generalData.rejected, resources.getString(R.string.rejected)))
+            if (generalData.blocked > 0)
+                listOfPair.add(Pair(generalData.blocked, resources.getString(R.string.blocked)))
+            if (generalData.answeredExternally > 0)
+                listOfPair.add(Pair(generalData.answeredExternally, resources.getString(R.string.answered_externally)))
+
+            chartCalls.setDataChart(listOfPair)
             chartCalls.visibility = View.VISIBLE
             chartCalls.startAnimation()
 
+            chartDuration.isConvertDuration = true
             chartDuration.setDataChart(
                 listOf(
-                    Pair(generalData.outgoing, "Исходящие"),
-                    Pair(generalData.incoming, "Входящие")
+                    Pair(generalData.durationOut.toInt(), resources.getString(R.string.incoming)),
+                    Pair(generalData.durationInc.toInt(), resources.getString(R.string.outgoing))
                 )
             )
             chartDuration.visibility = View.VISIBLE

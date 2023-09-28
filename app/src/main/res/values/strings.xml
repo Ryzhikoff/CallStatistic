@@ -2,8 +2,7 @@
     <string name="app_name">Call Statistics</string>
     <string name="menu_main">Главная</string>
     <string name="menu_total_statistic">Общая статистика</string>
-    <string name="incoming">Входящие</string>
-    <string name="outgoing">Исходящие</string>
+
 
     <string-array name="update_db_text">
         <item>Обновляем базу данных</item>
@@ -13,6 +12,33 @@
     </string-array>
 
     <string name="analyticalPieChartAmount">Всего</string>
+    <string name="header_top_incoming">Топ 10 звонивших:</string>
+    <string name="header_longest_incoming">Самые длинные входящие:</string>
+    <string name="hour_short">ч</string>
+    <string name="minute_short">м</string>
+    <string name="second_short">с</string>
+    <string name="day_short">д</string>
+    <string name="label_contact_with_colon">Контакт:</string>
+    <string name="label_phone_number_with_colon">Телефон:</string>
+    <string name="label_duration_with_colon">Продолжительность:</string>
+    <string name="label_type_with_colon">Тип звонка:</string>
+    <string name="label_date_with_colon">Дата:</string>
+    <string name="label_time_with_colon">Время:</string>
+
+    <string name="incoming">Входящие</string>
+    <string name="outgoing">Исходящие</string>
+    <string name="missed">Пропущенный</string>
+    <string name="voice_email">Голосовая почта</string>
+    <string name="rejected">Отклоненный</string>
+    <string name="blocked">Залокированный</string>
+    <string name="answered_externally">Принят на другом устройстве</string>
+    <string name="unknown">Неизвестеный</string>
+
+    <string name="label_total_duration">Общая продолжительность:</string>
+    <string name="label_total_phone_talk">Всего разговоров:</string>
+    <string name="label_total_time_talk">Время разговоров:</string>
+    <string name="label_total_calls">Всего звонков:</string>
+    <string name="header_with_longest_incoming">Топ контактов по продолжителности входящих:</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

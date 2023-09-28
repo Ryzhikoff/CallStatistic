@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentUpdateDbBinding
 import evgeniy.ryzhikov.callstatistics.view.MainActivity
-import evgeniy.ryzhikov.callstatistics.view.viewmodel.UpdateDBFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBFragmentViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

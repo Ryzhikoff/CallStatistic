@@ -3,9 +3,9 @@ import dagger.Component
 import evgeniy.ryzhikov.callstatistics.di.modules.DatabaseModule
 import evgeniy.ryzhikov.callstatistics.di.modules.DomainModule
 import evgeniy.ryzhikov.callstatistics.view.customview.YandexBanner
-import evgeniy.ryzhikov.callstatistics.view.viewmodel.HomeFragmentViewModel
-import evgeniy.ryzhikov.callstatistics.view.viewmodel.IncomingFragmentViewModel
-import evgeniy.ryzhikov.callstatistics.view.viewmodel.UpdateDBFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.viewmodel.HomeFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.viewmodel.IncomingFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBFragmentViewModel
 import javax.inject.Singleton
 
 @Singleton

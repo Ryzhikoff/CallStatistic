@@ -9,4 +9,8 @@
     <!-- Hint text and items color -->
     <color name="gray_hint">#8B8A92</color>
 
+    <color name="invisible">#00000000</color>
+    <color name="blue_main">#6CC3F3</color>
+    <color name="text">#D8E2E8</color>
+
 </resources>

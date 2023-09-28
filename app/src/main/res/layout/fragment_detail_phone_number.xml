@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_main_ui"
+    android:background="@color/dark_black"
+    tools:context=".view.fragments.DetailPhoneTalkFragment">
+
+
+    <TextView
+        android:id="@+id/labelContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_contact_with_colon"
+        style="@style/Level2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сергей Ваильевич"
+        android:layout_marginStart="@dimen/margin_lvl_2"
+        android:layout_marginEnd="@dimen/margin_main_ui"
+        style="@style/Level2"
+        app:layout_constraintTop_toTopOf="@id/labelContactName"
+        app:layout_constraintStart_toEndOf="@id/labelContactName"/>
+
+    <TextView
+        android:id="@+id/labelPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_phone_number_with_colon"
+        style="@style/Level2"
+        android:layout_marginTop="@dimen/margin_lvl_2"
+        app:layout_constraintTop_toBottomOf="@id/labelContactName"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+79640937573"
+        android:layout_marginStart="@dimen/margin_lvl_2"
+        android:layout_marginEnd="@dimen/margin_main_ui"
+        style="@style/Level2"
+        app:layout_constraintTop_toTopOf="@id/labelPhoneNumber"
+        app:layout_constraintStart_toEndOf="@id/labelPhoneNumber"/>
+
+    <TextView
+        android:id="@+id/labelTotalPhoneTalk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_total_phone_talk"
+        style="@style/Level2"
+        android:layout_marginTop="@dimen/margin_lvl_2"
+        app:layout_constraintTop_toBottomOf="@id/labelPhoneNumber"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/totalTalk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2345"
+        android:layout_marginStart="@dimen/margin_lvl_2"
+        android:layout_marginEnd="@dimen/margin_main_ui"
+        style="@style/Level2"
+        app:layout_constraintTop_toTopOf="@id/labelTotalPhoneTalk"
+        app:layout_constraintStart_toEndOf="@id/labelTotalPhoneTalk"/>
+
+    <evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart.AnalyticalPieChart
+        android:id="@+id/chartCalls"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/margin_lvl_2"
+        android:visibility="visible"
+        app:pieChartCircleSectionSpace="2"
+        app:pieChartCircleStrokeWidth="6dp"
+        app:pieChartColors="@array/analyticalPieChartColorArray"
+        app:pieChartTextAmount="@string/analyticalPieChartAmount"
+        app:pieChartTextAmountColor="?android:attr/textColor"
+        app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+        app:pieChartTextDescriptionSize="14sp"
+        app:pieChartTextNumberColor="?android:attr/textColor"
+        app:pieChartTextNumberSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/labelTotalPhoneTalk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.lb.auto_fit_textview.AutoResizeTextView
+        android:id="@+id/labelTotalDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_total_time_talk"
+        style="@style/Level2"
+        android:layout_marginTop="@dimen/margin_lvl_2"
+        app:layout_constraintTop_toBottomOf="@id/chartCalls"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.lb.auto_fit_textview.AutoResizeTextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2345"
+        android:layout_marginStart="@dimen/margin_lvl_2"
+        style="@style/Level2"
+        app:layout_constraintTop_toTopOf="@id/labelTotalDuration"
+        app:layout_constraintStart_toEndOf="@id/labelTotalDuration"/>
+
+    <evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart.AnalyticalPieChart
+        android:id="@+id/chartDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/margin_lvl_2"
+        android:visibility="visible"
+        app:pieChartCircleSectionSpace="2"
+        app:pieChartCircleStrokeWidth="6dp"
+        app:pieChartColors="@array/analyticalPieChartColorArray"
+        app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+        app:pieChartTextAmount="@string/analyticalPieChartAmount"
+        app:pieChartTextAmountColor="?android:attr/textColor"
+        app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+        app:pieChartTextDescriptionSize="14sp"
+        app:pieChartTextNumberColor="?android:attr/textColor"
+        app:pieChartTextNumberSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/labelTotalDuration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/invisible"
+        android:src="@drawable/ic_cancel"
+        android:layout_marginTop="@dimen/label_text_lvl_3"
+        app:layout_constraintTop_toBottomOf="@id/chartDuration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

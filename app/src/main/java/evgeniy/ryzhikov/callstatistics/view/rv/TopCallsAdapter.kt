@@ -6,6 +6,7 @@ class TopCallsAdapter : ListDelegationAdapter<List<TopItemInterface>>() {
     private var list = ArrayList<TopItemInterface>()
     init {
         delegatesManager.addDelegate(TopCallsDelegateAdapter())
+        delegatesManager.addDelegate(HeaderDelegateAdapter())
     }
 
     fun addItem(item : TopItemInterface) {

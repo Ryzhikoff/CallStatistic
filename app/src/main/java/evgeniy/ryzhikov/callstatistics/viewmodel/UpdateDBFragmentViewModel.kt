@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.viewmodel
+package evgeniy.ryzhikov.callstatistics.viewmodel
 
 import android.database.Cursor
 import android.provider.CallLog
