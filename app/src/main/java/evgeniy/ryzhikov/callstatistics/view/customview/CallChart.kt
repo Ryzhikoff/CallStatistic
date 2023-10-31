@@ -188,10 +188,10 @@ class CallChart @JvmOverloads constructor(context: Context, attributeSet: Attrib
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         drawItems.forEach { item ->
-            drawText(canvas!!, item)
+            drawText(canvas, item)
             drawChart(canvas, item)
         }
 
