@@ -13,7 +13,7 @@ interface PhoneNumberDao {
     fun getAllPhoneNumber(): List<PhoneNumber>
 
     @Query("SELECT * FROM $TABLE_NAME_PHONE_NUMBER WHERE phone_number LIKE :number")
-    fun getPhoneNumber(number: String): PhoneNumber
+    fun getPhoneNumber(number: String): PhoneNumber?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(list: List<PhoneNumber>)

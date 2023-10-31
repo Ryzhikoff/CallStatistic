@@ -78,8 +78,10 @@ dependencies {
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0'
 
     //Yandex Ads
-    implementation 'com.yandex.android:mobileads:6.0.0'
+    implementation 'com.yandex.android:mobileads:6.1.0'
 
     implementation 'com.github.MackHartley:RoundedProgressBar:3.0.0'
     implementation 'com.github.felixsoares:HorizontalBarGraph:1.1'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 }

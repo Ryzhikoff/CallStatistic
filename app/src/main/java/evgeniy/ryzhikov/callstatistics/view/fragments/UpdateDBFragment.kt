@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentUpdateDbBinding
 import evgeniy.ryzhikov.callstatistics.view.MainActivity
-import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 class UpdateDBFragment : Fragment() {
     private var _binding: FragmentUpdateDbBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: UpdateDBFragmentViewModel by activityViewModels()
+    private val viewModel: UpdateDBViewModel by activityViewModels()
     private val scopeLoad = CoroutineScope(Job())
 
     override fun onCreateView(
