@@ -13,6 +13,7 @@ import evgeniy.ryzhikov.callstatistics.data.entity.PhoneData
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneNumber
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentIncomingBinding
+import evgeniy.ryzhikov.callstatistics.utils.COUNT_ELEMENTS_IN_RV
 import evgeniy.ryzhikov.callstatistics.utils.ClickListener
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 import evgeniy.ryzhikov.callstatistics.view.rv.Header
@@ -87,9 +88,12 @@ class IncomingFragment : Fragment() {
     }
 
     private fun displayTopCalling(phoneNumbers: List<PhoneNumber>) {
+
+        val countRepeat = if (phoneNumbers.size < COUNT_ELEMENTS_IN_RV) phoneNumbers.size else COUNT_ELEMENTS_IN_RV
+
         adapter.clear()
         adapter.addItem(Header(resources.getString(R.string.header_top_incoming)))
-        repeat(10) { index ->
+        repeat(countRepeat) { index ->
             adapter.addItem(
                 TopItem(
                     contactName = phoneNumbers[index].contactName,
