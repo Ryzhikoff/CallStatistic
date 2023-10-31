@@ -15,7 +15,6 @@ import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentIncomingBinding
 import evgeniy.ryzhikov.callstatistics.utils.ClickListener
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
-import evgeniy.ryzhikov.callstatistics.view.rv.Header
 import evgeniy.ryzhikov.callstatistics.view.rv.TopItem
 import evgeniy.ryzhikov.callstatistics.view.rv.TopCallsAdapter
 import evgeniy.ryzhikov.callstatistics.viewmodel.IncomingFragmentViewModel
@@ -55,28 +54,35 @@ class IncomingFragment : Fragment() {
     private fun setLiveDataObservers() {
         with(viewModel) {
             topPhoneNumberByIncomingPhoneTalk.observe(viewLifecycleOwner) { phoneNumbers ->
-                displayGeneralInfo()
-                displayTopCalling(phoneNumbers)
+                processTopPhoneNumberByIncomingPhoneTalk(phoneNumbers)
             }
 
             topLongestIncomingPhoneTalk.observe(viewLifecycleOwner) { phoneTalks ->
-                displayLongestIncomingCalls(phoneTalks)
+                processTopLongestIncomingPhoneTalk(phoneTalks)
             }
 
             topPhoneNumberWithLongestIncoming.observe(viewLifecycleOwner) { phoneNumbers ->
-                val topItems = mutableListOf<TopItem>()
-                phoneNumbers.forEach { phoneNumber ->
-                    topItems.add(TopItem(
-                        contactName = phoneNumber.contactName,
-                        phoneNumber = phoneNumber.phoneNumber,
-                        value = convertDuration(phoneNumber.durationIncoming),
-                        phoneData = phoneNumber,
-                        listener
-                    ))
-                }
-                updateRecyclerView(topItems)
+                processTopPhoneNumberWithLongestIncoming(phoneNumbers)
             }
         }
+    }
+
+    private fun processTopPhoneNumberByIncomingPhoneTalk(phoneNumbers: List<PhoneNumber>) {
+        displayGeneralInfo()
+
+        val topItems = mutableListOf<TopItem>()
+        phoneNumbers.forEach { phoneNumber ->
+            topItems.add(
+                TopItem(
+                    contactName = phoneNumber.contactName,
+                    phoneNumber = phoneNumber.phoneNumber,
+                    value = phoneNumber.counterIncoming.toString(),
+                    phoneData = phoneNumber,
+                    listener
+                )
+            )
+        }
+        updateRecyclerView(topItems)
     }
 
     private fun displayGeneralInfo() {
@@ -86,54 +92,48 @@ class IncomingFragment : Fragment() {
         }
     }
 
-    private fun displayTopCalling(phoneNumbers: List<PhoneNumber>) {
-        adapter.clear()
-        adapter.addItem(Header(resources.getString(R.string.header_top_incoming)))
-        repeat(10) { index ->
-            adapter.addItem(
+    private fun processTopLongestIncomingPhoneTalk(phoneTalks: List<PhoneTalk>) {
+        val topItems = mutableListOf<TopItem>()
+        phoneTalks.forEach { phoneTalk ->
+            topItems.add(
                 TopItem(
-                    contactName = phoneNumbers[index].contactName,
-                    phoneNumber = phoneNumbers[index].phoneNumber,
-                    value = phoneNumbers[index].counterIncoming.toString(),
-                    phoneData = phoneNumbers[index],
+                    contactName = phoneTalk.contactName,
+                    phoneNumber = phoneTalk.phoneNumber,
+                    value = convertDuration(duration = phoneTalk.duration),
+                    phoneData = phoneTalk,
                     listener
                 )
             )
         }
-        adapter.update()
-        unLockButton()
+        updateRecyclerView(topItems)
     }
 
-    private fun displayLongestIncomingCalls(phoneTalks: List<PhoneTalk>) {
-        adapter.clear()
-        adapter.addItem(Header(resources.getString(R.string.header_longest_incoming)))
-        repeat(10) { index ->
-            adapter.addItem(
+    private fun processTopPhoneNumberWithLongestIncoming(phoneNumbers: List<PhoneNumber>) {
+        val topItems = mutableListOf<TopItem>()
+        phoneNumbers.forEach { phoneNumber ->
+            topItems.add(
                 TopItem(
-                    contactName = phoneTalks[index].contactName,
-                    phoneNumber = phoneTalks[index].phoneNumber,
-                    value = convertDuration(duration = phoneTalks[index].duration),
-                    phoneData = phoneTalks[index],
+                    contactName = phoneNumber.contactName,
+                    phoneNumber = phoneNumber.phoneNumber,
+                    value = convertDuration(phoneNumber.durationIncoming),
+                    phoneData = phoneNumber,
                     listener
                 )
             )
         }
-
-        unLockButton()
+        updateRecyclerView(topItems)
     }
 
     private fun updateRecyclerView(topItems: List<TopItem>) {
+        binding.rvLabel.text = resources.getString(typeRecyclerViewMap[currentTypeRecyclerView]!!)
         adapter.clear()
-        adapter.addItem(Header(resources.getString(typeRecyclerViewMap[currentTypeRecyclerView]!!)))
 
-        topItems.forEach {topItem ->
+        topItems.forEach { topItem ->
             adapter.addItem(topItem)
         }
         unLockButton()
     }
 
-    private val TAG_DETAIL_PHONE_TALK_FRAGMENT = "detail_phone_talk_fragment"
-    private val TAG_DETAIL_PHONE_NUMBER_FRAGMENT = "detail_phone_number_fragment"
     private val listener = object : ClickListener {
         override fun onClick(phoneData: PhoneData) {
             when (phoneData) {
@@ -150,22 +150,24 @@ class IncomingFragment : Fragment() {
     }
 
     /**  forward:
-        TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK ->
-        TOP_LONGEST_INCOMING_PHONE_TALK ->
-        TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING ->
+    TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK ->
+    TOP_LONGEST_INCOMING_PHONE_TALK ->
+    TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING ->
      */
     private fun addOnClickListener() {
         binding.forward.setOnClickListener {
             lockButton()
-            when(currentTypeRecyclerView) {
+            when (currentTypeRecyclerView) {
                 TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK
                     viewModel.getTopLongestIncomingPhoneTalk()
                 }
+
                 TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING
                     viewModel.getTopPhoneNumbersWithLongestIncoming()
                 }
+
                 TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK
                     viewModel.getTopPhoneNumberByIncomingPhoneTalk()
@@ -175,15 +177,17 @@ class IncomingFragment : Fragment() {
 
         binding.back.setOnClickListener {
             lockButton()
-            when(currentTypeRecyclerView) {
+            when (currentTypeRecyclerView) {
                 TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING
                     viewModel.getTopPhoneNumbersWithLongestIncoming()
                 }
+
                 TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK
                     viewModel.getTopLongestIncomingPhoneTalk()
                 }
+
                 TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK
                     viewModel.getTopPhoneNumberByIncomingPhoneTalk()
@@ -211,5 +215,10 @@ class IncomingFragment : Fragment() {
         TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK,
         TOP_LONGEST_INCOMING_PHONE_TALK,
         TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING
+    }
+
+    private companion object {
+        const val TAG_DETAIL_PHONE_TALK_FRAGMENT = "detail_phone_talk_fragment"
+        const val TAG_DETAIL_PHONE_NUMBER_FRAGMENT = "detail_phone_number_fragment"
     }
 }
