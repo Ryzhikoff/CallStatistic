@@ -39,6 +39,8 @@
     <string name="label_total_time_talk">Время разговоров:</string>
     <string name="label_total_calls">Всего звонков:</string>
     <string name="header_with_longest_incoming">Топ контактов по продолжителности входящих:</string>
+    <string name="label_count_calls_with_incoming">Количество контактов со входящими</string>
+    <string name="label_total_incoming">Всего входящих:</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

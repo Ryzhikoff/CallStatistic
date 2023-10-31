@@ -71,8 +71,8 @@ class HomeFragment : Fragment() {
             chartDuration.isConvertDuration = true
             chartDuration.setDataChart(
                 listOf(
-                    Pair(generalData.durationOut.toInt(), resources.getString(R.string.incoming)),
-                    Pair(generalData.durationInc.toInt(), resources.getString(R.string.outgoing))
+                    Pair(generalData.durationInc.toInt(), resources.getString(R.string.incoming)),
+                    Pair(generalData.durationOut.toInt(), resources.getString(R.string.outgoing)),
                 )
             )
             chartDuration.visibility = View.VISIBLE
