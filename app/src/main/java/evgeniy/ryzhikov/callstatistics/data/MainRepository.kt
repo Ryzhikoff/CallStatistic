@@ -26,27 +26,23 @@ class MainRepository(
         }
     }
 
-    fun insertListPhoneNumber(list: List<PhoneNumber>) {
-        phoneNumberDao.insertAll(list)
-    }
-
     fun insertPhoneNumber(phoneNumber: PhoneNumber) {
         phoneNumberDao.insert(phoneNumber)
-    }
-
-    fun insertListPhoneTalk(list: List<PhoneTalk>) {
-        phoneTalkDao.insertAll(list)
     }
 
     fun insertPhoneTalk(phoneTalk: PhoneTalk) {
         phoneTalkDao.insert(phoneTalk)
     }
 
-    fun getPhoneNumber(number: String) = phoneNumberDao.getPhoneNumber(number)
+    fun getPhoneNumber(number: String): PhoneNumber {
+        return  phoneNumberDao.getPhoneNumber(number) ?: PhoneNumber(phoneNumber = number)
+    }
 
     fun isExistPhoneTalk(phoneTalk: PhoneTalk): Boolean {
         val talk = phoneTalkDao.getPhoneTalkByNumberAndDate(phoneTalk.phoneNumber, phoneTalk.date)
         return talk != null
     }
+
+//    fun getPhoneTalkByDay(day: )
 
 }

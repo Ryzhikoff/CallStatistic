@@ -36,6 +36,34 @@ data class PhoneNumber(
     @ColumnInfo(name = "counter_blocked") var counterBlocked: Int = 0,
     @ColumnInfo(name = "counter_answered_externally") var counterAnsweredExternally: Int = 0
 ) : PhoneData {
+    fun addPhoneTalk(phoneTalk: PhoneTalk): PhoneNumber {
+
+        if (phoneNumber == "") phoneNumber = phoneTalk.phoneNumber
+        if (contactName == "") contactName = phoneTalk.contactName
+
+        counterTotal += 1
+        durationTotal += phoneTalk.duration
+
+        when (phoneTalk.type) {
+            INCOMING_TYPE -> {
+                counterIncoming += 1
+                durationIncoming += phoneTalk.duration
+            }
+
+            OUTGOING_TYPE -> {
+                counterOutgoing += 1
+                durationOutgoing += phoneTalk.duration
+            }
+
+            MISSED_TYPE -> counterMissed += 1
+            VOICEMAIL_TYPE -> counterVoicemail += 1
+            REJECTED_TYPE -> counterRejected += 1
+            BLOCKED_TYPE -> counterBlocked += 1
+            ANSWERED_EXTERNALLY_TYPE -> counterAnsweredExternally += 1
+        }
+        return this
+    }
+
     companion object {
         fun addPhoneTalk(phoneNumber: PhoneNumber?, phoneTalk: PhoneTalk): PhoneNumber {
             val number = phoneNumber ?: PhoneNumber()
@@ -70,3 +98,4 @@ data class PhoneNumber(
         }
     }
 }
+

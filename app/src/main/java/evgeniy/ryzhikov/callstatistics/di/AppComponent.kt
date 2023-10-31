@@ -5,7 +5,7 @@ import evgeniy.ryzhikov.callstatistics.di.modules.DomainModule
 import evgeniy.ryzhikov.callstatistics.view.customview.YandexBanner
 import evgeniy.ryzhikov.callstatistics.viewmodel.HomeFragmentViewModel
 import evgeniy.ryzhikov.callstatistics.viewmodel.IncomingFragmentViewModel
-import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBViewModel
 import javax.inject.Singleton
 
 @Singleton
@@ -16,7 +16,7 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent {
-    fun inject(updateDBFragmentViewModel: UpdateDBFragmentViewModel)
+    fun inject(updateDBViewModel: UpdateDBViewModel)
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
     fun inject(incomingFragmentViewModel: IncomingFragmentViewModel)
     fun inject(yandexBanner: YandexBanner)

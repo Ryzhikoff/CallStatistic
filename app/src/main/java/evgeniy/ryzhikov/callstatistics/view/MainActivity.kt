@@ -12,6 +12,7 @@ import evgeniy.ryzhikov.callstatistics.view.fragments.UpdateDBFragment
 import evgeniy.ryzhikov.callstatistics.view.fragments.HomeFragment
 import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
 import evgeniy.ryzhikov.callstatistics.view.fragments.IncomingFragment
+import evgeniy.ryzhikov.callstatistics.view.fragments.StatByPeriodFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy(LazyThreadSafetyMode.NONE) {
@@ -34,6 +35,12 @@ class MainActivity : AppCompatActivity() {
                     startFragment(HomeFragment())
                     true
                 }
+
+                R.id.itemStatByPeriod -> {
+                    startFragment(StatByPeriodFragment())
+                    true
+                }
+
                 R.id.itemIncoming -> {
                     startFragment(IncomingFragment())
                     true
