@@ -26,6 +26,7 @@ const val BLOCKED_TYPE = 6
  */
 const val ANSWERED_EXTERNALLY_TYPE = 7
 
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.TYPE)
 @IntDef(
     value = [
         INCOMING_TYPE,

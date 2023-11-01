@@ -41,6 +41,8 @@
     <string name="header_with_longest_incoming">Топ контактов по продолжителности входящих:</string>
     <string name="label_count_calls_with_incoming">Количество контактов со входящими</string>
     <string name="label_total_incoming">Всего входящих:</string>
+    <string name="label_stat_by">"Статистика за "</string>
+    <string name="label_choose_day">Выбери день</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

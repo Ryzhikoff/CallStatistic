@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import evgeniy.ryzhikov.callstatistics.App
 import evgeniy.ryzhikov.callstatistics.data.MainRepository
-import evgeniy.ryzhikov.callstatistics.utils.GeneralData
+import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneNumbers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class HomeFragmentViewModel: ViewModel() {
 
-    val generalDataLiveData = MutableLiveData<GeneralData>()
+    val consolidatedPhoneNumbers = MutableLiveData<ConsolidatedPhoneNumbers>()
 
     @Inject
     lateinit var mainRepository: MainRepository
@@ -25,9 +25,9 @@ class HomeFragmentViewModel: ViewModel() {
         viewModelScope.launch {
             val deferred = async(Dispatchers.IO) {
                 val phoneNumbers = mainRepository.getAllPhoneNumbers()
-                GeneralData.fill(GeneralData(), phoneNumbers)
+                ConsolidatedPhoneNumbers.fill(ConsolidatedPhoneNumbers(), phoneNumbers)
             }
-            generalDataLiveData.postValue(deferred.await())
+            consolidatedPhoneNumbers.postValue(deferred.await())
         }
     }
 }
