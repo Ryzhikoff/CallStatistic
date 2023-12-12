@@ -4,22 +4,22 @@
     <item
         android:id="@+id/itemMainPage"
         android:checkable="true"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/icon_home"
         android:title="@string/menu_main" />
     <item
         android:id="@+id/itemStatByPeriod"
         android:checkable="true"
-        android:icon="@drawable/ic_total_statistic"
+        android:icon="@drawable/icon_chart"
         android:title="@string/menu_total_statistic" />
     <item
         android:id="@+id/itemIncoming"
         android:checkable="true"
-        android:icon="@drawable/ic_outgoing"
+        android:icon="@drawable/icon_incoming"
         android:title="@string/incoming" />
     <item
         android:id="@+id/itemOutgoing"
         android:checkable="true"
-        android:icon="@drawable/ic_incoming"
+        android:icon="@drawable/icon_outgoing"
         android:title="@string/outgoing" />
 
 </menu>

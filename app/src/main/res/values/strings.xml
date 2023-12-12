@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Call Statistics</string>
     <string name="menu_main">Главная</string>
-    <string name="menu_total_statistic">Общая статистика</string>
+    <string name="menu_total_statistic">Статистика</string>
 
 
     <string-array name="update_db_text">
@@ -43,6 +43,7 @@
     <string name="label_total_incoming">Всего входящих:</string>
     <string name="label_stat_by">"Статистика за "</string>
     <string name="label_choose_day">Выбери день</string>
+    <string name="home_title">Основное:</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

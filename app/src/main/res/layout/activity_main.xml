@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".ui.MainActivity">
 
     <FrameLayout
         android:id="@+id/fragmentPlaceholder"
@@ -16,13 +16,14 @@
         app:layout_constraintBottom_toTopOf="@id/navigation"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        style="@style/BottomNavigation"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/navigation_menu"
+        app:itemTextAppearanceActive="@style/TextAppearance.Material3.BodySmall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
