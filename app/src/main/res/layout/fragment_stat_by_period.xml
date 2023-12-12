@@ -10,15 +10,69 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChartCalls"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/labelByDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Level1"
+            android:text="@string/label_stat_by"/>
+
+<!--        <com.github.mikephil.charting.charts.BarChart-->
+<!--            android:id="@+id/barChartCalls"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="300dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"/>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Level2"
+            android:text="@string/label_total_calls"/>
+
+        <evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart.AnalyticalPieChart
+            android:id="@+id/chartByDayCount"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/margin_lvl_2"
+            android:visibility="visible"
+            app:pieChartCircleSectionSpace="2"
+            app:pieChartCircleStrokeWidth="6dp"
+            app:pieChartColors="@array/analyticalPieChartColorArray"
+            app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+            app:pieChartTextAmount="@string/analyticalPieChartAmount"
+            app:pieChartTextAmountColor="?android:attr/textColor"
+            app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+            app:pieChartTextDescriptionSize="14sp"
+            app:pieChartTextNumberColor="?android:attr/textColor"
+            app:pieChartTextNumberSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Level2"
+            android:text="@string/label_duration_with_colon"/>
+
+        <evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart.AnalyticalPieChart
+            android:id="@+id/chartByDayDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/margin_lvl_2"
+            android:visibility="visible"
+            app:pieChartCircleSectionSpace="2"
+            app:pieChartCircleStrokeWidth="6dp"
+            app:pieChartColors="@array/analyticalPieChartColorArray"
+            app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+            app:pieChartTextAmount="@string/analyticalPieChartAmount"
+            app:pieChartTextAmountColor="?android:attr/textColor"
+            app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+            app:pieChartTextDescriptionSize="14sp"
+            app:pieChartTextNumberColor="?android:attr/textColor"
+            app:pieChartTextNumberSize="16sp"/>
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             style="?attr/materialButtonOutlinedStyle"
@@ -49,4 +103,5 @@
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </LinearLayout>
+
 </ScrollView>

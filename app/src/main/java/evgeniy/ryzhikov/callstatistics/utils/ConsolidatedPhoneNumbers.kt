@@ -2,7 +2,7 @@ package evgeniy.ryzhikov.callstatistics.utils
 
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneNumber
 
-data class GeneralData(
+data class ConsolidatedPhoneNumbers(
     var totalNumbers: Int = 0,
 
     var totalTalks: Int = 0,
@@ -19,9 +19,9 @@ data class GeneralData(
     var durationOut: Long = 0
 ) {
     companion object {
-        fun fill(generalData: GeneralData, phoneNumbers: List<PhoneNumber>): GeneralData {
+        fun fill(consolidatedPhoneNumbers: ConsolidatedPhoneNumbers, phoneNumbers: List<PhoneNumber>): ConsolidatedPhoneNumbers {
             phoneNumbers.forEach { phoneNumber ->
-                generalData.apply {
+                consolidatedPhoneNumbers.apply {
                     totalNumbers += 1
                     with(phoneNumber) {
                         totalTalks += counterIncoming + counterOutgoing + counterMissed + counterVoicemail + counterRejected + counterBlocked + counterAnsweredExternally
@@ -38,7 +38,7 @@ data class GeneralData(
                     }
                 }
             }
-            return generalData
+            return consolidatedPhoneNumbers
         }
     }
 }

@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view
+package evgeniy.ryzhikov.callstatistics.ui
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
+import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
 import evgeniy.ryzhikov.callstatistics.view.fragments.UpdateDBFragment
 import evgeniy.ryzhikov.callstatistics.view.fragments.HomeFragment
-import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
 import evgeniy.ryzhikov.callstatistics.view.fragments.IncomingFragment
 import evgeniy.ryzhikov.callstatistics.view.fragments.StatByPeriodFragment
 

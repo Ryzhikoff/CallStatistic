@@ -45,7 +45,7 @@ class IncomingFragmentViewModel : ViewModel() {
                 phoneTalk.duration
             }
 
-            topLongestIncomingPhoneTalk.postValue(sortedPhoneTalks)
+            topLongestIncomingPhoneTalk.postValue(sortedPhoneTalks.take(COUNT_ELEMENTS_IN_RV))
         }
     }
 
@@ -64,7 +64,7 @@ class IncomingFragmentViewModel : ViewModel() {
 
             totalNumber = phoneNumbers.size
 
-            topPhoneNumberByIncomingPhoneTalk.postValue(sortedPhoneNumbers)
+            topPhoneNumberByIncomingPhoneTalk.postValue(sortedPhoneNumbers.take(COUNT_ELEMENTS_IN_RV))
         }
     }
 

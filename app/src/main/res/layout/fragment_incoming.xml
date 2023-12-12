@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_lvl_2"
             android:gravity="center"
-            android:text="Количество контактов со входящими"
+            android:text="@string/label_count_calls_with_incoming"
             android:textSize="@dimen/label_text_lvl_2" />
 
         <com.lb.auto_fit_textview.AutoResizeTextView
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_lvl_2"
             android:gravity="center"
-            android:text="Всего входящих:"
+            android:text="@string/label_total_incoming"
             android:textSize="@dimen/label_text_lvl_2" />
 
         <com.lb.auto_fit_textview.AutoResizeTextView
@@ -103,17 +103,26 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="leftContainer, rightContainer " />
 
+    <TextView
+        android:id="@+id/rvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_top_incoming"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMostCalling"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         tools:listitem="@layout/item_tops"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@id/forward"
         app:layout_constraintStart_toEndOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@id/barrier" />
+        app:layout_constraintTop_toBottomOf="@id/rvLabel"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/back"

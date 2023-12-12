@@ -64,9 +64,9 @@ fun getTimeFromLong(millis: Long): String {
     return DateFormat.format("HH:mm:ss", calendar.time).toString()
 }
 
-fun getDataTimeISO8601(millis: Long): String{
-    val date = Calendar.Builder()
+fun convertMillisToDataTimeISO8601(millis: Long): String{
+    val calendar = Calendar.Builder()
         .setInstant(millis)
         .build()
-    return DateFormat.format("yyyy-MM-dd'T'HH:mm:ss", date.time).toString()
+    return DateFormat.format("yyyy-MM-dd'T'HH:mm:ss", calendar.time).toString()
 }

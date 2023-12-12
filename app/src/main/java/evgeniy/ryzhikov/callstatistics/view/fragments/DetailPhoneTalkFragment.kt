@@ -9,8 +9,6 @@ import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentDetailPhoneTalkBinding
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 import evgeniy.ryzhikov.callstatistics.utils.convertTypePhoneTalkToString
-import evgeniy.ryzhikov.callstatistics.utils.getDateFromLong
-import evgeniy.ryzhikov.callstatistics.utils.getTimeFromLong
 
 class DetailPhoneTalkFragment(private val phoneTalk: PhoneTalk) : DialogFragment() {
     private var _binding: FragmentDetailPhoneTalkBinding? = null
@@ -36,8 +34,8 @@ class DetailPhoneTalkFragment(private val phoneTalk: PhoneTalk) : DialogFragment
             phoneNumber.text = phoneTalk.phoneNumber
             type.text = convertTypePhoneTalkToString(phoneTalk.type)
             duration.text = convertDuration(duration = phoneTalk.duration, isSeparated = true)
-            date.text = getDateFromLong(phoneTalk.date)
-            time.text = getTimeFromLong(phoneTalk.date)
+            date.text = phoneTalk.dateTime
+            time.text = phoneTalk.dateTime
         }
     }
 

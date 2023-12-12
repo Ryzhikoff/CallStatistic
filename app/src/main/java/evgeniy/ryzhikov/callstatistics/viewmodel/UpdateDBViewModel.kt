@@ -11,7 +11,7 @@ import androidx.lifecycle.viewModelScope
 import evgeniy.ryzhikov.callstatistics.App
 import evgeniy.ryzhikov.callstatistics.data.MainRepository
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk
-import evgeniy.ryzhikov.callstatistics.utils.getDataTimeISO8601
+import evgeniy.ryzhikov.callstatistics.utils.convertMillisToDataTimeISO8601
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -57,16 +57,14 @@ class UpdateDBViewModel : ViewModel() {
                         contactName = name,
                         type = type,
                         duration = duration,
-                        date = date
+                        dateTime = convertMillisToDataTimeISO8601(date)
                     )
 
-                    println(getDataTimeISO8601(phoneTalk.date))
                     if (isExistPhoneTalk(phoneTalk)) {
                         break
                     } else {
                         savePhoneTalkAndPhoneNumber(phoneTalk)
                     }
-                    if (i > 10) break
                     i++
                     progressBarLiveData.postValue((1.0 * i / cursor.count) * 100)
                 } while (cursor.moveToPrevious())
@@ -81,7 +79,6 @@ class UpdateDBViewModel : ViewModel() {
     private fun savePhoneTalkAndPhoneNumber(phoneTalk: PhoneTalk) {
         val phoneNumber = getPhoneNumber(phoneTalk.phoneNumber)
         mainRepository.insertPhoneNumber(phoneNumber.addPhoneTalk(phoneTalk))
-//        mainRepository.insertPhoneNumber(PhoneNumber.addPhoneTalk(phoneNumber, phoneTalk))
         mainRepository.insertPhoneTalk(phoneTalk)
     }
 

@@ -183,8 +183,6 @@ class CallChart @JvmOverloads constructor(context: Context, attributeSet: Attrib
         resolvedHeight = resolveSize(heightSize, heightMeasureSpec)
         //Устанавливаем итоговые размеры
         setMeasuredDimension(resolvedWidth, resolvedHeight)
-
-
     }
 
 
