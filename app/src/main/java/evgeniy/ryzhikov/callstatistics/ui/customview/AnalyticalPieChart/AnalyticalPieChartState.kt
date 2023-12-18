@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart
+package evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart
 
 /**
  * @author Alex-tech-it

@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
 import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
-import evgeniy.ryzhikov.callstatistics.view.fragments.UpdateDBFragment
-import evgeniy.ryzhikov.callstatistics.view.fragments.HomeFragment
-import evgeniy.ryzhikov.callstatistics.view.fragments.IncomingFragment
-import evgeniy.ryzhikov.callstatistics.view.fragments.StatByPeriodFragment
+import evgeniy.ryzhikov.callstatistics.ui.fragments.UpdateDBFragment
+import evgeniy.ryzhikov.callstatistics.ui.fragments.HomeFragment
+import evgeniy.ryzhikov.callstatistics.ui.fragments.IncomingFragment
+import evgeniy.ryzhikov.callstatistics.ui.fragments.StatByPeriodFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy(LazyThreadSafetyMode.NONE) {

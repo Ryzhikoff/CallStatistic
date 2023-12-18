@@ -1,10 +1,9 @@
-package evgeniy.ryzhikov.callstatistics.view.fragments
+package evgeniy.ryzhikov.callstatistics.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.activityViewModels
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentHomeBinding
@@ -12,36 +11,29 @@ import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneNumbers
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 import evgeniy.ryzhikov.callstatistics.viewmodel.HomeFragmentViewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeFragmentViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentHomeBinding.bind(view)
 
-        startLoadAnimation()
+        onCreateAnimation()
         viewModel.getGeneralData()
         viewModel.consolidatedPhoneNumbers.observe(viewLifecycleOwner) { consolidatedPhoneNumbers ->
             displayStat(consolidatedPhoneNumbers)
         }
     }
 
-    private fun startLoadAnimation() {
-
+    private fun onCreateAnimation() {
+        binding.infoContainer.apply {
+            animation = AnimationUtils.loadAnimation(requireContext(), R.anim.fall_from_top)
+            animate()
+        }
     }
 
-    private fun stopLoadAnimation() {
-
-    }
 
     private fun displayStat(consolidatedPhoneNumbers: ConsolidatedPhoneNumbers) {
         with(binding) {

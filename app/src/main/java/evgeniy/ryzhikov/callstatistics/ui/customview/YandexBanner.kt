@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.customview
+package evgeniy.ryzhikov.callstatistics.ui.customview
 
 import android.content.Context
 import android.util.AttributeSet

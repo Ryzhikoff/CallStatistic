@@ -34,7 +34,7 @@
     <string name="answered_externally">Принят на другом устройстве</string>
     <string name="unknown">Неизвестеный</string>
 
-    <string name="label_total_duration">Общая продолжительность:</string>
+    <string name="label_total_duration">Общая продолжительность</string>
     <string name="label_total_phone_talk">Всего разговоров:</string>
     <string name="label_total_time_talk">Время разговоров:</string>
     <string name="label_total_calls">Всего звонков:</string>
@@ -43,7 +43,9 @@
     <string name="label_total_incoming">Всего входящих:</string>
     <string name="label_stat_by">"Статистика за "</string>
     <string name="label_choose_day">Выбери день</string>
-    <string name="home_title">Основное:</string>
+    <string name="home_title">Основное</string>
+    <string name="label_total_number">Всего номеров:</string>
+    <string name="label_of_them">из них:</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

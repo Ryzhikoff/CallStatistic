@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.fragments
+package evgeniy.ryzhikov.callstatistics.ui.fragments
 
 import android.os.Bundle
 import android.text.format.DateFormat

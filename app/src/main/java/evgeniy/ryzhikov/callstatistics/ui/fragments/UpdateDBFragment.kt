@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.fragments
+package evgeniy.ryzhikov.callstatistics.ui.fragments
 
 import android.database.Cursor
 import android.os.Bundle
