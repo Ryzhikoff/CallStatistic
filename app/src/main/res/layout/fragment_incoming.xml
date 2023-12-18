@@ -4,145 +4,207 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.fragments.IncomingFragment">
+    tools:context=".ui.fragments.IncomingFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <evgeniy.ryzhikov.callstatistics.view.customview.YandexBanner
-        android:id="@+id/yandexBanner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/mainLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_lvl_1"
-        android:text="@string/incoming"
-        style="@style/Level1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/yandexBanner" />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/leftContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainLabel">
-
-        <com.lb.auto_fit_textview.AutoResizeTextView
-            android:id="@+id/labelCountIncomingNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_lvl_2"
-            android:gravity="center"
-            android:text="@string/label_count_calls_with_incoming"
-            android:textSize="@dimen/label_text_lvl_2" />
-
-        <com.lb.auto_fit_textview.AutoResizeTextView
-            android:id="@+id/tvTotalNumbers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_lvl_2"
-            android:text="120"
-            android:textSize="@dimen/label_text_lvl_2" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/rightContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/barrier"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/mainLabel">
-
-        <com.lb.auto_fit_textview.AutoResizeTextView
-            android:id="@+id/labelCountIncomingTalk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_lvl_2"
-            android:gravity="center"
-            android:text="@string/label_total_incoming"
-            android:textSize="@dimen/label_text_lvl_2" />
-
-        <com.lb.auto_fit_textview.AutoResizeTextView
-            android:id="@+id/tvTotalTalk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_lvl_2"
-            android:gravity="center"
-            android:text="120"
-            android:textSize="@dimen/label_text_lvl_2" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoContainer"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:orientation="horizontal"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="leftContainer, rightContainer " />
-
-    <TextView
-        android:id="@+id/rvLabel"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/header_top_incoming"
-        app:layout_constraintTop_toBottomOf="@id/barrier"
+        android:background="@drawable/info_container_background"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_edge"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/bannerContainer"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
+                android:id="@+id/yandexBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mainLabel"
+            style="@style/TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_edge"
+            android:layout_marginTop="@dimen/margin_edge"
+            android:text="@string/incoming"
+            android:textColor="@color/text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerContainer" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardTotalNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_edge"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/margin_edge"
+            android:elevation="@dimen/cards_elevation"
+            app:cardBackgroundColor="@color/bottom_bar_color"
+            app:cardCornerRadius="@dimen/cards_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainLabel">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_in_cards"
+                    android:text="@string/label_count_calls_with_incoming"
+                    android:textColor="@color/text" />
+
+                <TextView
+                    android:id="@+id/tvTotalNumbers"
+                    style="@style/TitleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_in_cards"
+                    android:text="123" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_edge"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/margin_edge"
+            android:layout_marginBottom="@dimen/margin_edge"
+            android:elevation="@dimen/cards_elevation"
+            app:cardBackgroundColor="@color/bottom_bar_color"
+            app:cardCornerRadius="@dimen/cards_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardTotalNumber">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_in_cards"
+                    android:text="@string/label_total_incoming"
+                    android:textColor="@color/text" />
+
+                <TextView
+                    android:id="@+id/tvTotalTalk"
+                    style="@style/TitleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_in_cards"
+                    tools:text="1223" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rvLabelContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/margin_edge"
+        android:layout_marginBottom="@dimen/margin_edge"
+        android:elevation="@dimen/cards_elevation"
+        app:cardBackgroundColor="@color/bottom_bar_color"
+        app:cardCornerRadius="@dimen/cards_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/infoContainer">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/invisible"
+                android:src="@drawable/ic_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/rvLabel"
+                style="@style/TitleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_margin="@dimen/margin_in_cards"
+                android:text="@string/header_top_incoming"
+                android:textColor="@color/text"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/back"
+                app:layout_constraintEnd_toStartOf="@id/forward"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/invisible"
+                android:src="@drawable/ic_forward"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMostCalling"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/item_tops"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@id/forward"
-        app:layout_constraintStart_toEndOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@id/rvLabel"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back"
-        android:backgroundTint="@color/invisible"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="20dp"
+        android:requiresFadingEdge="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginEnd="@dimen/margin_edge"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/rvMostCalling"
-        app:layout_constraintTop_toTopOf="@id/rvMostCalling"
-        app:layout_constraintBottom_toBottomOf="@id/rvMostCalling"/>
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/forward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_forward"
-        android:backgroundTint="@color/invisible"
-        app:layout_constraintStart_toEndOf="@id/rvMostCalling"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rvMostCalling"
-        app:layout_constraintBottom_toBottomOf="@id/rvMostCalling"/>
+        app:layout_constraintTop_toBottomOf="@id/rvLabelContainer"
+        tools:listitem="@layout/item_tops" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

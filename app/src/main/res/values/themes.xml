@@ -14,22 +14,6 @@
 
     <style name="Theme.CallStatistics" parent="Base.Theme.CallStatistics" />
 
-    <style name="TextCallStatistic" parent="Widget.AppCompat.TextView">
-        <item name="fontFamily">@font/inter</item>
-        <item name="android:textColor">@color/text</item>
-    </style>
-
-    <style name="Level1" parent="TextCallStatistic">
-        <item name="android:textSize">@dimen/label_text_lvl_1</item>
-    </style>
-
-    <style name="Level2" parent="TextCallStatistic">
-        <item name="android:textSize">@dimen/label_text_lvl_2</item>
-    </style>
-
-    <style name="Level3" parent="TextCallStatistic">
-        <item name="android:textSize">@dimen/label_text_lvl_3</item>
-    </style>
 
     <style name="DatePicker" parent="@style/ThemeOverlay.Material3.MaterialCalendar">
         <!--        <item name="colorPrimary">@color/shrine_pink_100</item>-->
@@ -49,8 +33,57 @@
 
     <style name="ActiveIndicatorStyle" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@android:color/transparent</item>
-
     </style>
 
+    <style name="BaseTextStyle">
+        <item name="fontFamily">Overpass</item>
+    </style>
 
+    <style name="TitleLarge" parent="BaseTextStyle">
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">40sp</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:translationY">-2.28sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TitleSmall" parent="BaseTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+        <item name="android:translationY">-0.61sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Body" parent="BaseTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:translationY">-1.87sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Subhead" parent="BaseTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:translationY">-1.14sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Headline" parent="BaseTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">22sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:translationY">-0.87sp</item>
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <style name="Caption" parent="BaseTextStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+        <item name="android:translationY">-0.4sp</item>
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
 </resources>

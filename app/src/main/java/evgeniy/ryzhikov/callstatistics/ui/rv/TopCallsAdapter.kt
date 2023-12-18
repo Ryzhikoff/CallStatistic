@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.rv
+package evgeniy.ryzhikov.callstatistics.ui.rv
 
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 

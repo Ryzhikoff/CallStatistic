@@ -1,29 +1,24 @@
-package evgeniy.ryzhikov.callstatistics.view.fragments
+package evgeniy.ryzhikov.callstatistics.ui.fragments
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneNumber
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentDetailPhoneNumberBinding
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 
-class DetailPhoneNumberFragment(val phoneNumber: PhoneNumber) : DialogFragment() {
+class DetailPhoneNumberFragment(val phoneNumber: PhoneNumber) : DialogFragment(R.layout.fragment_detail_phone_number) {
     private var _binding: FragmentDetailPhoneNumberBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentDetailPhoneNumberBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentDetailPhoneNumberBinding.bind(view)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         displayMainDataPhoneNumber()
         displayPhoneTalkChart()
         displayDurationChart()

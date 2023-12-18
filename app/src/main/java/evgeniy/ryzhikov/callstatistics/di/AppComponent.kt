@@ -2,7 +2,7 @@ package evgeniy.ryzhikov.callstatistics.di
 import dagger.Component
 import evgeniy.ryzhikov.callstatistics.di.modules.DatabaseModule
 import evgeniy.ryzhikov.callstatistics.di.modules.DomainModule
-import evgeniy.ryzhikov.callstatistics.view.customview.YandexBanner
+import evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
 import evgeniy.ryzhikov.callstatistics.viewmodel.HomeFragmentViewModel
 import evgeniy.ryzhikov.callstatistics.viewmodel.IncomingFragmentViewModel
 import evgeniy.ryzhikov.callstatistics.viewmodel.StatByPeriodViewModel

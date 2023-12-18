@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.rv
+package evgeniy.ryzhikov.callstatistics.ui.rv
 
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneData
 import evgeniy.ryzhikov.callstatistics.utils.ClickListener

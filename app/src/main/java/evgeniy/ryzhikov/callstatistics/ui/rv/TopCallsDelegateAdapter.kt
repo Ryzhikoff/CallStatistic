@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.view.rv
+package evgeniy.ryzhikov.callstatistics.ui.rv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,7 +33,7 @@ class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopItem, TopItemInter
         holder.binding.itemContainer.setOnClickListener {
             item.clickListener.onClick(item.phoneData)
         }
-        holder.cardView.animation = AnimationUtils.loadAnimation(holder.cardView.context, R.anim.rv_anim)
+//        holder.cardView.animation = AnimationUtils.loadAnimation(holder.cardView.context, R.anim.rv_anim)
     }
 
 }
