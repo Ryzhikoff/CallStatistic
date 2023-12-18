@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.ui.fragments
+package evgeniy.ryzhikov.callstatistics.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,6 @@ import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentHomeBinding
 import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneNumbers
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
-import evgeniy.ryzhikov.callstatistics.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null

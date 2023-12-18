@@ -1,11 +1,9 @@
-package evgeniy.ryzhikov.callstatistics.ui.rv
+package evgeniy.ryzhikov.callstatistics.ui.type_calls.rv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
-import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ItemTopsBinding
 
 class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopItem, TopItemInterface, TopCallsDelegateAdapter.ViewHolder>() {
@@ -13,7 +11,6 @@ class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopItem, TopItemInter
         val contactName = binding.contactName
         val phoneNumber = binding.phoneNumber
         val counterCalls = binding.countCalls
-        val cardView = binding.root
     }
 
     override fun isForViewType(item: TopItemInterface, items: MutableList<TopItemInterface>, position: Int): Boolean {
@@ -33,7 +30,6 @@ class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopItem, TopItemInter
         holder.binding.itemContainer.setOnClickListener {
             item.clickListener.onClick(item.phoneData)
         }
-//        holder.cardView.animation = AnimationUtils.loadAnimation(holder.cardView.context, R.anim.rv_anim)
     }
 
 }

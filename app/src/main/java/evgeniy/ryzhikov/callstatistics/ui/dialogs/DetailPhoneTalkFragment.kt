@@ -1,11 +1,9 @@
-package evgeniy.ryzhikov.callstatistics.ui.fragments
+package evgeniy.ryzhikov.callstatistics.ui.dialogs
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk

@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.ui.rv
+package evgeniy.ryzhikov.callstatistics.ui.type_calls.rv
 
 import android.content.res.Resources
 import android.graphics.Rect

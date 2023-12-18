@@ -1,4 +1,4 @@
-package evgeniy.ryzhikov.callstatistics.ui.fragments
+package evgeniy.ryzhikov.callstatistics.ui.dialogs
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

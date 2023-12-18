@@ -86,4 +86,12 @@
         <item name="android:translationY">-0.4sp</item>
         <item name="android:textColor">@color/gray_light</item>
     </style>
+    
+    <style name="ButtonGroup" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/gray_dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/bottom_bar_color</item>
+        <item name="android:textAppearance">@style/Caption</item>
+
+    </style>
 </resources>

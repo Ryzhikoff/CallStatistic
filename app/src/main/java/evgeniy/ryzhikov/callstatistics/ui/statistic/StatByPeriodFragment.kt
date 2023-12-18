@@ -1,36 +1,28 @@
-package evgeniy.ryzhikov.callstatistics.ui.fragments
+package evgeniy.ryzhikov.callstatistics.ui.statistic
 
 import android.os.Bundle
 import android.text.format.DateFormat
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.datepicker.MaterialDatePicker
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentStatByPeriodBinding
 import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneTalks
-import evgeniy.ryzhikov.callstatistics.viewmodel.StatByPeriodViewModel
 import java.util.Calendar
 
-class StatByPeriodFragment : Fragment() {
+class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
     private var _binding: FragmentStatByPeriodBinding? = null
     private val binding get() = _binding!!
     private val viewModel: StatByPeriodViewModel by activityViewModels()
     private var selectedDay: String = ""
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentStatByPeriodBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentStatByPeriodBinding.bind(view)
 
+        onCreateAnimation()
         setOnClickListeners()
 
         viewModel.consolidatedPhoneTalksLiveData.observe(viewLifecycleOwner) {
@@ -39,6 +31,13 @@ class StatByPeriodFragment : Fragment() {
 
         selectedDay = getFormattedDay(System.currentTimeMillis())
         viewModel.getPhoneTalksByDay(selectedDay)
+    }
+
+    private fun onCreateAnimation() {
+        binding.infoContainer.apply {
+            animation = AnimationUtils.loadAnimation(requireContext(), R.anim.fall_from_top)
+            animate()
+        }
     }
 
     private fun setOnClickListeners() {

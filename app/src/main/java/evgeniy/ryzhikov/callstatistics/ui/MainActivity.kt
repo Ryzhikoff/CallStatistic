@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
 import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
-import evgeniy.ryzhikov.callstatistics.ui.fragments.UpdateDBFragment
-import evgeniy.ryzhikov.callstatistics.ui.fragments.HomeFragment
-import evgeniy.ryzhikov.callstatistics.ui.fragments.IncomingFragment
-import evgeniy.ryzhikov.callstatistics.ui.fragments.StatByPeriodFragment
+import evgeniy.ryzhikov.callstatistics.ui.update.UpdateDBFragment
+import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
+import evgeniy.ryzhikov.callstatistics.ui.type_calls.TypeCallsFragment
+import evgeniy.ryzhikov.callstatistics.ui.statistic.StatByPeriodFragment
+import evgeniy.ryzhikov.callstatistics.utils.INCOMING_TYPE
+import evgeniy.ryzhikov.callstatistics.utils.OUTGOING_TYPE
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy(LazyThreadSafetyMode.NONE) {
@@ -42,7 +44,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.itemIncoming -> {
-                    startFragment(IncomingFragment())
+                    startFragment(TypeCallsFragment(INCOMING_TYPE))
+                    true
+                }
+
+                R.id.itemOutgoing -> {
+                    startFragment(TypeCallsFragment(OUTGOING_TYPE))
                     true
                 }
 
