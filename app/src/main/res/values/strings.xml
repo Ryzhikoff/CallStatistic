@@ -12,8 +12,10 @@
     </string-array>
 
     <string name="analyticalPieChartAmount">Всего</string>
-    <string name="header_top_incoming">Топ 10 звонивших:</string>
-    <string name="header_longest_incoming">Самые длинные входящие:</string>
+    <string name="header_top_incoming">Топ 10 входящих:</string>
+    <string name="header_top_outgoing">Топ 10 исходящих:</string>
+    <string name="header_longest_incoming">Самые длиные входящие:</string>
+    <string name="header_longest_outgoing">Самые длиные исходящие:</string>
     <string name="hour_short">ч</string>
     <string name="minute_short">м</string>
     <string name="second_short">с</string>
@@ -39,13 +41,19 @@
     <string name="label_total_time_talk">Время разговоров:</string>
     <string name="label_total_calls">Всего звонков:</string>
     <string name="header_with_longest_incoming">Топ контактов по продолжителности входящих:</string>
-    <string name="label_count_calls_with_incoming">Количество контактов со входящими</string>
+    <string name="header_with_longest_outgoing">Топ контактов по продолжителности исходящих:</string>
+    <string name="label_count_calls_with_incoming">Количество контактов со входящими:</string>
     <string name="label_total_incoming">Всего входящих:</string>
-    <string name="label_stat_by">"Статистика за "</string>
+    <string name="label_stat_by">"за "</string>
     <string name="label_choose_day">Выбери день</string>
     <string name="home_title">Основное</string>
     <string name="label_total_number">Всего номеров:</string>
     <string name="label_of_them">из них:</string>
+    <string name="label_today">Сегодня</string>
+    <string name="label_yesterday">Вчера</string>
+    <string name="label_count_calls_with_outgoing">Количество контактов с исходящими:</string>
+    <string name="label_total_outgoing">Всего исходящих:</string>
+    <string name="label_db_update">Обновляем базу данных...</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

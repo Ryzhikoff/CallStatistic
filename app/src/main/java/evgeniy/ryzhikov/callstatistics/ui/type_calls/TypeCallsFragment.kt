@@ -1,51 +1,79 @@
-package evgeniy.ryzhikov.callstatistics.ui.fragments
+package evgeniy.ryzhikov.callstatistics.ui.type_calls
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.annotation.IdRes
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneData
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneNumber
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk
-import evgeniy.ryzhikov.callstatistics.databinding.FragmentIncomingBinding
-import evgeniy.ryzhikov.callstatistics.ui.rv.BottomSpacingItemDecoration
+import evgeniy.ryzhikov.callstatistics.databinding.FragmentTypeCallsBinding
+import evgeniy.ryzhikov.callstatistics.ui.dialogs.DetailPhoneNumberFragment
+import evgeniy.ryzhikov.callstatistics.ui.dialogs.DetailPhoneTalkFragment
+import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.BottomSpacingItemDecoration
 import evgeniy.ryzhikov.callstatistics.utils.ClickListener
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
-import evgeniy.ryzhikov.callstatistics.ui.rv.TopItem
-import evgeniy.ryzhikov.callstatistics.ui.rv.TopCallsAdapter
-import evgeniy.ryzhikov.callstatistics.viewmodel.IncomingFragmentViewModel
+import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.TopItem
+import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.TopCallsAdapter
+import evgeniy.ryzhikov.callstatistics.utils.INCOMING_TYPE
+import evgeniy.ryzhikov.callstatistics.utils.TypeCall
 
-class IncomingFragment : Fragment(R.layout.fragment_incoming) {
-    private var _binding: FragmentIncomingBinding? = null
+class TypeCallsFragment(@TypeCall private val typeCalls: Int) : Fragment(R.layout.fragment_type_calls) {
+    private var _binding: FragmentTypeCallsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: IncomingFragmentViewModel by activityViewModels()
+    private val viewModel: TypeCallsViewModel by viewModels()
 
     private val adapter = TopCallsAdapter()
     private lateinit var recyclerView: RecyclerView
 
     private var currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK
     private val typeRecyclerViewMap = mapOf<TypeRecyclerView, @receiver:IdRes Int>(
-        TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK to R.string.header_top_incoming,
-        TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK to R.string.header_longest_incoming,
-        TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING to R.string.header_with_longest_incoming
+        TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK to when (typeCalls) {
+            INCOMING_TYPE -> R.string.header_top_incoming
+            else -> R.string.header_top_outgoing
+        },
+        TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK to when (typeCalls) {
+            INCOMING_TYPE -> R.string.header_longest_incoming
+            else -> R.string.header_longest_outgoing
+        },
+        TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING to when (typeCalls) {
+            INCOMING_TYPE -> R.string.header_with_longest_incoming
+            else -> R.string.header_with_longest_outgoing
+        },
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentIncomingBinding.bind(view)
+        _binding = FragmentTypeCallsBinding.bind(view)
 
+        setLabels()
         onCreateAnimation()
         setLiveDataObservers()
-        viewModel.getTopPhoneNumberByIncomingPhoneTalk()
+        viewModel.getTopPhoneNumberByPhoneTalk(typeCalls)
         initRV()
         lockButton()
         addOnClickListener()
+    }
+
+    private fun setLabels() {
+        with(binding) {
+            mainLabel.text = when (typeCalls) {
+                INCOMING_TYPE -> getString(R.string.incoming)
+                else -> getString(R.string.outgoing)
+            }
+            subLabel1.text = when (typeCalls) {
+                INCOMING_TYPE -> getString(R.string.label_count_calls_with_incoming)
+                else -> getString(R.string.label_count_calls_with_outgoing)
+            }
+            subLabel2.text = when (typeCalls) {
+                INCOMING_TYPE -> getString(R.string.label_total_incoming)
+                else -> getString(R.string.label_total_outgoing)
+            }
+        }
     }
 
     private fun onCreateAnimation() {
@@ -57,15 +85,15 @@ class IncomingFragment : Fragment(R.layout.fragment_incoming) {
 
     private fun setLiveDataObservers() {
         with(viewModel) {
-            topPhoneNumberByIncomingPhoneTalk.observe(viewLifecycleOwner) { phoneNumbers ->
+            topPhoneNumberByPhoneTalk.observe(viewLifecycleOwner) { phoneNumbers ->
                 processTopPhoneNumberByIncomingPhoneTalk(phoneNumbers)
             }
 
-            topLongestIncomingPhoneTalk.observe(viewLifecycleOwner) { phoneTalks ->
+            topLongestPhoneTalk.observe(viewLifecycleOwner) { phoneTalks ->
                 processTopLongestIncomingPhoneTalk(phoneTalks)
             }
 
-            topPhoneNumberWithLongestIncoming.observe(viewLifecycleOwner) { phoneNumbers ->
+            topPhoneNumberWithLongest.observe(viewLifecycleOwner) { phoneNumbers ->
                 processTopPhoneNumberWithLongestIncoming(phoneNumbers)
             }
         }
@@ -166,17 +194,17 @@ class IncomingFragment : Fragment(R.layout.fragment_incoming) {
             when (currentTypeRecyclerView) {
                 TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK
-                    viewModel.getTopLongestIncomingPhoneTalk()
+                    viewModel.getTopLongestPhoneTalk(typeCalls)
                 }
 
                 TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING
-                    viewModel.getTopPhoneNumbersWithLongestIncoming()
+                    viewModel.getTopPhoneNumbersWithLongest(typeCalls)
                 }
 
                 TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK
-                    viewModel.getTopPhoneNumberByIncomingPhoneTalk()
+                    viewModel.getTopPhoneNumberByPhoneTalk(typeCalls)
                 }
             }
         }
@@ -186,17 +214,17 @@ class IncomingFragment : Fragment(R.layout.fragment_incoming) {
             when (currentTypeRecyclerView) {
                 TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING
-                    viewModel.getTopPhoneNumbersWithLongestIncoming()
+                    viewModel.getTopPhoneNumbersWithLongest(typeCalls)
                 }
 
                 TypeRecyclerView.TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK
-                    viewModel.getTopLongestIncomingPhoneTalk()
+                    viewModel.getTopLongestPhoneTalk(typeCalls)
                 }
 
                 TypeRecyclerView.TOP_LONGEST_INCOMING_PHONE_TALK -> {
                     currentTypeRecyclerView = TypeRecyclerView.TOP_PHONE_NUMBER_BY_INCOMING_PHONE_TALK
-                    viewModel.getTopPhoneNumberByIncomingPhoneTalk()
+                    viewModel.getTopPhoneNumberByPhoneTalk(typeCalls)
                 }
             }
         }

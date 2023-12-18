@@ -1,17 +1,17 @@
-package evgeniy.ryzhikov.callstatistics.ui.fragments
+package evgeniy.ryzhikov.callstatistics.ui.update
 
 import android.database.Cursor
 import android.os.Bundle
 import android.provider.CallLog
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentUpdateDbBinding
 import evgeniy.ryzhikov.callstatistics.ui.MainActivity
-import evgeniy.ryzhikov.callstatistics.viewmodel.UpdateDBViewModel
+import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

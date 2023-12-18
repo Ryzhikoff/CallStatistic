@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/dialog_background"
     android:padding="@dimen/margin_main_ui"
-    tools:context=".ui.fragments.DetailPhoneTalkFragment">
+    tools:context=".ui.dialogs.DetailPhoneTalkFragment">
 
     <TextView
         android:id="@+id/labelContactName"

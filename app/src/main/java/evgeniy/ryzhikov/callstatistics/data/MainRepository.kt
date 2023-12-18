@@ -47,4 +47,6 @@ class MainRepository(
        return phoneTalkDao.getPhoneTalksByDay(day)
     }
 
+    fun getPhoneTalksByType(typeCalls: Int): List<PhoneTalk> = phoneTalkDao.getPhoneTalksByType(typeCalls)
+
 }
