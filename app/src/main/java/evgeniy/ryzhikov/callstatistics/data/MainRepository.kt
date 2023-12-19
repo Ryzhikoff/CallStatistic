@@ -49,4 +49,6 @@ class MainRepository(
 
     fun getPhoneTalksByType(typeCalls: Int): List<PhoneTalk> = phoneTalkDao.getPhoneTalksByType(typeCalls)
 
+    fun getCountPhoneTalk(): Long = phoneTalkDao.getCountPhoneTalks()
+
 }

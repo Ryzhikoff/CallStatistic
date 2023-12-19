@@ -49,11 +49,18 @@ class TypeCallsViewModel : ViewModel() {
 
     fun getTopPhoneNumberByPhoneTalk(@TypeCall typeCall: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            totalTalks = 0
+            totalNumber = 0
             val phoneNumbers = getPhoneNumbers()
 
-            phoneNumbers.forEach { phoneNumber ->
-                totalTalks += when (typeCall) {
+            totalNumber = phoneNumbers.count { phoneNumber ->
+                when (typeCall) {
+                    INCOMING_TYPE -> phoneNumber.counterIncoming > 0
+                    else -> phoneNumber.counterOutgoing > 0
+                }
+            }
+
+            totalTalks = phoneNumbers.sumOf { phoneNumber ->
+                when (typeCall) {
                     INCOMING_TYPE -> phoneNumber.counterIncoming
                     else -> phoneNumber.counterOutgoing
                 }
@@ -65,8 +72,6 @@ class TypeCallsViewModel : ViewModel() {
                     else -> phoneNumber.counterOutgoing
                 }
             }
-
-            totalNumber = phoneNumbers.size
 
             _topPhoneNumberByPhoneTalk.postValue(sortedPhoneNumbers.take(COUNT_ELEMENTS_IN_RV))
         }
