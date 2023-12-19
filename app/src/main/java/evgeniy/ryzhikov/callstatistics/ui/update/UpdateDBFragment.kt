@@ -1,17 +1,17 @@
 package evgeniy.ryzhikov.callstatistics.ui.update
 
-import android.database.Cursor
+import android.content.Intent
 import android.os.Bundle
-import android.provider.CallLog
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentUpdateDbBinding
 import evgeniy.ryzhikov.callstatistics.ui.MainActivity
 import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
+import evgeniy.ryzhikov.callstatistics.ui.services.UpdateProgressLiveData
+import evgeniy.ryzhikov.callstatistics.ui.services.UpdateDBService
+import evgeniy.ryzhikov.callstatistics.ui.services.UpdateDBService.Companion.PROGRESS_MAX
+import evgeniy.ryzhikov.callstatistics.ui.services.isServiceRunning
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,30 +19,18 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class UpdateDBFragment : Fragment() {
+class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
     private var _binding: FragmentUpdateDbBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: UpdateDBViewModel by activityViewModels()
     private val scopeLoad = CoroutineScope(Job())
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentUpdateDbBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentUpdateDbBinding.bind(view)
+
         startLoadAnimation()
-        updateDB()
-        viewModel.progressBarLiveData.observe(viewLifecycleOwner) { progress ->
-            updateProgressBar(progress)
-        }
-        viewModel.updateFinishedLideData.observe(viewLifecycleOwner) {
-            startHomeFragment()
-        }
+        updateProgressListener()
+        updateForeground()
     }
 
     private fun startLoadAnimation() {
@@ -59,29 +47,14 @@ class UpdateDBFragment : Fragment() {
         }
     }
 
-    private fun updateProgressBar(progress: Double) {
-        binding.progressBar.setProgressPercentage(progress, false)
-    }
-
-    private fun updateDB() {
-        val projection = arrayOf(
-            CallLog.Calls._ID,
-            CallLog.Calls.DATE,
-            CallLog.Calls.NUMBER,
-            CallLog.Calls.CACHED_NAME,
-            CallLog.Calls.DURATION,
-            CallLog.Calls.TYPE
-        )
-        val where = ""
-
-        val cursor: Cursor = requireActivity().contentResolver.query(
-            CallLog.Calls.CONTENT_URI,
-            projection,
-            where,
-            null,
-            null
-        ) ?: return
-        viewModel.addPhoneTalkByCursor(cursor)
+    private fun updateProgressListener() {
+        UpdateProgressLiveData.serviceCompleted.observe(viewLifecycleOwner) { progress ->
+            updateProgressBar(progress)
+            println("progress $progress")
+            if (progress == PROGRESS_MAX) {
+                startHomeFragment()
+            }
+        }
     }
 
     private fun startHomeFragment() {
@@ -90,9 +63,20 @@ class UpdateDBFragment : Fragment() {
         onDestroy()
     }
 
+    private fun updateProgressBar(progress: Int) {
+        binding.progressBar.setProgressPercentage(progress.toDouble(), true)
+    }
+
+    private fun updateForeground() {
+        if (!isServiceRunning(requireContext(), UpdateDBService::class.java)) {
+            val serviceIntent = Intent(requireContext(), UpdateDBService::class.java)
+            requireContext().startForegroundService(serviceIntent)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        scopeLoad.cancel()
         _binding = null
     }
 }

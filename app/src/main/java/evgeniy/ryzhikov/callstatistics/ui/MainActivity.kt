@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
-import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
 import evgeniy.ryzhikov.callstatistics.ui.update.UpdateDBFragment
 import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
 import evgeniy.ryzhikov.callstatistics.ui.type_calls.TypeCallsFragment
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         addMenuClickListeners()
         checkPermissionAndStartFragment()
-        HideNavigationBars.hide(window, binding.root)
+//        HideNavigationBars.hide(window, binding.root)
     }
 
     private fun addMenuClickListeners() {
@@ -58,7 +58,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun startFragment(fragment: Fragment) {
+    fun startFragment(fragment: Fragment, showBottomBar: Boolean = true) {
+        binding.navigation.isVisible = showBottomBar
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragmentPlaceholder, fragment)
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkPermissionAndStartFragment() {
         if (checkPermission()) {
-            startFragment(UpdateDBFragment())
+            startFragment(UpdateDBFragment(), false)
         } else {
             requestPermission()
         }

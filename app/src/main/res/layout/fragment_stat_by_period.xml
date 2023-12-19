@@ -57,111 +57,126 @@
             app:layout_constraintTop_toBottomOf="@id/mainLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_edge"
-        android:background="@drawable/chart_background"
-        android:elevation="@dimen/cards_elevation"
-        android:orientation="vertical"
-        android:padding="@dimen/margin_in_cards">
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="10dp"
+        android:requiresFadingEdge="vertical">
 
-        <TextView
-            style="@style/Headline"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|center_horizontal"
-            android:text="@string/label_total_calls" />
+            android:orientation="vertical">
 
-        <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
-            android:id="@+id/chartByDayCount"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginTop="@dimen/margin_lvl_2"
-            android:visibility="visible"
-            app:pieChartCircleSectionSpace="2"
-            app:pieChartCircleStrokeWidth="6dp"
-            app:pieChartColors="@array/analyticalPieChartColorArray"
-            app:pieChartTextAmount="@string/analyticalPieChartAmount"
-            app:pieChartTextAmountColor="?android:attr/textColor"
-            app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
-            app:pieChartTextDescriptionColor="?android:attr/textColorHint"
-            app:pieChartTextDescriptionSize="14sp"
-            app:pieChartTextNumberColor="?android:attr/textColor"
-            app:pieChartTextNumberSize="16sp" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_edge"
+                android:background="@drawable/chart_background"
+                android:elevation="@dimen/cards_elevation"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_in_cards">
 
+                <TextView
+                    style="@style/Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:text="@string/label_total_calls" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_edge"
-        android:layout_marginEnd="@dimen/margin_edge"
-        android:background="@drawable/chart_background"
-        android:elevation="@dimen/cards_elevation"
-        android:orientation="vertical"
-        android:padding="@dimen/margin_in_cards">
-
-        <TextView
-            style="@style/Headline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|center_horizontal"
-            android:text="@string/label_duration_with_colon" />
-
-        <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
-            android:id="@+id/chartByDayDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginTop="@dimen/margin_lvl_2"
-            android:visibility="visible"
-            app:pieChartCircleSectionSpace="2"
-            app:pieChartCircleStrokeWidth="6dp"
-            app:pieChartColors="@array/analyticalPieChartColorArray"
-            app:pieChartTextAmount="@string/analyticalPieChartAmount"
-            app:pieChartTextAmountColor="?android:attr/textColor"
-            app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
-            app:pieChartTextDescriptionColor="?android:attr/textColorHint"
-            app:pieChartTextDescriptionSize="14sp"
-            app:pieChartTextNumberColor="?android:attr/textColor"
-            app:pieChartTextNumberSize="16sp" />
-    </LinearLayout>
-
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_edge"
-        android:layout_marginStart="@dimen/margin_edge"
-        android:layout_marginEnd="@dimen/margin_edge"
-
-        android:elevation="@dimen/cards_elevation"
-        android:weightSum="0.3">
-
-        <Button
-            style="@style/ButtonGroup"
-            android:id="@+id/today"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:text="@string/label_today" />
-
-        <Button
-            style="@style/ButtonGroup"
-            android:id="@+id/yesterday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:text="@string/label_yesterday" />
-
-        <Button
-            style="@style/ButtonGroup"
-            android:id="@+id/chooseDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:text="@string/label_choose_day" />
+                <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
+                    android:id="@+id/chartByDayCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/margin_lvl_2"
+                    android:visibility="visible"
+                    app:pieChartCircleSectionSpace="2"
+                    app:pieChartCircleStrokeWidth="6dp"
+                    app:pieChartColors="@array/analyticalPieChartColorArray"
+                    app:pieChartTextAmount="@string/analyticalPieChartAmount"
+                    app:pieChartTextAmountColor="?android:attr/textColor"
+                    app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+                    app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+                    app:pieChartTextDescriptionSize="14sp"
+                    app:pieChartTextNumberColor="?android:attr/textColor"
+                    app:pieChartTextNumberSize="16sp" />
+            </LinearLayout>
 
 
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_edge"
+                android:layout_marginEnd="@dimen/margin_edge"
+                android:background="@drawable/chart_background"
+                android:elevation="@dimen/cards_elevation"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_in_cards">
+
+                <TextView
+                    style="@style/Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:text="@string/label_duration_with_colon" />
+
+                <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
+                    android:id="@+id/chartByDayDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/margin_lvl_2"
+                    android:visibility="visible"
+                    app:pieChartCircleSectionSpace="2"
+                    app:pieChartCircleStrokeWidth="6dp"
+                    app:pieChartColors="@array/analyticalPieChartColorArray"
+                    app:pieChartTextAmount="@string/analyticalPieChartAmount"
+                    app:pieChartTextAmountColor="?android:attr/textColor"
+                    app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+                    app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+                    app:pieChartTextDescriptionSize="14sp"
+                    app:pieChartTextNumberColor="?android:attr/textColor"
+                    app:pieChartTextNumberSize="16sp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_edge"
+                android:layout_marginStart="@dimen/margin_edge"
+                android:layout_marginEnd="@dimen/margin_edge"
+
+                android:elevation="@dimen/cards_elevation"
+                android:weightSum="0.3">
+
+                <Button
+                    style="@style/ButtonGroup"
+                    android:id="@+id/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_today" />
+
+                <Button
+                    style="@style/ButtonGroup"
+                    android:id="@+id/yesterday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_yesterday" />
+
+                <Button
+                    style="@style/ButtonGroup"
+                    android:id="@+id/chooseDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_choose_day" />
+
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

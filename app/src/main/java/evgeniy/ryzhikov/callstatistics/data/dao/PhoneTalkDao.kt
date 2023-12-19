@@ -29,4 +29,7 @@ interface PhoneTalkDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(phoneTalk: PhoneTalk)
 
+    @Query("SELECT COUNT(*) FROM $TABLE_NAME_PHONE_TALK")
+    fun getCountPhoneTalks(): Long
+
 }
