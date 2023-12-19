@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
-import evgeniy.ryzhikov.callstatistics.utils.HideNavigationBars
-import evgeniy.ryzhikov.callstatistics.ui.fragments.UpdateDBFragment
-import evgeniy.ryzhikov.callstatistics.ui.fragments.HomeFragment
-import evgeniy.ryzhikov.callstatistics.ui.fragments.IncomingFragment
-import evgeniy.ryzhikov.callstatistics.ui.fragments.StatByPeriodFragment
+import evgeniy.ryzhikov.callstatistics.ui.update.UpdateDBFragment
+import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
+import evgeniy.ryzhikov.callstatistics.ui.type_calls.TypeCallsFragment
+import evgeniy.ryzhikov.callstatistics.ui.statistic.StatByPeriodFragment
+import evgeniy.ryzhikov.callstatistics.utils.INCOMING_TYPE
+import evgeniy.ryzhikov.callstatistics.utils.OUTGOING_TYPE
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy(LazyThreadSafetyMode.NONE) {
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         addMenuClickListeners()
         checkPermissionAndStartFragment()
-        HideNavigationBars.hide(window, binding.root)
+//        HideNavigationBars.hide(window, binding.root)
     }
 
     private fun addMenuClickListeners() {
@@ -42,7 +44,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.itemIncoming -> {
-                    startFragment(IncomingFragment())
+                    startFragment(TypeCallsFragment(INCOMING_TYPE))
+                    true
+                }
+
+                R.id.itemOutgoing -> {
+                    startFragment(TypeCallsFragment(OUTGOING_TYPE))
                     true
                 }
 
@@ -51,7 +58,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun startFragment(fragment: Fragment) {
+    fun startFragment(fragment: Fragment, showBottomBar: Boolean = true) {
+        binding.navigation.isVisible = showBottomBar
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragmentPlaceholder, fragment)
@@ -60,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkPermissionAndStartFragment() {
         if (checkPermission()) {
-            startFragment(UpdateDBFragment())
+            startFragment(UpdateDBFragment(), false)
         } else {
             requestPermission()
         }

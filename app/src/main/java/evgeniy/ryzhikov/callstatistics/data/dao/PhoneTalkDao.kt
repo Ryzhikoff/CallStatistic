@@ -20,10 +20,16 @@ interface PhoneTalkDao {
     @Query("SELECT * FROM $TABLE_NAME_PHONE_TALK WHERE date(dateTime) = :day")
     fun getPhoneTalksByDay(day: String): List<PhoneTalk>
 
+    @Query("SELECT * FROM $TABLE_NAME_PHONE_TALK WHERE type LIKE :typeCalls ORDER BY duration DESC")
+    fun getPhoneTalksByType(typeCalls: Int): List<PhoneTalk>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(list: List<PhoneTalk>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(phoneTalk: PhoneTalk)
+
+    @Query("SELECT COUNT(*) FROM $TABLE_NAME_PHONE_TALK")
+    fun getCountPhoneTalks(): Long
 
 }
