@@ -2,8 +2,10 @@ package evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart
 
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Matrix
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
@@ -16,6 +18,10 @@ import android.text.TextDirectionHeuristics
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
@@ -71,7 +77,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) :  View(context, attrs, defStyleAttr), AnalyticalPieChartInterface {
+) : View(context, attrs, defStyleAttr), AnalyticalPieChartInterface {
 
     /**
      * Базовые значения для полей и самой [AnalyticalPieChart]
@@ -127,6 +133,22 @@ class AnalyticalPieChart @JvmOverloads constructor(
     private var animationSweepAngle: Int = 0
 
     var isConvertDuration: Boolean = false
+    var isDrawTextInCircle: Boolean = true
+
+    @DrawableRes
+    private var iconResId: Int = R.drawable.icon_telephone
+
+    @ColorRes
+    private var colorIcon: Int = R.color.blue_main
+
+    private val icon: Bitmap by lazy {
+        ContextCompat.getDrawable(context, iconResId)?.toBitmap()!!
+    }
+
+    private val iconPaint = Paint().apply {
+        color = ContextCompat.getColor(context, colorIcon)
+        style = Paint.Style.FILL
+    }
 
     /**
      * В INIT блоке инициализируются все необходимые поля и переменные.
@@ -213,6 +235,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
 
         drawCircle(canvas)
         drawText(canvas)
+
     }
 
     /**
@@ -263,8 +286,8 @@ class AnalyticalPieChart @JvmOverloads constructor(
      * Метод отрисовки круговой диаграммы на Canvas.
      */
     private fun drawCircle(canvas: Canvas) {
-        for(percent in percentageCircleList) {
-            if (animationSweepAngle > percent.percentToStartAt + percent.percentOfCircle){
+        for (percent in percentageCircleList) {
+            if (animationSweepAngle > percent.percentToStartAt + percent.percentOfCircle) {
                 canvas.drawArc(circleRect, percent.percentToStartAt, percent.percentOfCircle, false, percent.paint)
             } else if (animationSweepAngle > percent.percentToStartAt) {
                 canvas.drawArc(circleRect, percent.percentToStartAt, animationSweepAngle - percent.percentToStartAt, false, percent.paint)
@@ -293,12 +316,51 @@ class AnalyticalPieChart @JvmOverloads constructor(
             }
         }
 
-        var _totalAmount = totalAmount.toString()
-        if (isConvertDuration) {
-            _totalAmount = convertDuration(_totalAmount.toLong(), isSeparated = true)
+        if (isDrawTextInCircle) {
+            var _totalAmount = totalAmount.toString()
+            if (isConvertDuration) {
+                _totalAmount = convertDuration(_totalAmount.toLong(), isSeparated = true)
+            }
+            canvas.drawText(_totalAmount, textAmountXNumber, textAmountY, amountTextPaint)
+            canvas.drawText(textAmountStr, textAmountXDescription, textAmountYDescription, descriptionTextPain)
+        } else {
+            drawIcon(canvas)
         }
-        canvas.drawText(_totalAmount.toString(), textAmountXNumber, textAmountY, amountTextPaint)
-        canvas.drawText(textAmountStr, textAmountXDescription, textAmountYDescription, descriptionTextPain)
+    }
+
+    private fun drawIcon(canvas: Canvas) {
+
+        val drawBitmap = getResizedBitmap(
+            icon,
+            circleRadius,
+            circleRadius
+        )
+
+        canvas.drawBitmap(
+            drawBitmap,
+            circleRadius - drawBitmap.width / 2 + circlePadding,
+            circleRadius - drawBitmap.height / 2  + circlePadding - circleStrokeWidth,
+            iconPaint
+        )
+    }
+
+    //https://stackoverflow.com/questions/4837715/how-to-resize-a-bitmap-in-android
+    private fun getResizedBitmap(bm: Bitmap, newWidth: Float, newHeight: Float): Bitmap {
+        val width = bm.width
+        val height = bm.height
+        val scaleWidth = newWidth / width
+        val scaleHeight = newHeight / height
+        // CREATE A MATRIX FOR THE MANIPULATION
+        val matrix = Matrix()
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight)
+
+        // "RECREATE" THE NEW BITMAP
+        val resizedBitmap = Bitmap.createBitmap(
+            bm, 0, 0, width, height, matrix, false
+        )
+        //bm.recycle()
+        return resizedBitmap
     }
 
     /**
@@ -316,7 +378,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
      * Метод получения размера View по переданному Mode.
      */
     private fun resolveDefaultSize(spec: Int, defValue: Int): Int {
-        return when(MeasureSpec.getMode(spec)) {
+        return when (MeasureSpec.getMode(spec)) {
             MeasureSpec.UNSPECIFIED -> context.dpToPx(defValue).toInt()
             else -> MeasureSpec.getSize(spec)
         }
@@ -362,7 +424,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
             amountTextPaint
         )
 
-        textAmountXNumber = circleCenterX -  sizeTextAmountNumber.width() / 2
+        textAmountXNumber = circleCenterX - sizeTextAmountNumber.width() / 2
         textAmountXDescription = circleCenterX - getWidthOfAmountText(textAmountStr, descriptionTextPain).width() / 2
         textAmountYDescription = circleCenterY + sizeTextAmountNumber.height() + marginTextThird
     }
@@ -398,7 +460,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
      * Метод заполнения поля [percentageCircleList]
      */
     private fun calculatePercentageOfData() {
-        totalAmount = dataList.fold(0) { res, value -> res + value.first}
+        totalAmount = dataList.fold(0) { res, value -> res + value.first }
 
         var startAt = circleSectionSpace
         percentageCircleList = dataList.mapIndexed { index, pair ->
@@ -438,7 +500,8 @@ class AnalyticalPieChart @JvmOverloads constructor(
         alignment: Layout.Alignment = Layout.Alignment.ALIGN_NORMAL,
         textDir: TextDirectionHeuristic = TextDirectionHeuristics.LTR,
         spacingMult: Float = 1f,
-        spacingAdd: Float = 0f) : StaticLayout {
+        spacingAdd: Float = 0f
+    ): StaticLayout {
 
         return StaticLayout.Builder
             .obtain(text, start, end, textPaint, width)

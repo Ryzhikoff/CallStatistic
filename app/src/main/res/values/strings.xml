@@ -29,12 +29,12 @@
 
     <string name="incoming">Входящие</string>
     <string name="outgoing">Исходящие</string>
-    <string name="missed">Пропущенный</string>
+    <string name="missed">Пропущенные</string>
     <string name="voice_email">Голосовая почта</string>
-    <string name="rejected">Отклоненный</string>
-    <string name="blocked">Залокированный</string>
-    <string name="answered_externally">Принят на другом устройстве</string>
-    <string name="unknown">Неизвестеный</string>
+    <string name="rejected">Отклоненные</string>
+    <string name="blocked">Залокированные</string>
+    <string name="answered_externally">Принятые на другом устройстве</string>
+    <string name="unknown">Неизвестеные</string>
 
     <string name="label_total_duration">Общая продолжительность</string>
     <string name="label_total_phone_talk">Всего разговоров:</string>
@@ -45,7 +45,7 @@
     <string name="label_count_calls_with_incoming">Количество контактов со входящими:</string>
     <string name="label_total_incoming">Всего входящих:</string>
     <string name="label_stat_by">"за "</string>
-    <string name="label_choose_day">Выбери день</string>
+    <string name="label_choose_day">Выберать день</string>
     <string name="home_title">Основное</string>
     <string name="label_total_number">Всего номеров:</string>
     <string name="label_of_them">из них:</string>

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.animation.AnimationUtils
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentHomeBinding
 import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneNumbers
@@ -13,7 +13,7 @@ import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: HomeFragmentViewModel by activityViewModels()
+    private val viewModel: HomeFragmentViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,6 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             chartCalls.startAnimation()
 
             chartDuration.isConvertDuration = true
+            chartDuration.isDrawTextInCircle = false
             chartDuration.setDataChart(
                 listOf(
                     Pair(consolidatedPhoneNumbers.durationInc.toInt(), resources.getString(R.string.incoming)),
