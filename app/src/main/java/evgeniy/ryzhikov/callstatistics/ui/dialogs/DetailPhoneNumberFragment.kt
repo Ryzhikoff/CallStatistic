@@ -69,6 +69,7 @@ class DetailPhoneNumberFragment(val phoneNumber: PhoneNumber) : DialogFragment(R
         with(binding) {
             duration.text = convertDuration(phoneNumber.durationIncoming + phoneNumber.durationOutgoing, isSeparated = true)
             chartDuration.isConvertDuration = true
+            chartDuration.isDrawTextInCircle = false
             chartDuration.setDataChart(listOfPair)
             chartDuration.visibility = View.VISIBLE
             chartDuration.startAnimation()

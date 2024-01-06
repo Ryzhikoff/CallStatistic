@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
+import evgeniy.ryzhikov.callstatistics.ui.customview.PopUpDialog
 import evgeniy.ryzhikov.callstatistics.ui.update.UpdateDBFragment
 import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
 import evgeniy.ryzhikov.callstatistics.ui.type_calls.TypeCallsFragment
@@ -70,8 +71,26 @@ class MainActivity : AppCompatActivity() {
         if (checkPermission()) {
             startFragment(UpdateDBFragment(), false)
         } else {
+            showPopUpDialog(requestListener, getString(R.string.pop_up_launch_content))
+        }
+    }
+
+    private val requestListener = object : PopUpDialog.PopUpDialogClickListener {
+        override fun onClick(popUpDialog: PopUpDialog) {
+            popUpDialog.dismiss()
             requestPermission()
         }
+    }
+
+    private fun showPopUpDialog(listener: PopUpDialog.PopUpDialogClickListener, content: String) {
+        PopUpDialog.Builder()
+            .title(getString(R.string.pop_up_launch_title))
+            .content(content)
+            .leftButtonText(getString(R.string.ok))
+            .leftButtonListener(listener)
+            .animationType(PopUpDialog.AnimationType.SPLASH)
+            .build()
+            .show(supportFragmentManager, PopUpDialog.TAG)
     }
 
     private fun checkPermission(): Boolean {
@@ -97,10 +116,20 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        when(requestCode) {
+        when (requestCode) {
             PERMISSION_REQUEST_CODE ->
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    startFragment(UpdateDBFragment())
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    showPopUpDialog(infoListener, getString(R.string.pop_up_info_content))
+                } else {
+                    finishAndRemoveTask()
+                }
+        }
+    }
+
+    private val infoListener = object : PopUpDialog.PopUpDialogClickListener {
+        override fun onClick(popUpDialog: PopUpDialog) {
+            popUpDialog.dismiss()
+            startFragment(UpdateDBFragment(), false)
         }
     }
 

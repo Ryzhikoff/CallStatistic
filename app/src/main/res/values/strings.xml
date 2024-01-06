@@ -29,12 +29,12 @@
 
     <string name="incoming">Входящие</string>
     <string name="outgoing">Исходящие</string>
-    <string name="missed">Пропущенный</string>
+    <string name="missed">Пропущенные</string>
     <string name="voice_email">Голосовая почта</string>
-    <string name="rejected">Отклоненный</string>
-    <string name="blocked">Залокированный</string>
-    <string name="answered_externally">Принят на другом устройстве</string>
-    <string name="unknown">Неизвестеный</string>
+    <string name="rejected">Отклоненные</string>
+    <string name="blocked">Залокированные</string>
+    <string name="answered_externally">Принятые на другом устройстве</string>
+    <string name="unknown">Неизвестеные</string>
 
     <string name="label_total_duration">Общая продолжительность</string>
     <string name="label_total_phone_talk">Всего разговоров:</string>
@@ -45,7 +45,7 @@
     <string name="label_count_calls_with_incoming">Количество контактов со входящими:</string>
     <string name="label_total_incoming">Всего входящих:</string>
     <string name="label_stat_by">"за "</string>
-    <string name="label_choose_day">Выбери день</string>
+    <string name="label_choose_day">Выберать день</string>
     <string name="home_title">Основное</string>
     <string name="label_total_number">Всего номеров:</string>
     <string name="label_of_them">из них:</string>
@@ -54,6 +54,10 @@
     <string name="label_count_calls_with_outgoing">Количество контактов с исходящими:</string>
     <string name="label_total_outgoing">Всего исходящих:</string>
     <string name="label_db_update">Обновляем базу данных...</string>
+    <string name="pop_up_launch_title">Важно</string>
+    <string name="pop_up_launch_content">Сейчас будет запрошено разрешение на доступ к журналу звонков.\nЭто разрешение необходимо для работы приложения, так как единственная функция приложения — это статистика звонков, для дальнейшей работы приложения необходимо это разрешение предоставить.\nВся информация о звонках будет храниться исключительно на Вашем устройстве, без передачи куда-либо.</string>
+    <string name="ok">Хорошо</string>
+    <string name="pop_up_info_content">Сейчас будет создание локальной базы данных на основе списка вызовов.\nЭтот процесс займет несколько минут, в зависимости от размера журнала звонков.\nВ это время приложение можно свернуть, но не закрывать.</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>
