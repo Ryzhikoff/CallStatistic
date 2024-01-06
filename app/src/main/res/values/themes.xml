@@ -1,6 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.CallStatistics" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:statusBarColor">@color/bottom_bar_color</item>
+        <item name="android:navigationBarColor">@color/bottom_bar_color</item>
         <!-- Each backgrounds initialization -->
         <item name="android:windowBackground">@color/dark_black</item>
         <item name="android:colorBackground">@color/dark_black</item>
@@ -8,24 +11,145 @@
         <!-- Text initialization -->
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/gray_hint</item>
+
+        <item name="materialCalendarTheme">@style/DatePicker</item>
     </style>
 
     <style name="Theme.CallStatistics" parent="Base.Theme.CallStatistics" />
 
-    <style name="TextCallStatistic" parent="Widget.AppCompat.TextView">
-        <item name="fontFamily">@font/inter</item>
+
+    <style name="BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/bottom_bar_color</item>
+        <item name="itemIconTint">@color/bottom_bar_icon_state</item>
+        <item name="itemTextColor">@color/bottom_bar_icon_state</item>
+        <item name="itemActiveIndicatorStyle">@style/ActiveIndicatorStyle</item>
+    </style>
+
+    <style name="ActiveIndicatorStyle" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="BaseTextStyle">
+        <item name="fontFamily">Overpass</item>
+    </style>
+
+    <style name="TitleLarge" parent="BaseTextStyle">
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">40sp</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:translationY">-2.28sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TitleSmall" parent="BaseTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+        <item name="android:translationY">-0.61sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Body" parent="BaseTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:translationY">-1.87sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Subhead" parent="BaseTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:translationY">-1.14sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Headline" parent="BaseTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">22sp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:translationY">-0.87sp</item>
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <style name="Caption" parent="BaseTextStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+        <item name="android:translationY">-0.4sp</item>
+        <item name="android:textColor">@color/gray_light</item>
+    </style>
+
+    <style name="ButtonGroup" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/gray_dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/bottom_bar_color</item>
+        <item name="android:textAppearance">@style/Caption</item>
+
+    </style>
+
+    <style name="pop_up_dialog_from_bottom">
+        <item name="android:windowEnterAnimation">@anim/pop_up_dialog_bottom_enter</item>
+        <item name="android:windowExitAnimation">@anim/pop_up_dialog_bottom_exit</item>
+    </style>
+
+    <style name="pop_up_dialog_from_right">
+        <item name="android:windowEnterAnimation">@anim/pop_up_dialog_right_enter</item>
+        <item name="android:windowExitAnimation">@anim/pop_up_dialog_right_exit</item>
+    </style>
+
+    <style name="pop_up_dialog_splash">
+        <item name="android:windowEnterAnimation">@anim/pop_up_dialog_splash_enter</item>
+        <item name="android:windowExitAnimation">@anim/pop_up_dialog_splash_exit</item>
+    </style>
+
+    <style name="DatePicker" parent="@style/ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorSurface">@color/bottom_bar_color</item>
+        <item name="colorOnSurface">@color/text</item>
+        <item name="colorPrimary">@color/text</item>
+        <item name="colorOnPrimary">@color/primary</item>
+        <item name="colorOnSurfaceVariant">@color/text</item>
+        <item name="materialCalendarHeaderLayout">@style/DatePicker.HeaderLayout</item>
+        <item name="materialCalendarHeaderTitle">@style/DatePicker.HeaderTitle</item>
+        <item name="materialCalendarDayOfWeekLabel">@style/DatePicker.DayOfWeekLabel</item>
+        <item name="materialCalendarYearNavigationButton">@style/DatePicker.YearNavigationButton</item>
+        <item name="daySelectedStyle">@style/DatePicker.DaySelected</item>
+    </style>
+
+    <style name="DatePicker.DaySelected" parent="Widget.Material3.MaterialCalendar.Day.Selected">
+        <item name="itemFillColor">@color/primary</item>
+        <item name="itemTextColor">@color/text</item>
+    </style>
+
+    <style name="DatePicker.YearNavigationButton" parent="Widget.Material3.MaterialCalendar.YearNavigationButton">
+        <item name="android:textColor">@color/text</item>
+        <item name="iconTint">@color/text</item>
+    </style>
+
+    <style name="DatePicker.MonthNavigationButton" parent="Widget.Material3.MaterialCalendar.MonthNavigationButton">
+        <item name="android:textColor">@color/text</item>
+        <item name="iconTint">@color/text</item>
+    </style>
+
+    <style name="DatePicker.HeaderLayout" parent="Widget.Material3.MaterialCalendar.HeaderLayout">
+        <item name="android:background">@color/primary</item>
+        <item name="color">@color/text</item>
+    </style>
+
+    <style name="DatePicker.HeaderTitle" parent="Widget.Material3.MaterialCalendar.HeaderTitle">
         <item name="android:textColor">@color/text</item>
     </style>
 
-    <style name="Level1" parent="TextCallStatistic">
-        <item name="android:textSize">@dimen/label_text_lvl_1</item>
+    <style name="DatePicker.HeaderCancelButton" parent="Widget.Material3.MaterialCalendar.HeaderCancelButton">
+        <item name="color">@color/text</item>
     </style>
 
-    <style name="Level2" parent="TextCallStatistic">
-        <item name="android:textSize">@dimen/label_text_lvl_2</item>
+    <style name="DatePicker.DayOfWeekLabel" parent="Widget.Material3.MaterialCalendar.DayOfWeekLabel">
+        <item name="android:textColor">@color/text</item>
     </style>
 
-    <style name="Level3" parent="TextCallStatistic">
-        <item name="android:textSize">@dimen/label_text_lvl_3</item>
+    <style name="DatePicker.Day" parent="Widget.Material3.MaterialCalendar.DayTextView">
+        <item name="android:textColor">@color/text</item>
     </style>
 </resources>

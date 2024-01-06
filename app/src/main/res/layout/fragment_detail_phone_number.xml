@@ -4,79 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
     android:padding="@dimen/margin_main_ui"
-    android:background="@color/dark_black"
-    tools:context=".view.fragments.DetailPhoneTalkFragment">
-
+    tools:context=".ui.dialogs.DetailPhoneTalkFragment">
 
     <TextView
         android:id="@+id/labelContactName"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_contact_with_colon"
-        style="@style/Level2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/name"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Сергей Ваильевич"
         android:layout_marginStart="@dimen/margin_lvl_2"
         android:layout_marginEnd="@dimen/margin_main_ui"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelContactName"
         app:layout_constraintTop_toTopOf="@id/labelContactName"
-        app:layout_constraintStart_toEndOf="@id/labelContactName"/>
+        tools:text="Сергей Ваильевич" />
 
     <TextView
         android:id="@+id/labelPhoneNumber"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_phone_number_with_colon"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/labelContactName"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_phone_number_with_colon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelContactName" />
 
     <TextView
         android:id="@+id/number"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+79640937573"
         android:layout_marginStart="@dimen/margin_lvl_2"
         android:layout_marginEnd="@dimen/margin_main_ui"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelPhoneNumber"
         app:layout_constraintTop_toTopOf="@id/labelPhoneNumber"
-        app:layout_constraintStart_toEndOf="@id/labelPhoneNumber"/>
+        tools:text="+79640937573" />
 
     <TextView
         android:id="@+id/labelTotalPhoneTalk"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_total_phone_talk"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/labelPhoneNumber"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_total_phone_talk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelPhoneNumber" />
 
     <TextView
         android:id="@+id/totalTalk"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2345"
         android:layout_marginStart="@dimen/margin_lvl_2"
         android:layout_marginEnd="@dimen/margin_main_ui"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelTotalPhoneTalk"
         app:layout_constraintTop_toTopOf="@id/labelTotalPhoneTalk"
-        app:layout_constraintStart_toEndOf="@id/labelTotalPhoneTalk"/>
+        tools:text="2345" />
 
-    <evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart.AnalyticalPieChart
+    <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
         android:id="@+id/chartCalls"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginTop="@dimen/margin_lvl_2"
         android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelTotalPhoneTalk"
         app:pieChartCircleSectionSpace="2"
         app:pieChartCircleStrokeWidth="6dp"
         app:pieChartColors="@array/analyticalPieChartColorArray"
@@ -85,60 +87,57 @@
         app:pieChartTextDescriptionColor="?android:attr/textColorHint"
         app:pieChartTextDescriptionSize="14sp"
         app:pieChartTextNumberColor="?android:attr/textColor"
-        app:pieChartTextNumberSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/labelTotalPhoneTalk"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:pieChartTextNumberSize="16sp" />
 
     <com.lb.auto_fit_textview.AutoResizeTextView
         android:id="@+id/labelTotalDuration"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_total_time_talk"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/chartCalls"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_total_time_talk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chartCalls" />
 
     <com.lb.auto_fit_textview.AutoResizeTextView
         android:id="@+id/duration"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2345"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelTotalDuration"
         app:layout_constraintTop_toTopOf="@id/labelTotalDuration"
-        app:layout_constraintStart_toEndOf="@id/labelTotalDuration"/>
+        tools:text="2345" />
 
-    <evgeniy.ryzhikov.callstatistics.view.customview.AnalyticalPieChart.AnalyticalPieChart
+    <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
         android:id="@+id/chartDuration"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginTop="@dimen/margin_lvl_2"
         android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelTotalDuration"
         app:pieChartCircleSectionSpace="2"
         app:pieChartCircleStrokeWidth="6dp"
         app:pieChartColors="@array/analyticalPieChartColorArray"
-        app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
         app:pieChartTextAmount="@string/analyticalPieChartAmount"
         app:pieChartTextAmountColor="?android:attr/textColor"
+        app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
         app:pieChartTextDescriptionColor="?android:attr/textColorHint"
         app:pieChartTextDescriptionSize="14sp"
         app:pieChartTextNumberColor="?android:attr/textColor"
-        app:pieChartTextNumberSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/labelTotalDuration"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:pieChartTextNumberSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/label_text_lvl_3"
         android:backgroundTint="@color/invisible"
         android:src="@drawable/ic_cancel"
-        android:layout_marginTop="@dimen/label_text_lvl_3"
-        app:layout_constraintTop_toBottomOf="@id/chartDuration"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/chartDuration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

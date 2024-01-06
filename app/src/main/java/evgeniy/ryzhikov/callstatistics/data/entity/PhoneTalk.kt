@@ -14,7 +14,7 @@ import kotlinx.parcelize.Parcelize
     indices = [Index(
         value = [
             "phone_number",
-            "date",
+            "dateTime",
         ],
         unique = true
     )]
@@ -25,7 +25,7 @@ data class PhoneTalk(
     @ColumnInfo(name = "contact_name") val contactName: String,
     @ColumnInfo(name = "type") val type: Int,
     @ColumnInfo(name = "duration") val duration: Long,
-    @ColumnInfo(name = "date") val date: Long,
+    @ColumnInfo(name = "dateTime") val dateTime: String,
 ) : Parcelable, PhoneData
 
 

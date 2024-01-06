@@ -1,52 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.StatByPeriodFragment">
+    android:orientation="vertical"
+    tools:context=".ui.statistic.StatByPeriodFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:orientation="vertical">
+        android:background="@drawable/info_container_background"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_edge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChartCalls"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:layout_constraintStart_toStartOf="parent"
+        <LinearLayout
+            android:id="@+id/bannerContainer"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            style="?attr/materialButtonOutlinedStyle"
+            <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
+                android:id="@+id/yandexBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mainLabel"
+            style="@style/TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_edge"
+            android:layout_marginTop="@dimen/margin_edge"
+            android:text="@string/menu_total_statistic"
+            android:textColor="@color/text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerContainer" />
+
+        <TextView
+            android:id="@+id/labelByDay"
+            style="@style/TitleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_edge"
+            android:text="@string/label_stat_by"
+            android:textColor="@color/text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="10dp"
+        android:requiresFadingEdge="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="0.3">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/today"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="Сегодня" />
+                android:layout_margin="@dimen/margin_edge"
+                android:background="@drawable/chart_background"
+                android:elevation="@dimen/cards_elevation"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_in_cards">
 
-            <Button
-                android:id="@+id/yesterday"
-                android:layout_width="wrap_content"
+                <TextView
+                    style="@style/Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:text="@string/label_total_calls" />
+
+                <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
+                    android:id="@+id/chartByDayCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/margin_lvl_2"
+                    android:visibility="visible"
+                    app:pieChartCircleSectionSpace="2"
+                    app:pieChartCircleStrokeWidth="6dp"
+                    app:pieChartColors="@array/analyticalPieChartColorArray"
+                    app:pieChartTextAmount="@string/analyticalPieChartAmount"
+                    app:pieChartTextAmountColor="?android:attr/textColor"
+                    app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+                    app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+                    app:pieChartTextDescriptionSize="14sp"
+                    app:pieChartTextNumberColor="?android:attr/textColor"
+                    app:pieChartTextNumberSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="Вчера" />
+                android:layout_marginStart="@dimen/margin_edge"
+                android:layout_marginEnd="@dimen/margin_edge"
+                android:background="@drawable/chart_background"
+                android:elevation="@dimen/cards_elevation"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_in_cards">
 
-            <Button
-                android:id="@+id/chooseDay"
-                android:layout_width="wrap_content"
+                <TextView
+                    style="@style/Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:text="@string/label_duration_with_colon" />
+
+                <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
+                    android:id="@+id/chartByDayDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/margin_lvl_2"
+                    android:visibility="visible"
+                    app:pieChartCircleSectionSpace="2"
+                    app:pieChartCircleStrokeWidth="6dp"
+                    app:pieChartColors="@array/analyticalPieChartColorArray"
+                    app:pieChartTextAmount="@string/analyticalPieChartAmount"
+                    app:pieChartTextAmountColor="?android:attr/textColor"
+                    app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
+                    app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+                    app:pieChartTextDescriptionSize="14sp"
+                    app:pieChartTextNumberColor="?android:attr/textColor"
+                    app:pieChartTextNumberSize="16sp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="Выбрать день" />
+                android:layout_marginTop="@dimen/margin_edge"
+                android:layout_marginStart="@dimen/margin_edge"
+                android:layout_marginEnd="@dimen/margin_edge"
 
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-    </LinearLayout>
-</ScrollView>
+                android:elevation="@dimen/cards_elevation"
+                android:weightSum="0.3">
+
+                <Button
+                    style="@style/ButtonGroup"
+                    android:id="@+id/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_today" />
+
+                <Button
+                    style="@style/ButtonGroup"
+                    android:id="@+id/yesterday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_yesterday" />
+
+                <Button
+                    style="@style/ButtonGroup"
+                    android:id="@+id/chooseDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_choose_day" />
+
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

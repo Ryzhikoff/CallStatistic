@@ -4,140 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
     android:padding="@dimen/margin_main_ui"
-    android:background="@color/dark_black"
-    tools:context=".view.fragments.DetailPhoneTalkFragment">
+    tools:context=".ui.dialogs.DetailPhoneTalkFragment">
 
     <TextView
         android:id="@+id/labelContactName"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_contact_with_colon"
-        style="@style/Level2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/contactName"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Сергей Ваильевич"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelContactName"
         app:layout_constraintTop_toTopOf="@id/labelContactName"
-        app:layout_constraintStart_toEndOf="@id/labelContactName"/>
+        tools:text="Сергей Ваильевич" />
 
     <TextView
         android:id="@+id/labelPhoneNumber"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_phone_number_with_colon"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelContactName"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_phone_number_with_colon" />
 
     <TextView
         android:id="@+id/phoneNumber"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+79640937573"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelPhoneNumber"
         app:layout_constraintTop_toTopOf="@id/labelPhoneNumber"
-        app:layout_constraintStart_toEndOf="@id/labelPhoneNumber"/>
-
-
+        tools:text="+79640937573" />
 
     <TextView
         android:id="@+id/labelType"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_type_with_colon"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/labelPhoneNumber"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_type_with_colon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelPhoneNumber" />
 
     <TextView
         android:id="@+id/type"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Входящий"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelType"
         app:layout_constraintTop_toTopOf="@id/labelType"
-        app:layout_constraintStart_toEndOf="@id/labelType"/>
+        tools:text="Входящий" />
 
     <TextView
         android:id="@+id/labelDuration"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_duration_with_colon"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/labelType"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_duration_with_colon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelType" />
 
     <TextView
         android:id="@+id/duration"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="25м 54с"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelDuration"
         app:layout_constraintTop_toTopOf="@id/labelDuration"
-        app:layout_constraintStart_toEndOf="@id/labelDuration"/>
+        tools:text="25м 54с" />
 
     <TextView
         android:id="@+id/labelDate"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_date_with_colon"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/labelDuration"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_date_with_colon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelDuration" />
 
     <TextView
         android:id="@+id/date"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="14.03.2022"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelDate"
         app:layout_constraintTop_toTopOf="@id/labelDate"
-        app:layout_constraintStart_toEndOf="@id/labelDate"/>
+        tools:text="14.03.2022" />
 
     <TextView
         android:id="@+id/labelTime"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_time_with_colon"
-        style="@style/Level2"
         android:layout_marginTop="@dimen/margin_lvl_2"
-        app:layout_constraintTop_toBottomOf="@id/labelDate"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="@string/label_time_with_colon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelDate" />
+
 
     <TextView
         android:id="@+id/time"
+        style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12:45"
         android:layout_marginStart="@dimen/margin_lvl_2"
-        style="@style/Level2"
+        app:layout_constraintStart_toEndOf="@id/labelTime"
         app:layout_constraintTop_toTopOf="@id/labelTime"
-        app:layout_constraintStart_toEndOf="@id/labelTime"/>
+        tools:text="12:45" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/label_text_lvl_3"
         android:backgroundTint="@color/invisible"
         android:src="@drawable/ic_cancel"
-        android:layout_marginTop="@dimen/label_text_lvl_3"
-        app:layout_constraintTop_toBottomOf="@id/labelTime"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/labelTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

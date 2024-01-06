@@ -39,10 +39,16 @@ class MainRepository(
     }
 
     fun isExistPhoneTalk(phoneTalk: PhoneTalk): Boolean {
-        val talk = phoneTalkDao.getPhoneTalkByNumberAndDate(phoneTalk.phoneNumber, phoneTalk.date)
+        val talk = phoneTalkDao.getPhoneTalkBy(phoneTalk.phoneNumber, phoneTalk.dateTime, phoneTalk.type)
         return talk != null
     }
 
-//    fun getPhoneTalkByDay(day: )
+    fun getPhoneTalksByDay(day: String): List<PhoneTalk> {
+       return phoneTalkDao.getPhoneTalksByDay(day)
+    }
+
+    fun getPhoneTalksByType(typeCalls: Int): List<PhoneTalk> = phoneTalkDao.getPhoneTalksByType(typeCalls)
+
+    fun getCountPhoneTalk(): Long = phoneTalkDao.getCountPhoneTalks()
 
 }

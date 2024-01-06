@@ -11,4 +11,8 @@
 
     <dimen name="ads_yandex_banner_height">50dp</dimen>
     <dimen name="margin_item_tops">5dp</dimen>
+    <dimen name="margin_edge">16dp</dimen>
+    <dimen name="margin_in_cards">8dp</dimen>
+    <dimen name="cards_radius">12dp</dimen>
+    <dimen name="cards_elevation">4dp</dimen>
 </resources>
