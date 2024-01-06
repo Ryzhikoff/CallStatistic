@@ -50,7 +50,6 @@ class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
     private fun updateProgressListener() {
         UpdateProgressLiveData.serviceCompleted.observe(viewLifecycleOwner) { progress ->
             updateProgressBar(progress)
-            println("progress $progress")
             if (progress == PROGRESS_MAX) {
                 startHomeFragment()
             }
