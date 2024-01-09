@@ -124,14 +124,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:fadingEdge="horizontal"
         android:fadingEdgeLength="10dp"
+        android:orientation="vertical"
         android:requiresFadingEdge="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/infoContainer"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/infoContainer">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -155,16 +155,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    tools:visibility="visible"
                     app:pieChartCircleSectionSpace="2"
                     app:pieChartCircleStrokeWidth="6dp"
                     app:pieChartColors="@array/analyticalPieChartColorArray"
                     app:pieChartTextAmount="@string/label_total_calls"
-                    app:pieChartTextAmountColor="?android:attr/textColor"
-                    app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+                    app:pieChartTextAmountColor="@color/white"
+                    app:pieChartTextDescriptionColor="@color/text"
                     app:pieChartTextDescriptionSize="14sp"
-                    app:pieChartTextNumberColor="?android:attr/textColor"
-                    app:pieChartTextNumberSize="16sp" />
+                    app:pieChartTextNumberColor="@color/white"
+                    app:pieChartTextNumberSize="16sp"
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -173,8 +173,8 @@
                 android:layout_margin="@dimen/margin_edge"
                 android:background="@drawable/chart_background"
                 android:elevation="@dimen/cards_elevation"
-                android:padding="@dimen/margin_in_cards"
                 android:orientation="vertical"
+                android:padding="@dimen/margin_in_cards"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chartCallsContainer">
@@ -196,35 +196,35 @@
                         android:orientation="vertical">
 
                         <TextView
-                            style="@style/Headline"
                             android:id="@+id/labelTotalDuration"
+                            style="@style/Headline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/text"
                             android:layout_marginStart="@dimen/margin_in_cards"
                             android:layout_marginTop="@dimen/margin_in_cards"
-                            android:text="@string/label_total_duration" />
+                            android:text="@string/label_total_duration"
+                            android:textColor="@color/text" />
 
                         <TextView
-                            style="@style/Subhead"
                             android:id="@+id/tvTotalDuration"
+                            style="@style/Subhead"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_in_cards"
-                            android:layout_marginBottom="@dimen/margin_in_cards"
                             android:layout_marginTop="@dimen/margin_in_cards"
+                            android:layout_marginBottom="@dimen/margin_in_cards"
                             tools:text="7д 5ч 1м 24с" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    style="@style/Subhead"
                     android:id="@+id/label_of_them"
+                    style="@style/Subhead"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginEnd="@dimen/margin_edge"
-                    android:text="@string/label_of_them"/>
+                    android:text="@string/label_of_them" />
 
                 <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
                     android:id="@+id/chartDuration"
@@ -235,12 +235,12 @@
                     app:pieChartCircleStrokeWidth="6dp"
                     app:pieChartColors="@array/analyticalPieChartColorArray"
                     app:pieChartTextAmount="@string/analyticalPieChartAmount"
-                    app:pieChartTextAmountColor="?android:attr/textColor"
-                    app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+                    app:pieChartTextAmountColor="@color/white"
+                    app:pieChartTextDescriptionColor="@color/text"
                     app:pieChartTextDescriptionSize="14sp"
-                    app:pieChartTextNumberColor="?android:attr/textColor"
+                    app:pieChartTextNumberColor="@color/white"
                     app:pieChartTextNumberSize="16sp"
-                    tools:visibility="visible"/>
+                    tools:visibility="visible" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
