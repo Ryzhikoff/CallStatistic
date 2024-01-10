@@ -32,7 +32,7 @@
     <string name="missed">Пропущенные</string>
     <string name="voice_email">Голосовая почта</string>
     <string name="rejected">Отклоненные</string>
-    <string name="blocked">Залокированные</string>
+    <string name="blocked">Заблокированные</string>
     <string name="answered_externally">Принятые на другом устройстве</string>
     <string name="unknown">Неизвестеные</string>
 

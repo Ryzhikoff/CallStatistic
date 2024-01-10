@@ -83,10 +83,10 @@
         app:pieChartCircleStrokeWidth="6dp"
         app:pieChartColors="@array/analyticalPieChartColorArray"
         app:pieChartTextAmount="@string/analyticalPieChartAmount"
-        app:pieChartTextAmountColor="?android:attr/textColor"
-        app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+        app:pieChartTextAmountColor="@color/white"
+        app:pieChartTextDescriptionColor="@color/text"
         app:pieChartTextDescriptionSize="14sp"
-        app:pieChartTextNumberColor="?android:attr/textColor"
+        app:pieChartTextNumberColor="@color/white"
         app:pieChartTextNumberSize="16sp" />
 
     <com.lb.auto_fit_textview.AutoResizeTextView
@@ -122,11 +122,11 @@
         app:pieChartCircleStrokeWidth="6dp"
         app:pieChartColors="@array/analyticalPieChartColorArray"
         app:pieChartTextAmount="@string/analyticalPieChartAmount"
-        app:pieChartTextAmountColor="?android:attr/textColor"
+        app:pieChartTextAmountColor="@color/white"
         app:pieChartTextAmountSize="@dimen/label_text_lvl_3"
-        app:pieChartTextDescriptionColor="?android:attr/textColorHint"
+        app:pieChartTextDescriptionColor="@color/text"
         app:pieChartTextDescriptionSize="14sp"
-        app:pieChartTextNumberColor="?android:attr/textColor"
+        app:pieChartTextNumberColor="@color/white"
         app:pieChartTextNumberSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatImageButton

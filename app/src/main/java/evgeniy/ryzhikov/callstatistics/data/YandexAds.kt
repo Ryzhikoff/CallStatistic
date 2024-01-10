@@ -1,5 +1,6 @@
 package evgeniy.ryzhikov.callstatistics.data
 
+import evgeniy.ryzhikov.callstatistics.BuildConfig
 
 
 object YandexAds {
@@ -9,13 +10,12 @@ object YandexAds {
 //    const val interstitialAdUnitId = "demo-interstitial-yandex"
 //    const val rewardedAdUnitId = "demo-rewarded-yandex"
 //    const val bannerAdUnitId = "demo-banner-yandex"
-    fun getBannerAdUnitId() = "demo-banner-yandex"
+//    fun getBannerAdUnitId() = "demo-banner-yandex"
 
-//    fun getBannerAdUnitId(): String {
-//        return if (BuildConfig.DEBUG) {
-//            "demo-banner-yandex"
-//        } else {
-//            "R-M-2577975-4"
-//        }
-//    }
+    fun getBannerAdUnitId(): String =
+        if (BuildConfig.DEBUG) {
+            "demo-banner-yandex"
+        } else {
+            "R-M-2956905-1"
+        }
 }

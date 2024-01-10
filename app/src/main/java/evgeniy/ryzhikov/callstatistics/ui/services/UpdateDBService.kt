@@ -82,8 +82,8 @@ class UpdateDBService : Service() {
 
                 if (cursor.moveToLast()) {
                     do {
-                        val id =
-                            cursor.getLongOrNull(cursor.getColumnIndex(CallLog.Calls._ID)) ?: ""
+//                        val id =
+//                            cursor.getLongOrNull(cursor.getColumnIndex(CallLog.Calls._ID)) ?: ""
                         val date =
                             cursor.getLongOrNull(cursor.getColumnIndex(CallLog.Calls.DATE)) ?: 0
                         var number =
