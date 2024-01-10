@@ -31,6 +31,8 @@ import javax.inject.Inject
 
 class UpdateDBService : Service() {
 
+    private var lastUpdatedPercent = 0
+
     private lateinit var notificationManager: NotificationManager
     private val notificationBuilder by lazy {
         createNotificationBuilder()
@@ -161,7 +163,8 @@ class UpdateDBService : Service() {
     private fun getPhoneNumber(number: String) = mainRepository.getPhoneNumber(number)
 
     private suspend fun updateProgress(progress: Int) {
-        if (progress % 5 == 0) {
+        if (progress != lastUpdatedPercent) {
+            lastUpdatedPercent = progress
             updateNotification(progress)
             withContext(Dispatchers.Main) {
                 UpdateProgressLiveData.updateProgress(progress)
@@ -181,9 +184,9 @@ class UpdateDBService : Service() {
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Update database...")
+            .setContentTitle(getString(R.string.update_database))
             .setContentText("0%")
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.drawable.icon_notification)
             .setContentIntent(pendingIntent)
             .setProgress(PROGRESS_MAX, 0, true)
             .setOngoing(true)
