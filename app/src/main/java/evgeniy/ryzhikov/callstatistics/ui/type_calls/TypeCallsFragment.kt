@@ -86,20 +86,20 @@ class TypeCallsFragment(@TypeCall private val typeCalls: Int) : Fragment(R.layou
     private fun setLiveDataObservers() {
         with(viewModel) {
             topPhoneNumberByPhoneTalk.observe(viewLifecycleOwner) { phoneNumbers ->
-                processTopPhoneNumberByIncomingPhoneTalk(phoneNumbers)
+                processTopPhoneNumberByPhoneTalk(phoneNumbers)
             }
 
             topLongestPhoneTalk.observe(viewLifecycleOwner) { phoneTalks ->
-                processTopLongestIncomingPhoneTalk(phoneTalks)
+                processTopLongestPhoneTalk(phoneTalks)
             }
 
             topPhoneNumberWithLongest.observe(viewLifecycleOwner) { phoneNumbers ->
-                processTopPhoneNumberWithLongestIncoming(phoneNumbers)
+                processTopPhoneNumberWithLongest(phoneNumbers)
             }
         }
     }
 
-    private fun processTopPhoneNumberByIncomingPhoneTalk(phoneNumbers: List<PhoneNumber>) {
+    private fun processTopPhoneNumberByPhoneTalk(phoneNumbers: List<PhoneNumber>) {
         displayGeneralInfo()
 
         val topItems = mutableListOf<TopItem>()
@@ -108,7 +108,10 @@ class TypeCallsFragment(@TypeCall private val typeCalls: Int) : Fragment(R.layou
                 TopItem(
                     contactName = phoneNumber.contactName,
                     phoneNumber = phoneNumber.phoneNumber,
-                    value = phoneNumber.counterIncoming.toString(),
+                    value = when (typeCalls) {
+                        INCOMING_TYPE -> phoneNumber.counterIncoming.toString()
+                        else -> phoneNumber.counterOutgoing.toString()
+                    },
                     phoneData = phoneNumber,
                     listener
                 )
@@ -124,7 +127,7 @@ class TypeCallsFragment(@TypeCall private val typeCalls: Int) : Fragment(R.layou
         }
     }
 
-    private fun processTopLongestIncomingPhoneTalk(phoneTalks: List<PhoneTalk>) {
+    private fun processTopLongestPhoneTalk(phoneTalks: List<PhoneTalk>) {
         val topItems = mutableListOf<TopItem>()
         phoneTalks.forEach { phoneTalk ->
             topItems.add(
@@ -140,14 +143,19 @@ class TypeCallsFragment(@TypeCall private val typeCalls: Int) : Fragment(R.layou
         updateRecyclerView(topItems)
     }
 
-    private fun processTopPhoneNumberWithLongestIncoming(phoneNumbers: List<PhoneNumber>) {
+    private fun processTopPhoneNumberWithLongest(phoneNumbers: List<PhoneNumber>) {
         val topItems = mutableListOf<TopItem>()
         phoneNumbers.forEach { phoneNumber ->
             topItems.add(
                 TopItem(
                     contactName = phoneNumber.contactName,
                     phoneNumber = phoneNumber.phoneNumber,
-                    value = convertDuration(phoneNumber.durationIncoming),
+                    value = convertDuration(
+                        when (typeCalls) {
+                            INCOMING_TYPE -> phoneNumber.durationIncoming
+                            else -> phoneNumber.durationOutgoing
+                        }
+                    ),
                     phoneData = phoneNumber,
                     listener
                 )

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Call Statistics</string>
+    <string name="app_name">Статистика звонков</string>
     <string name="menu_main">Главная</string>
     <string name="menu_total_statistic">Статистика</string>
 
@@ -58,6 +58,7 @@
     <string name="pop_up_launch_content">Сейчас будет запрошено разрешение на доступ к журналу звонков.\nЭто разрешение необходимо для работы приложения, так как единственная функция приложения — это статистика звонков, для дальнейшей работы приложения необходимо это разрешение предоставить.\nВся информация о звонках будет храниться исключительно на Вашем устройстве, без передачи куда-либо.</string>
     <string name="ok">Хорошо</string>
     <string name="pop_up_info_content">Сейчас будет создание локальной базы данных на основе списка вызовов.\nЭтот процесс займет несколько минут, в зависимости от размера журнала звонков.\nВ это время приложение можно свернуть, но не закрывать.</string>
+    <string name="update_database">Обновление базы данных</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

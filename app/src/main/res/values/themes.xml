@@ -115,6 +115,8 @@
         <item name="materialCalendarDayOfWeekLabel">@style/DatePicker.DayOfWeekLabel</item>
         <item name="materialCalendarYearNavigationButton">@style/DatePicker.YearNavigationButton</item>
         <item name="daySelectedStyle">@style/DatePicker.DaySelected</item>
+
+        <item name="colorSurfaceContainerHigh">@color/bottom_bar_color</item>
     </style>
 
     <style name="DatePicker.DaySelected" parent="Widget.Material3.MaterialCalendar.Day.Selected">
