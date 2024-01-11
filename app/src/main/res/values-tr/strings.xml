@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Çağrı İstatistikleri</string>
+
+    <string name="menu_main">Ev</string>
+
+    <string name="menu_total_statistic">İstatistik</string>
+
+    <string-array name="update_db_text">
+
+        <item>Veritabanının güncellenmesi</item>
+
+        <item>Veritabanı güncelleniyor.</item>
+
+        <item>Veritabanı güncelleniyor..</item>
+
+        <item tools:ignore="TypographyEllipsis">Veritabanı güncelleniyor...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Toplam</string>
+
+    <string name="header_top_incoming">İlk 10 gelen:</string>
+
+    <string name="header_top_outgoing">İlk 10 giden:</string>
+
+    <string name="header_longest_incoming">En uzun gelen:</string>
+
+    <string name="header_longest_outgoing">En uzun giden:</string>
+
+    <string name="hour_short">H</string>
+
+    <string name="minute_short">M</string>
+
+    <string name="second_short">S</string>
+
+    <string name="day_short">D</string>
+
+    <string name="label_contact_with_colon">Temas etmek:</string>
+
+    <string name="label_phone_number_with_colon">Telefon:</string>
+
+    <string name="label_duration_with_colon">Süre:</string>
+
+    <string name="label_type_with_colon">Zil Tipi:</string>
+
+    <string name="label_date_with_colon">Tarih:</string>
+
+    <string name="label_time_with_colon">Zaman:</string>
+
+    <string name="incoming">Gelen</string>
+
+    <string name="outgoing">Dışa dönük</string>
+
+    <string name="missed">Kaçırıldı</string>
+
+    <string name="voice_email">Sesli mesaj</string>
+
+    <string name="rejected">Reddedilmiş</string>
+
+    <string name="blocked">Engellendi</string>
+
+    <string name="answered_externally">Başka bir cihazda alındı</string>
+
+    <string name="unknown">Bilinmeyen</string>
+
+    <string name="label_total_duration">Toplam süre</string>
+
+    <string name="label_total_phone_talk">Toplam çağrı:</string>
+
+    <string name="label_total_time_talk">Konuşma zamanı:</string>
+
+    <string name="label_total_calls">Toplam çağrı:</string>
+
+    <string name="header_with_longest_incoming">Gelenlerin uzunluğuna göre en önemli kişiler:</string>
+
+    <string name="header_with_longest_outgoing">Giden süreye göre en sık görüşülen kişiler:</string>
+
+    <string name="label_count_calls_with_incoming">Gelen kişi sayısı:</string>
+
+    <string name="label_total_incoming">Toplam gelen:</string>
+
+    <string name="label_stat_by">için </string>
+
+    <string name="label_choose_day">Günü seçin</string>
+
+    <string name="home_title">Temel</string>
+
+    <string name="label_total_number">Toplam sayılar:</string>
+
+    <string name="label_of_them">olan:</string>
+
+    <string name="label_today">Bugün</string>
+
+    <string name="label_yesterday">Dün</string>
+
+    <string name="label_count_calls_with_outgoing">Giden kişi sayısı:</string>
+
+    <string name="label_total_outgoing">Toplam giden:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Veritabanı güncelleniyor...</string>
+
+    <string name="pop_up_launch_title">Önemli</string>
+
+    <string name="pop_up_launch_content">Şimdi çağrı kaydına erişim izniniz istenecek.\nBu izin uygulamanın çalışması için gereklidir, çünkü uygulamanın tek işlevi çağrı istatistikleridir, uygulamanın daha fazla çalışması için bu izni vermeniz gerekir.\nAramalarla ilgili tüm bilgiler, herhangi bir yere aktarılmadan yalnızca cihazınızda saklanacaktır.</string>
+
+    <string name="ok">TAMAM</string>
+
+    <string name="pop_up_info_content">Şimdi çağrı kaydına dayalı yerel bir veritabanı oluşturacağız.\nBu işlem, arama kaydının boyutuna bağlı olarak birkaç dakika sürecektir.\nŞu anda uygulama simge durumuna küçültülebilir ancak kapatılamaz.</string>
+
+    <string name="update_database">Veritabanı güncellemesi</string>
+</resources>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Estatísticas de chamadas</string>
+
+    <string name="menu_main">Lar</string>
+
+    <string name="menu_total_statistic">Estatisticas</string>
+
+    <string-array name="update_db_text">
+
+        <item>Atualizando o banco de dados</item>
+
+        <item>Atualizando o banco de dados.</item>
+
+        <item>Atualizando o banco de dados..</item>
+
+        <item tools:ignore="TypographyEllipsis">Atualizando o banco de dados...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Total</string>
+
+    <string name="header_top_incoming">Os 10 principais entrantes:</string>
+
+    <string name="header_top_outgoing">10 principais saídas:</string>
+
+    <string name="header_longest_incoming">Entrada mais longa:</string>
+
+    <string name="header_longest_outgoing">Saída mais longa:</string>
+
+    <string name="hour_short">h</string>
+
+    <string name="minute_short">eu</string>
+
+    <string name="second_short">é</string>
+
+    <string name="day_short">d</string>
+
+    <string name="label_contact_with_colon">Contato:</string>
+
+    <string name="label_phone_number_with_colon">Telefone:</string>
+
+    <string name="label_duration_with_colon">Duração:</string>
+
+    <string name="label_type_with_colon">Tipo de anel:</string>
+
+    <string name="label_date_with_colon">Data:</string>
+
+    <string name="label_time_with_colon">Tempo:</string>
+
+    <string name="incoming">Entrada</string>
+
+    <string name="outgoing">Extrovertido</string>
+
+    <string name="missed">Perdido</string>
+
+    <string name="voice_email">Correio de voz</string>
+
+    <string name="rejected">Rejeitado</string>
+
+    <string name="blocked">Bloqueado</string>
+
+    <string name="answered_externally">Recebido em outro dispositivo</string>
+
+    <string name="unknown">Desconhecido</string>
+
+    <string name="label_total_duration">Duração total</string>
+
+    <string name="label_total_phone_talk">Total de chamadas:</string>
+
+    <string name="label_total_time_talk">Hora de conversar:</string>
+
+    <string name="label_total_calls">Total de chamadas:</string>
+
+    <string name="header_with_longest_incoming">Principais contatos por tempo de entrada:</string>
+
+    <string name="header_with_longest_outgoing">Principais contatos por duração de saída:</string>
+
+    <string name="label_count_calls_with_incoming">Número de contatos recebidos:</string>
+
+    <string name="label_total_incoming">Entrada total:</string>
+
+    <string name="label_stat_by">para </string>
+
+    <string name="label_choose_day">Escolha o dia</string>
+
+    <string name="home_title">Básico</string>
+
+    <string name="label_total_number">Números totais:</string>
+
+    <string name="label_of_them">das quais:</string>
+
+    <string name="label_today">Hoje</string>
+
+    <string name="label_yesterday">Ontem</string>
+
+    <string name="label_count_calls_with_outgoing">Número de contatos de saída:</string>
+
+    <string name="label_total_outgoing">Saída total:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Atualizando o banco de dados...</string>
+
+    <string name="pop_up_launch_title">Importante</string>
+
+    <string name="pop_up_launch_content">Agora será solicitada permissão para acessar o registro de chamadas.\nEsta permissão é necessária para o funcionamento do aplicativo, pois a única função do aplicativo são as estatísticas de chamadas, para posterior funcionamento do aplicativo você deve fornecer esta permissão.\nTodas as informações sobre ligações ficarão armazenadas exclusivamente no seu aparelho, sem transferência para qualquer lugar.</string>
+
+    <string name="ok">OK</string>
+
+    <string name="pop_up_info_content">Agora criaremos um banco de dados local baseado no registro de chamadas.\nEste processo levará vários minutos, dependendo do tamanho do registro de chamadas.\nNeste momento, o aplicativo pode ser minimizado, mas não fechado.</string>
+
+    <string name="update_database">Atualização de banco de dados</string>
+</resources>

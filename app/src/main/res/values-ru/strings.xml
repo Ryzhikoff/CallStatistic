@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Статистика звонков</string>
+    <string name="menu_main">Главная</string>
+    <string name="menu_total_statistic">Статистика</string>
+
+
+    <string-array name="update_db_text">
+        <item>Обновляем базу данных</item>
+        <item>Обновляем базу данных.</item>
+        <item>Обновляем базу данных..</item>
+        <item tools:ignore="TypographyEllipsis">Обновляем базу данных...</item>
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Всего</string>
+    <string name="header_top_incoming">Топ 10 входящих:</string>
+    <string name="header_top_outgoing">Топ 10 исходящих:</string>
+    <string name="header_longest_incoming">Самые длиные входящие:</string>
+    <string name="header_longest_outgoing">Самые длиные исходящие:</string>
+    <string name="hour_short">ч</string>
+    <string name="minute_short">м</string>
+    <string name="second_short">с</string>
+    <string name="day_short">д</string>
+    <string name="label_contact_with_colon">Контакт:</string>
+    <string name="label_phone_number_with_colon">Телефон:</string>
+    <string name="label_duration_with_colon">Продолжительность:</string>
+    <string name="label_type_with_colon">Тип звонка:</string>
+    <string name="label_date_with_colon">Дата:</string>
+    <string name="label_time_with_colon">Время:</string>
+
+    <string name="incoming">Входящие</string>
+    <string name="outgoing">Исходящие</string>
+    <string name="missed">Пропущенные</string>
+    <string name="voice_email">Голосовая почта</string>
+    <string name="rejected">Отклоненные</string>
+    <string name="blocked">Заблокированные</string>
+    <string name="answered_externally">Принятые на другом устройстве</string>
+    <string name="unknown">Неизвестеные</string>
+
+    <string name="label_total_duration">Общая продолжительность</string>
+    <string name="label_total_phone_talk">Всего разговоров:</string>
+    <string name="label_total_time_talk">Время разговоров:</string>
+    <string name="label_total_calls">Всего звонков:</string>
+    <string name="header_with_longest_incoming">Топ контактов по продолжителности входящих:</string>
+    <string name="header_with_longest_outgoing">Топ контактов по продолжителности исходящих:</string>
+    <string name="label_count_calls_with_incoming">Количество контактов со входящими:</string>
+    <string name="label_total_incoming">Всего входящих:</string>
+    <string name="label_stat_by">"за "</string>
+    <string name="label_choose_day">Выбрать день</string>
+    <string name="home_title">Основное</string>
+    <string name="label_total_number">Всего номеров:</string>
+    <string name="label_of_them">из них:</string>
+    <string name="label_today">Сегодня</string>
+    <string name="label_yesterday">Вчера</string>
+    <string name="label_count_calls_with_outgoing">Количество контактов с исходящими:</string>
+    <string name="label_total_outgoing">Всего исходящих:</string>
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Обновляем базу данных...</string>
+    <string name="pop_up_launch_title">Важно</string>
+    <string name="pop_up_launch_content">Сейчас будет запрошено разрешение на доступ к журналу звонков.\nЭто разрешение необходимо для работы приложения, так как единственная функция приложения — это статистика звонков, для дальнейшей работы приложения необходимо это разрешение предоставить.\nВся информация о звонках будет храниться исключительно на Вашем устройстве, без передачи куда-либо.</string>
+    <string name="ok">Хорошо</string>
+    <string name="pop_up_info_content">Сейчас будет создание локальной базы данных на основе списка вызовов.\nЭтот процесс займет несколько минут, в зависимости от размера журнала звонков.\nВ это время приложение можно свернуть, но не закрывать.</string>
+    <string name="update_database">Обновление базы данных</string>
+</resources>

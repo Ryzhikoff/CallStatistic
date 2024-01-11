@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">통화 통계</string>
+
+    <string name="menu_main">집</string>
+
+    <string name="menu_total_statistic">통계</string>
+
+    <string-array name="update_db_text">
+
+        <item>데이터베이스 업데이트</item>
+
+        <item>데이터베이스를 업데이트하는 중입니다.</item>
+
+        <item>데이터베이스 업데이트 중..</item>
+
+        <item tools:ignore="TypographyEllipsis">데이터베이스 업데이트 중...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">총</string>
+
+    <string name="header_top_incoming">상위 10개 수신:</string>
+
+    <string name="header_top_outgoing">상위 10개 발신:</string>
+
+    <string name="header_longest_incoming">가장 긴 수신:</string>
+
+    <string name="header_longest_outgoing">가장 긴 발신:</string>
+
+    <string name="hour_short">시간</string>
+
+    <string name="minute_short">중</string>
+
+    <string name="second_short">에스</string>
+
+    <string name="day_short">디</string>
+
+    <string name="label_contact_with_colon">연락하다:</string>
+
+    <string name="label_phone_number_with_colon">핸드폰:</string>
+
+    <string name="label_duration_with_colon">지속:</string>
+
+    <string name="label_type_with_colon">링 유형:</string>
+
+    <string name="label_date_with_colon">날짜:</string>
+
+    <string name="label_time_with_colon">시간:</string>
+
+    <string name="incoming">들어오는</string>
+
+    <string name="outgoing">나가는</string>
+
+    <string name="missed">놓친</string>
+
+    <string name="voice_email">음성 메일</string>
+
+    <string name="rejected">거부됨</string>
+
+    <string name="blocked">막힌</string>
+
+    <string name="answered_externally">다른 기기에서 수신됨</string>
+
+    <string name="unknown">알려지지 않은</string>
+
+    <string name="label_total_duration">총 기간</string>
+
+    <string name="label_total_phone_talk">총 통화 수:</string>
+
+    <string name="label_total_time_talk">통화 시간:</string>
+
+    <string name="label_total_calls">총 통화 수:</string>
+
+    <string name="header_with_longest_incoming">수신 기간별 상위 연락처:</string>
+
+    <string name="header_with_longest_outgoing">발신 기간별 주요 연락처:</string>
+
+    <string name="label_count_calls_with_incoming">수신 연락처 수:</string>
+
+    <string name="label_total_incoming">총 수신:</string>
+
+    <string name="label_stat_by">~을 위한 </string>
+
+    <string name="label_choose_day">요일 선택</string>
+
+    <string name="home_title">기초적인</string>
+
+    <string name="label_total_number">총 수:</string>
+
+    <string name="label_of_them">그 중:</string>
+
+    <string name="label_today">오늘</string>
+
+    <string name="label_yesterday">어제</string>
+
+    <string name="label_count_calls_with_outgoing">발신 연락처 수:</string>
+
+    <string name="label_total_outgoing">총 발신:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">데이터베이스 업데이트 중...</string>
+
+    <string name="pop_up_launch_title">중요한</string>
+
+    <string name="pop_up_launch_content">이제 통화 기록에 액세스할 수 있는 권한을 묻는 메시지가 표시됩니다.\n애플리케이션의 유일한 기능은 호출 통계이므로 애플리케이션이 작동하려면 이 권한이 필요합니다. 애플리케이션을 추가로 작동하려면 이 권한을 제공해야 합니다.\n통화에 대한 모든 정보는 어디에도 전송되지 않고 귀하의 장치에만 저장됩니다.</string>
+
+    <string name="ok">좋아요</string>
+
+    <string name="pop_up_info_content">이제 통화 기록을 기반으로 로컬 데이터베이스를 생성하겠습니다.\n이 프로세스는 통화 기록의 크기에 따라 몇 분 정도 소요됩니다.\n이때 애플리케이션을 최소화할 수는 있지만 종료할 수는 없습니다.</string>
+
+    <string name="update_database">데이터베이스 업데이트</string>
+</resources>

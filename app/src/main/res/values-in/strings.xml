@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Statistik Panggilan</string>
+
+    <string name="menu_main">Rumah</string>
+
+    <string name="menu_total_statistic">Statistik</string>
+
+    <string-array name="update_db_text">
+
+        <item>Memperbarui basis data</item>
+
+        <item>Memperbarui basis data.</item>
+
+        <item>Memperbarui basis data..</item>
+
+        <item tools:ignore="TypographyEllipsis">Memperbarui basis data...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Total</string>
+
+    <string name="header_top_incoming">10 masuk teratas:</string>
+
+    <string name="header_top_outgoing">10 keluar teratas:</string>
+
+    <string name="header_longest_incoming">Masuk terlama:</string>
+
+    <string name="header_longest_outgoing">Keluar terlama:</string>
+
+    <string name="hour_short">H</string>
+
+    <string name="minute_short">M</string>
+
+    <string name="second_short">S</string>
+
+    <string name="day_short">D</string>
+
+    <string name="label_contact_with_colon">Kontak:</string>
+
+    <string name="label_phone_number_with_colon">Telepon:</string>
+
+    <string name="label_duration_with_colon">Durasi:</string>
+
+    <string name="label_type_with_colon">Jenis cincin:</string>
+
+    <string name="label_date_with_colon">Tanggal:</string>
+
+    <string name="label_time_with_colon">Waktu:</string>
+
+    <string name="incoming">Masuk</string>
+
+    <string name="outgoing">Keluar</string>
+
+    <string name="missed">Dirindukan</string>
+
+    <string name="voice_email">Pesan suara</string>
+
+    <string name="rejected">Ditolak</string>
+
+    <string name="blocked">Diblokir</string>
+
+    <string name="answered_externally">Diterima di perangkat lain</string>
+
+    <string name="unknown">Tidak dikenal</string>
+
+    <string name="label_total_duration">Durasi total</string>
+
+    <string name="label_total_phone_talk">Jumlah panggilan:</string>
+
+    <string name="label_total_time_talk">Waktu bicara:</string>
+
+    <string name="label_total_calls">Jumlah panggilan:</string>
+
+    <string name="header_with_longest_incoming">Kontak teratas menurut lamanya masuk:</string>
+
+    <string name="header_with_longest_outgoing">Kontak teratas berdasarkan durasi keluar:</string>
+
+    <string name="label_count_calls_with_incoming">Jumlah kontak masuk:</string>
+
+    <string name="label_total_incoming">Jumlah masuk:</string>
+
+    <string name="label_stat_by">untuk </string>
+
+    <string name="label_choose_day">Pilih hari</string>
+
+    <string name="home_title">Dasar</string>
+
+    <string name="label_total_number">Jumlah keseluruhan:</string>
+
+    <string name="label_of_them">di antaranya:</string>
+
+    <string name="label_today">Hari ini</string>
+
+    <string name="label_yesterday">Kemarin</string>
+
+    <string name="label_count_calls_with_outgoing">Jumlah kontak keluar:</string>
+
+    <string name="label_total_outgoing">Jumlah keluar:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Memperbarui basis data...</string>
+
+    <string name="pop_up_launch_title">Penting</string>
+
+    <string name="pop_up_launch_content">Sekarang Anda akan dimintai izin untuk mengakses log panggilan.\nIzin ini diperlukan agar aplikasi dapat berfungsi, karena satu-satunya fungsi aplikasi adalah statistik panggilan, untuk pengoperasian aplikasi lebih lanjut Anda harus memberikan izin ini.\nSemua informasi tentang panggilan akan disimpan secara eksklusif di perangkat Anda, tanpa ditransfer ke mana pun.</string>
+
+    <string name="ok">OKE</string>
+
+    <string name="pop_up_info_content">Kami sekarang akan membuat database lokal berdasarkan log panggilan.\nProses ini akan memakan waktu beberapa menit, tergantung ukuran log panggilan.\nSaat ini, aplikasi bisa diminimalkan, tapi tidak bisa ditutup.</string>
+
+    <string name="update_database">Pembaruan basis data</string>
+</resources>
