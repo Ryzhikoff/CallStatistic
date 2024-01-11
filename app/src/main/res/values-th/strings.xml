@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">สถิติการโทร</string>
+
+    <string name="menu_main">บ้าน</string>
+
+    <string name="menu_total_statistic">สถิติ</string>
+
+    <string-array name="update_db_text">
+
+        <item>การอัพเดตฐานข้อมูล</item>
+
+        <item>การอัพเดตฐานข้อมูล</item>
+
+        <item>กำลังอัพเดตฐานข้อมูล..</item>
+
+        <item tools:ignore="TypographyEllipsis">กำลังอัปเดตฐานข้อมูล...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">ทั้งหมด</string>
+
+    <string name="header_top_incoming">10 อันดับแรกที่เข้ามา:</string>
+
+    <string name="header_top_outgoing">10 อันดับแรกที่ออก:</string>
+
+    <string name="header_longest_incoming">เข้ามานานที่สุด:</string>
+
+    <string name="header_longest_outgoing">ขาออกที่ยาวที่สุด:</string>
+
+    <string name="hour_short">ชม.</string>
+
+    <string name="minute_short">ม</string>
+
+    <string name="second_short">ส</string>
+
+    <string name="day_short">ง</string>
+
+    <string name="label_contact_with_colon">ติดต่อ:</string>
+
+    <string name="label_phone_number_with_colon">โทรศัพท์:</string>
+
+    <string name="label_duration_with_colon">ระยะเวลา:</string>
+
+    <string name="label_type_with_colon">ประเภทแหวน:</string>
+
+    <string name="label_date_with_colon">วันที่:</string>
+
+    <string name="label_time_with_colon">เวลา:</string>
+
+    <string name="incoming">เข้ามา</string>
+
+    <string name="outgoing">ขาออก</string>
+
+    <string name="missed">พลาด</string>
+
+    <string name="voice_email">ข้อความเสียง</string>
+
+    <string name="rejected">ถูกปฏิเสธ</string>
+
+    <string name="blocked">ถูกบล็อก</string>
+
+    <string name="answered_externally">ได้รับบนอุปกรณ์อื่น</string>
+
+    <string name="unknown">ไม่ทราบ</string>
+
+    <string name="label_total_duration">ระยะเวลารวม</string>
+
+    <string name="label_total_phone_talk">จำนวนการโทรทั้งหมด:</string>
+
+    <string name="label_total_time_talk">เวลาพูดคุย:</string>
+
+    <string name="label_total_calls">จำนวนการโทรทั้งหมด:</string>
+
+    <string name="header_with_longest_incoming">ผู้ติดต่อยอดนิยมตามระยะเวลาที่เข้ามา:</string>
+
+    <string name="header_with_longest_outgoing">ผู้ติดต่อยอดนิยมตามระยะเวลาขาออก:</string>
+
+    <string name="label_count_calls_with_incoming">จำนวนผู้ติดต่อที่เข้ามา:</string>
+
+    <string name="label_total_incoming">ขาเข้าทั้งหมด:</string>
+
+    <string name="label_stat_by">สำหรับ </string>
+
+    <string name="label_choose_day">เลือกวัน</string>
+
+    <string name="home_title">ขั้นพื้นฐาน</string>
+
+    <string name="label_total_number">จำนวนทั้งหมด:</string>
+
+    <string name="label_of_them">ซึ่ง:</string>
+
+    <string name="label_today">วันนี้</string>
+
+    <string name="label_yesterday">เมื่อวาน</string>
+
+    <string name="label_count_calls_with_outgoing">จำนวนผู้ติดต่อขาออก:</string>
+
+    <string name="label_total_outgoing">จำนวนขาออกทั้งหมด:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">กำลังอัปเดตฐานข้อมูล...</string>
+
+    <string name="pop_up_launch_title">สำคัญ</string>
+
+    <string name="pop_up_launch_content">ตอนนี้คุณจะถูกขออนุญาตในการเข้าถึงบันทึกการโทร\nการอนุญาตนี้จำเป็นสำหรับแอปพลิเคชันในการทำงาน เนื่องจากฟังก์ชันเดียวของแอปพลิเคชันคือสถิติการโทร คุณต้องให้สิทธิ์นี้เพื่อการดำเนินการต่อไปของแอปพลิเคชัน\nข้อมูลทั้งหมดเกี่ยวกับการโทรจะถูกจัดเก็บไว้ในอุปกรณ์ของคุณโดยเฉพาะ โดยไม่ต้องถ่ายโอนไปที่ใด</string>
+
+    <string name="ok">ตกลง</string>
+
+    <string name="pop_up_info_content">ตอนนี้เราจะสร้างฐานข้อมูลท้องถิ่นตามบันทึกการโทร\nกระบวนการนี้จะใช้เวลาหลายนาที ขึ้นอยู่กับขนาดของบันทึกการโทร\nในขณะนี้ แอปพลิเคชันสามารถย่อเล็กสุดได้ แต่ไม่สามารถปิดได้</string>
+
+    <string name="update_database">อัพเดตฐานข้อมูล</string>
+</resources>

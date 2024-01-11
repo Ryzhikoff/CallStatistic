@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Statistiche sulle chiamate</string>
+
+    <string name="menu_main">Casa</string>
+
+    <string name="menu_total_statistic">Statistiche</string>
+
+    <string-array name="update_db_text">
+
+        <item>Aggiornamento del database</item>
+
+        <item>Aggiornamento del database.</item>
+
+        <item>Aggiornamento del database..</item>
+
+        <item tools:ignore="TypographyEllipsis">Aggiornamento del database...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Totale</string>
+
+    <string name="header_top_incoming">I primi 10 in arrivo:</string>
+
+    <string name="header_top_outgoing">Primi 10 in uscita:</string>
+
+    <string name="header_longest_incoming">Arrivo più lungo:</string>
+
+    <string name="header_longest_outgoing">Uscita più lunga:</string>
+
+    <string name="hour_short">H</string>
+
+    <string name="minute_short">M</string>
+
+    <string name="second_short">S</string>
+
+    <string name="day_short">D</string>
+
+    <string name="label_contact_with_colon">Contatto:</string>
+
+    <string name="label_phone_number_with_colon">Telefono:</string>
+
+    <string name="label_duration_with_colon">Durata:</string>
+
+    <string name="label_type_with_colon">Tipo di anello:</string>
+
+    <string name="label_date_with_colon">Data:</string>
+
+    <string name="label_time_with_colon">Tempo:</string>
+
+    <string name="incoming">In arrivo</string>
+
+    <string name="outgoing">In uscita</string>
+
+    <string name="missed">perse</string>
+
+    <string name="voice_email">Segreteria telefonica</string>
+
+    <string name="rejected">Respinto</string>
+
+    <string name="blocked">Bloccato</string>
+
+    <string name="answered_externally">Ricevuto su un altro dispositivo</string>
+
+    <string name="unknown">Sconosciuto</string>
+
+    <string name="label_total_duration">Durata totale</string>
+
+    <string name="label_total_phone_talk">Chiamate totali:</string>
+
+    <string name="label_total_time_talk">Tempo di conversazione:</string>
+
+    <string name="label_total_calls">Chiamate totali:</string>
+
+    <string name="header_with_longest_incoming">Principali contatti per durata degli ingressi:</string>
+
+    <string name="header_with_longest_outgoing">Contatti principali per durata in uscita:</string>
+
+    <string name="label_count_calls_with_incoming">Numero di contatti in entrata:</string>
+
+    <string name="label_total_incoming">Entrate totali:</string>
+
+    <string name="label_stat_by">per </string>
+
+    <string name="label_choose_day">Scegli il giorno</string>
+
+    <string name="home_title">Di base</string>
+
+    <string name="label_total_number">Numeri totali:</string>
+
+    <string name="label_of_them">di cui:</string>
+
+    <string name="label_today">Oggi</string>
+
+    <string name="label_yesterday">Ieri</string>
+
+    <string name="label_count_calls_with_outgoing">Numero di contatti in uscita:</string>
+
+    <string name="label_total_outgoing">Totale in uscita:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Aggiornamento del database...</string>
+
+    <string name="pop_up_launch_title">Importante</string>
+
+    <string name="pop_up_launch_content">Ora ti verrà chiesto il permesso di accedere al registro delle chiamate.\nQuesta autorizzazione è necessaria affinché l\'applicazione funzioni, poiché l\'unica funzione dell\'applicazione sono le statistiche sulle chiamate, per l\'ulteriore funzionamento dell\'applicazione è necessario fornire questa autorizzazione.\nTutte le informazioni sulle chiamate verranno archiviate esclusivamente sul tuo dispositivo, senza essere trasferite da nessuna parte.</string>
+
+    <string name="ok">OK</string>
+
+    <string name="pop_up_info_content">Creeremo ora un database locale basato sul registro delle chiamate.\nQuesto processo richiederà diversi minuti, a seconda della dimensione del registro delle chiamate.\nA questo punto, l\'applicazione può essere ridotta a icona, ma non chiusa.</string>
+
+    <string name="update_database">Aggiornamento della banca dati</string>
+</resources>

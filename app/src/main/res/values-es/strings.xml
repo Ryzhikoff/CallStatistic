@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Estadísticas de llamadas</string>
+
+    <string name="menu_main">Hogar</string>
+
+    <string name="menu_total_statistic">Estadísticas</string>
+
+    <string-array name="update_db_text">
+
+        <item>Actualizando la base de datos</item>
+
+        <item>Actualización de la base de datos.</item>
+
+        <item>Actualizando la base de datos..</item>
+
+        <item tools:ignore="TypographyEllipsis">Actualizando la base de datos...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Total</string>
+
+    <string name="header_top_incoming">Top 10 entrantes:</string>
+
+    <string name="header_top_outgoing">Top 10 salientes:</string>
+
+    <string name="header_longest_incoming">Entrante más largo:</string>
+
+    <string name="header_longest_outgoing">Salida más larga:</string>
+
+    <string name="hour_short">h</string>
+
+    <string name="minute_short">metro</string>
+
+    <string name="second_short">s</string>
+
+    <string name="day_short">d</string>
+
+    <string name="label_contact_with_colon">Contacto:</string>
+
+    <string name="label_phone_number_with_colon">Teléfono:</string>
+
+    <string name="label_duration_with_colon">Duración:</string>
+
+    <string name="label_type_with_colon">Tipo de anillo:</string>
+
+    <string name="label_date_with_colon">Fecha:</string>
+
+    <string name="label_time_with_colon">Tiempo:</string>
+
+    <string name="incoming">Entrante</string>
+
+    <string name="outgoing">Extrovertido</string>
+
+    <string name="missed">Omitido</string>
+
+    <string name="voice_email">Mensaje de voz</string>
+
+    <string name="rejected">Rechazado</string>
+
+    <string name="blocked">Obstruido</string>
+
+    <string name="answered_externally">Recibido en otro dispositivo</string>
+
+    <string name="unknown">Desconocido</string>
+
+    <string name="label_total_duration">Duración total</string>
+
+    <string name="label_total_phone_talk">Llamadas totales:</string>
+
+    <string name="label_total_time_talk">Tiempo de conversación:</string>
+
+    <string name="label_total_calls">Llamadas totales:</string>
+
+    <string name="header_with_longest_incoming">Contactos principales por duración del mensaje entrante:</string>
+
+    <string name="header_with_longest_outgoing">Contactos principales por duración de salida:</string>
+
+    <string name="label_count_calls_with_incoming">Número de contactos entrantes:</string>
+
+    <string name="label_total_incoming">Entradas totales:</string>
+
+    <string name="label_stat_by">para </string>
+
+    <string name="label_choose_day">Elige el día</string>
+
+    <string name="home_title">Básico</string>
+
+    <string name="label_total_number">Números totales:</string>
+
+    <string name="label_of_them">de los cuales:</string>
+
+    <string name="label_today">Hoy</string>
+
+    <string name="label_yesterday">Ayer</string>
+
+    <string name="label_count_calls_with_outgoing">Número de contactos salientes:</string>
+
+    <string name="label_total_outgoing">Total saliente:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Actualizando la base de datos...</string>
+
+    <string name="pop_up_launch_title">Importante</string>
+
+    <string name="pop_up_launch_content">Ahora se le pedirá permiso para acceder al registro de llamadas.\nEste permiso es necesario para que la aplicación funcione, ya que la única función de la aplicación son las estadísticas de llamadas, para un mayor funcionamiento de la aplicación debe proporcionar este permiso.\nToda la información sobre las llamadas se almacenará exclusivamente en su dispositivo, sin transferencia a ningún lado.</string>
+
+    <string name="ok">DE ACUERDO</string>
+
+    <string name="pop_up_info_content">Ahora crearemos una base de datos local basada en el registro de llamadas.\nEste proceso tardará varios minutos, según el tamaño del registro de llamadas.\nEn este momento, la aplicación se puede minimizar, pero no cerrar.</string>
+
+    <string name="update_database">Actualización de base de datos</string>
+</resources>

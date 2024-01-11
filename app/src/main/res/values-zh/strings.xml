@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">通话统计</string>
+
+    <string name="menu_main">家</string>
+
+    <string name="menu_total_statistic">统计数据</string>
+
+    <string-array name="update_db_text">
+
+        <item>更新数据库</item>
+
+        <item>更新数据库。</item>
+
+        <item>正在更新数据库..</item>
+
+        <item tools:ignore="TypographyEllipsis">正在更新数据库...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">全部的</string>
+
+    <string name="header_top_incoming">前 10 名传入：</string>
+
+    <string name="header_top_outgoing">前 10 名流出：</string>
+
+    <string name="header_longest_incoming">最长传入：</string>
+
+    <string name="header_longest_outgoing">最长外出时间：</string>
+
+    <string name="hour_short">H</string>
+
+    <string name="minute_short">米</string>
+
+    <string name="second_short">s</string>
+
+    <string name="day_short">d</string>
+
+    <string name="label_contact_with_colon">接触：</string>
+
+    <string name="label_phone_number_with_colon">电话：</string>
+
+    <string name="label_duration_with_colon">期间：</string>
+
+    <string name="label_type_with_colon">戒指类型：</string>
+
+    <string name="label_date_with_colon">日期：</string>
+
+    <string name="label_time_with_colon">时间：</string>
+
+    <string name="incoming">传入</string>
+
+    <string name="outgoing">传出</string>
+
+    <string name="missed">错过了</string>
+
+    <string name="voice_email">语音信箱</string>
+
+    <string name="rejected">拒绝</string>
+
+    <string name="blocked">被阻止</string>
+
+    <string name="answered_externally">在另一台设备上收到</string>
+
+    <string name="unknown">未知</string>
+
+    <string name="label_total_duration">总持续时间</string>
+
+    <string name="label_total_phone_talk">总通话次数：</string>
+
+    <string name="label_total_time_talk">谈话时间：</string>
+
+    <string name="label_total_calls">总通话次数：</string>
+
+    <string name="header_with_longest_incoming">按来电长度排列的热门联系人：</string>
+
+    <string name="header_with_longest_outgoing">按外出时长排列的热门联系人：</string>
+
+    <string name="label_count_calls_with_incoming">传入联系人数量：</string>
+
+    <string name="label_total_incoming">总收入：</string>
+
+    <string name="label_stat_by">为了</string>
+
+    <string name="label_choose_day">选择日期</string>
+
+    <string name="home_title">基本的</string>
+
+    <string name="label_total_number">总数：</string>
+
+    <string name="label_of_them">其中：</string>
+
+    <string name="label_today">今天</string>
+
+    <string name="label_yesterday">昨天</string>
+
+    <string name="label_count_calls_with_outgoing">外出联络人数：</string>
+
+    <string name="label_total_outgoing">总支出：</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">正在更新数据库...</string>
+
+    <string name="pop_up_launch_title">重要的</string>
+
+    <string name="pop_up_launch_content">现在，系统将要求您授予访问通话记录的权限。\n此权限对于应用程序的工作是必需的，因为应用程序的唯一功能是呼叫统计，为了进一步操作应用程序，您必须提供此权限。\n有关通话的所有信息将仅存储在您的设备上，不会转移到任何地方。</string>
+
+    <string name="ok">好的</string>
+
+    <string name="pop_up_info_content">我们现在将根据呼叫日志创建一个本地数据库。\n此过程将需要几分钟的时间，具体取决于呼叫日志的大小。\n此时，应用程序可以最小化，但不能关闭。</string>
+
+    <string name="update_database">数据库更新</string>
+</resources>

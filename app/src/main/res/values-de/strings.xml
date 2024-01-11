@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Anrufstatistik</string>
+
+    <string name="menu_main">Heim</string>
+
+    <string name="menu_total_statistic">Statistiken</string>
+
+    <string-array name="update_db_text">
+
+        <item>Aktualisierung der Datenbank</item>
+
+        <item>Aktualisierung der Datenbank.</item>
+
+        <item>Aktualisierung der Datenbank..</item>
+
+        <item tools:ignore="TypographyEllipsis">Datenbank wird aktualisiert...</item>
+
+    </string-array>
+
+    <string name="analyticalPieChartAmount">Gesamt</string>
+
+    <string name="header_top_incoming">Top 10 Incomings:</string>
+
+    <string name="header_top_outgoing">Top 10 der ausgehenden:</string>
+
+    <string name="header_longest_incoming">Längster Eingang:</string>
+
+    <string name="header_longest_outgoing">Längster ausgehender Anruf:</string>
+
+    <string name="hour_short">H</string>
+
+    <string name="minute_short">M</string>
+
+    <string name="second_short">S</string>
+
+    <string name="day_short">D</string>
+
+    <string name="label_contact_with_colon">Kontakt:</string>
+
+    <string name="label_phone_number_with_colon">Telefon:</string>
+
+    <string name="label_duration_with_colon">Dauer:</string>
+
+    <string name="label_type_with_colon">Ringtyp:</string>
+
+    <string name="label_date_with_colon">Datum:</string>
+
+    <string name="label_time_with_colon">Zeit:</string>
+
+    <string name="incoming">Eingehend</string>
+
+    <string name="outgoing">Ausgehend</string>
+
+    <string name="missed">Verpasst</string>
+
+    <string name="voice_email">Voicemail</string>
+
+    <string name="rejected">Abgelehnt</string>
+
+    <string name="blocked">verstopft</string>
+
+    <string name="answered_externally">Auf einem anderen Gerät empfangen</string>
+
+    <string name="unknown">Unbekannt</string>
+
+    <string name="label_total_duration">Gesamtdauer</string>
+
+    <string name="label_total_phone_talk">Gesamtanrufe:</string>
+
+    <string name="label_total_time_talk">Sprechzeit:</string>
+
+    <string name="label_total_calls">Gesamtanrufe:</string>
+
+    <string name="header_with_longest_incoming">Top-Kontakte nach Dauer des Incomings:</string>
+
+    <string name="header_with_longest_outgoing">Top-Kontakte nach ausgehender Dauer:</string>
+
+    <string name="label_count_calls_with_incoming">Anzahl eingehender Kontakte:</string>
+
+    <string name="label_total_incoming">Gesamteingang:</string>
+
+    <string name="label_stat_by">für </string>
+
+    <string name="label_choose_day">Wählen Sie einen Tag</string>
+
+    <string name="home_title">Basic</string>
+
+    <string name="label_total_number">Gesamtzahlen:</string>
+
+    <string name="label_of_them">von welchem:</string>
+
+    <string name="label_today">Heute</string>
+
+    <string name="label_yesterday">Gestern</string>
+
+    <string name="label_count_calls_with_outgoing">Anzahl ausgehender Kontakte:</string>
+
+    <string name="label_total_outgoing">Gesamtausgänge:</string>
+
+    <string name="label_db_update" tools:ignore="TypographyEllipsis">Datenbank wird aktualisiert...</string>
+
+    <string name="pop_up_launch_title">Wichtig</string>
+
+    <string name="pop_up_launch_content">Nun werden Sie um Erlaubnis zum Zugriff auf das Anrufprotokoll gebeten.\nDiese Berechtigung ist für das Funktionieren der Anwendung erforderlich, da die einzige Funktion der Anwendung die Anrufstatistik ist. Für den weiteren Betrieb der Anwendung müssen Sie diese Berechtigung erteilen.\nAlle Informationen über Anrufe werden ausschließlich auf Ihrem Gerät gespeichert, ohne irgendwohin übertragen zu werden.</string>
+
+    <string name="ok">OK</string>
+
+    <string name="pop_up_info_content">Wir werden nun eine lokale Datenbank basierend auf dem Anrufprotokoll erstellen.\nDieser Vorgang kann je nach Größe des Anrufprotokolls mehrere Minuten dauern.\nZu diesem Zeitpunkt kann die Anwendung minimiert, aber nicht geschlossen werden.</string>
+
+    <string name="update_database">Datenbankaktualisierung</string>
+</resources>
