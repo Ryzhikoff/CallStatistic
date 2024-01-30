@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="@android:color/transparent" android:state_pressed="false" app:backgroundTint="@android:color/transparent"/>
+    <item android:color="@color/gray_medium" android:state_pressed="true" app:backgroundTint="@color/gray_medium"/>
+</selector>
