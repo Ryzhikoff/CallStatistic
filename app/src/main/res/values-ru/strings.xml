@@ -60,4 +60,5 @@
     <string name="ok">Хорошо</string>
     <string name="pop_up_info_content">Сейчас будет создание локальной базы данных на основе списка вызовов.\nЭтот процесс займет несколько минут, в зависимости от размера журнала звонков.\nВ это время приложение можно свернуть, но не закрывать.</string>
     <string name="update_database">Обновление базы данных</string>
+    <string name="label_average_duration">Средняя продолжительность</string>
 </resources>

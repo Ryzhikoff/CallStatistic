@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">이제 통화 기록을 기반으로 로컬 데이터베이스를 생성하겠습니다.\n이 프로세스는 통화 기록의 크기에 따라 몇 분 정도 소요됩니다.\n이때 애플리케이션을 최소화할 수는 있지만 종료할 수는 없습니다.</string>
 
     <string name="update_database">데이터베이스 업데이트</string>
+    <string name="label_average_duration">평균 지속 시간</string>
 </resources>

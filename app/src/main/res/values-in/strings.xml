@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">Kami sekarang akan membuat database lokal berdasarkan log panggilan.\nProses ini akan memakan waktu beberapa menit, tergantung ukuran log panggilan.\nSaat ini, aplikasi bisa diminimalkan, tapi tidak bisa ditutup.</string>
 
     <string name="update_database">Pembaruan basis data</string>
+    <string name="label_average_duration">Durasi rata-rata</string>
 </resources>

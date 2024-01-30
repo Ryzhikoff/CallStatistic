@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">Agora criaremos um banco de dados local baseado no registro de chamadas.\nEste processo levará vários minutos, dependendo do tamanho do registro de chamadas.\nNeste momento, o aplicativo pode ser minimizado, mas não fechado.</string>
 
     <string name="update_database">Atualização de banco de dados</string>
+    <string name="label_average_duration">Duração média</string>
 </resources>

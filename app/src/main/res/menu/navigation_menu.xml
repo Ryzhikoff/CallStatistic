@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/itemMainPage"
+        android:id="@+id/home_graph"
         android:checkable="true"
         android:icon="@drawable/icon_home"
         android:title="@string/menu_main" />
     <item
-        android:id="@+id/itemStatByPeriod"
+        android:id="@+id/stat_graph"
         android:checkable="true"
         android:icon="@drawable/icon_chart"
         android:title="@string/menu_total_statistic" />
     <item
-        android:id="@+id/itemIncoming"
+        android:id="@+id/incoming_graph"
         android:checkable="true"
         android:icon="@drawable/icon_incoming"
         android:title="@string/incoming" />
     <item
-        android:id="@+id/itemOutgoing"
+        android:id="@+id/outgoing_graph"
         android:checkable="true"
         android:icon="@drawable/icon_outgoing"
         android:title="@string/outgoing" />

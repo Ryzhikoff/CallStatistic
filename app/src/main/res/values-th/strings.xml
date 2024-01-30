@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">ตอนนี้เราจะสร้างฐานข้อมูลท้องถิ่นตามบันทึกการโทร\nกระบวนการนี้จะใช้เวลาหลายนาที ขึ้นอยู่กับขนาดของบันทึกการโทร\nในขณะนี้ แอปพลิเคชันสามารถย่อเล็กสุดได้ แต่ไม่สามารถปิดได้</string>
 
     <string name="update_database">อัพเดตฐานข้อมูล</string>
+    <string name="label_average_duration">ระยะเวลาเฉลี่ย</string>
 </resources>

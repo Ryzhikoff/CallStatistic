@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">Nous allons maintenant créer une base de données locale basée sur le journal des appels.\nCe processus prendra plusieurs minutes, selon la taille du journal des appels.\nÀ ce stade, l\'application peut être réduite, mais pas fermée.</string>
 
     <string name="update_database">Mise à jour de la base de données</string>
+    <string name="label_average_duration">Durée moyenne</string>
 </resources>

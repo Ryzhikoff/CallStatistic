@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">我们现在将根据呼叫日志创建一个本地数据库。\n此过程将需要几分钟的时间，具体取决于呼叫日志的大小。\n此时，应用程序可以最小化，但不能关闭。</string>
 
     <string name="update_database">数据库更新</string>
+    <string name="label_average_duration">平均持续时间</string>
 </resources>

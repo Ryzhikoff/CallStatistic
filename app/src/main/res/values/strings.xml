@@ -59,6 +59,7 @@
     <string name="ok">OK</string>
     <string name="pop_up_info_content">We will now create a local database based on the call log.\nThis process will take several minutes, depending on the size of the call log.\nAt this time, the application can be minimized, but not closed.</string>
     <string name="update_database">Database update</string>
+    <string name="label_average_duration">Average duration</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>
