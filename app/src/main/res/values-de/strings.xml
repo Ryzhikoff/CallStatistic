@@ -109,4 +109,5 @@
     <string name="pop_up_info_content">Wir werden nun eine lokale Datenbank basierend auf dem Anrufprotokoll erstellen.\nDieser Vorgang kann je nach Größe des Anrufprotokolls mehrere Minuten dauern.\nZu diesem Zeitpunkt kann die Anwendung minimiert, aber nicht geschlossen werden.</string>
 
     <string name="update_database">Datenbankaktualisierung</string>
+    <string name="label_average_duration">Durchschnittliche Dauer</string>
 </resources>

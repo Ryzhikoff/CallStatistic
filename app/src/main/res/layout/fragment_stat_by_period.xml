@@ -7,55 +7,47 @@
     android:orientation="vertical"
     tools:context=".ui.statistic.StatByPeriodFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/infoContainer"
+    <evgeniy.ryzhikov.callstatistics.ui.customview.ActionBar
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/info_container_background"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/margin_edge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="@dimen/margin_in_cards"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginEnd="@dimen/margin_edge"
 
-        <LinearLayout
-            android:id="@+id/bannerContainer"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:elevation="@dimen/cards_elevation"
+        android:weightSum="0.3">
 
-            <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
-                android:id="@+id/yandexBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/mainLabel"
-            style="@style/TitleLarge"
+        <Button
+            style="@style/ButtonGroup"
+            android:id="@+id/today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_edge"
-            android:layout_marginTop="@dimen/margin_edge"
-            android:text="@string/menu_total_statistic"
-            android:textColor="@color/text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bannerContainer" />
+            android:layout_weight="0.1"
+            android:text="@string/label_today" />
 
-        <TextView
-            android:id="@+id/labelByDay"
-            style="@style/TitleSmall"
+        <Button
+            style="@style/ButtonGroup"
+            android:id="@+id/yesterday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_edge"
-            android:text="@string/label_stat_by"
-            android:textColor="@color/text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mainLabel" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_weight="0.1"
+            android:text="@string/label_yesterday" />
+
+        <Button
+            style="@style/ButtonGroup"
+            android:id="@+id/chooseDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="@string/label_choose_day" />
+
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -72,7 +64,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_edge"
+                android:layout_marginHorizontal="@dimen/margin_edge"
+                android:layout_marginTop="@dimen/margin_in_cards"
                 android:background="@drawable/chart_background"
                 android:elevation="@dimen/cards_elevation"
                 android:orientation="vertical"
@@ -107,8 +100,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_edge"
-                android:layout_marginEnd="@dimen/margin_edge"
+                android:layout_marginHorizontal="@dimen/margin_edge"
+                android:layout_marginTop="@dimen/margin_in_cards"
                 android:background="@drawable/chart_background"
                 android:elevation="@dimen/cards_elevation"
                 android:orientation="vertical"
@@ -139,42 +132,105 @@
                     app:pieChartTextNumberSize="16sp" />
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButtonToggleGroup
+            <LinearLayout
+                android:id="@+id/averageContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_edge"
-                android:layout_marginStart="@dimen/margin_edge"
-                android:layout_marginEnd="@dimen/margin_edge"
-
+                android:layout_marginHorizontal="@dimen/margin_edge"
+                android:layout_marginTop="@dimen/margin_in_cards"
+                android:background="@drawable/chart_background"
                 android:elevation="@dimen/cards_elevation"
-                android:weightSum="0.3">
+                android:orientation="vertical"
+                android:padding="@dimen/margin_in_cards"
+                android:layout_marginBottom="@dimen/margin_in_cards"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalDurationContainer">
 
-                <Button
-                    style="@style/ButtonGroup"
-                    android:id="@+id/today"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_edge"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/margin_edge"
+                    android:layout_marginBottom="@dimen/margin_edge"
+                    android:elevation="@dimen/cards_elevation"
+                    app:cardBackgroundColor="@color/primary"
+                    app:cardCornerRadius="@dimen/cards_radius">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/labelAverageDuration"
+                            style="@style/Headline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_in_cards"
+                            android:layout_marginTop="@dimen/margin_in_cards"
+                            android:text="@string/label_average_duration"
+                            android:textColor="@color/text" />
+
+                        <TextView
+                            android:id="@+id/tvAverageDuration"
+                            style="@style/Subhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_in_cards"
+                            android:layout_marginTop="@dimen/margin_in_cards"
+                            android:layout_marginBottom="@dimen/margin_in_cards"
+                            tools:text="7д 5ч 1м 24с" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/labelAverangeIncoming"
+                    style="@style/Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="@string/label_today" />
+                    android:text="@string/incoming"
+                    android:layout_marginHorizontal="16dp"/>
 
-                <Button
-                    style="@style/ButtonGroup"
-                    android:id="@+id/yesterday"
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/incomingAverage"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    app:rpbBackgroundColor="@android:color/transparent"
+                    app:rpbBackgroundTextColor="@color/blue_main"
+                    app:rpbCornerRadius="20dp"
+                    app:rpbShowProgressText="false"
+                    android:layout_marginTop="8dp"
+                    app:rpbProgressColor="@color/blue_main"
+                    app:rpbProgressTextColor="@color/text"
+                    app:rpbTextPadding="12dp"
+                    android:layout_marginHorizontal="16dp"/>
+
+                <TextView
+                    android:id="@+id/labelAverangeOutgoing"
+                    style="@style/Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="@string/label_yesterday" />
+                    android:layout_marginTop="8dp"
+                    android:text="@string/outgoing"
+                    android:layout_marginHorizontal="16dp"/>
 
-                <Button
-                    style="@style/ButtonGroup"
-                    android:id="@+id/chooseDay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:text="@string/label_choose_day" />
-
-
-            </com.google.android.material.button.MaterialButtonToggleGroup>
+                <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                    android:id="@+id/outgoingAverage"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:rpbBackgroundColor="@android:color/transparent"
+                    app:rpbBackgroundTextColor="@color/white"
+                    app:rpbCornerRadius="20dp"
+                    app:rpbShowProgressText="false"
+                    android:layout_marginTop="8dp"
+                    app:rpbProgressColor="@color/purple_main"
+                    app:rpbProgressTextColor="@color/text"
+                    app:rpbTextPadding="12dp"
+                    android:layout_marginHorizontal="16dp"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

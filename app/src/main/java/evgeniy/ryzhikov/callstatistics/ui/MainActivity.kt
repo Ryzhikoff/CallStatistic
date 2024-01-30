@@ -1,75 +1,54 @@
 package evgeniy.ryzhikov.callstatistics.ui
 
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActivityMainBinding
 import evgeniy.ryzhikov.callstatistics.ui.customview.PopUpDialog
-import evgeniy.ryzhikov.callstatistics.ui.update.UpdateDBFragment
-import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
-import evgeniy.ryzhikov.callstatistics.ui.type_calls.TypeCallsFragment
-import evgeniy.ryzhikov.callstatistics.ui.statistic.StatByPeriodFragment
-import evgeniy.ryzhikov.callstatistics.utils.INCOMING_TYPE
-import evgeniy.ryzhikov.callstatistics.utils.OUTGOING_TYPE
+
 
 class MainActivity : AppCompatActivity() {
+
     private val binding: ActivityMainBinding by lazy(LazyThreadSafetyMode.NONE) {
         ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    private val navController: NavController by lazy {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
+        navHostFragment.navController
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        addMenuClickListeners()
-        checkPermissionAndStartFragment()
-//        HideNavigationBars.hide(window, binding.root)
-    }
-
-    private fun addMenuClickListeners() {
-        binding.navigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.itemMainPage -> {
-                    startFragment(HomeFragment())
-                    true
-                }
-
-                R.id.itemStatByPeriod -> {
-                    startFragment(StatByPeriodFragment())
-                    true
-                }
-
-                R.id.itemIncoming -> {
-                    startFragment(TypeCallsFragment(INCOMING_TYPE))
-                    true
-                }
-
-                R.id.itemOutgoing -> {
-                    startFragment(TypeCallsFragment(OUTGOING_TYPE))
-                    true
-                }
-
-                else -> return@setOnItemSelectedListener true
-            }
+        if (savedInstanceState == null) {
+            navController.setGraph(R.navigation.on_start_nav_graph)
+            checkPermissionAndStartFragment()
+        } else {
+            startBottomNavigation()
         }
+
     }
 
-    fun startFragment(fragment: Fragment, showBottomBar: Boolean = true) {
-        binding.navigation.isVisible = showBottomBar
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragmentPlaceholder, fragment)
-            .commit()
+    fun startBottomNavigation() {
+        navController.setGraph(R.navigation.main_nav_graph)
+        binding.bottomNavigationView.apply {
+            isVisible = true
+            setupWithNavController(navController)
+        }
     }
 
     private fun checkPermissionAndStartFragment() {
         if (checkPermission()) {
-            startFragment(UpdateDBFragment(), false)
+            navController.navigate(R.id.action_splash_to_update_db)
         } else {
             showPopUpDialog(requestListener, getString(R.string.pop_up_launch_content))
         }
@@ -129,11 +108,17 @@ class MainActivity : AppCompatActivity() {
     private val infoListener = object : PopUpDialog.PopUpDialogClickListener {
         override fun onClick(popUpDialog: PopUpDialog) {
             popUpDialog.dismiss()
-            startFragment(UpdateDBFragment(), false)
+            navController.navigate(R.id.action_splash_to_update_db)
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        navController.saveState()
     }
 
     companion object {
         const val PERMISSION_REQUEST_CODE = 123456
+        const val KEY_TYPE_CALL = "type_call"
     }
 }

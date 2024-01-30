@@ -83,16 +83,19 @@ class PopUpDialog private constructor(
         dialog?.window?.apply {
             when (animationType) {
                 AnimationType.BOTTOM -> {
-                    decorView.setPadding(0,0,0, 100.toPx)
+                    decorView.setPadding(0, 0, 0, 100.toPx)
                     setGravity(Gravity.BOTTOM)
                     setWindowAnimations(R.style.pop_up_dialog_from_bottom)
                 }
+
                 AnimationType.RIGHT -> {
                     setWindowAnimations(R.style.pop_up_dialog_from_right)
                 }
+
                 AnimationType.SPLASH -> {
                     setWindowAnimations(R.style.pop_up_dialog_splash)
                 }
+
                 null -> {}
             }
 
@@ -129,9 +132,44 @@ class PopUpDialog private constructor(
     }
 
     private val Int.toPx get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
     enum class AnimationType {
         BOTTOM,
         RIGHT,
         SPLASH
     }
 }
+
+//@Parcelize
+//class PopUpDialogSettings private constructor(
+//    private val title: String? = null,
+//    private val content: String = "",
+//    private val rightButtonText: String? = null,
+//    private val rightButtonListener: PopUpDialog.PopUpDialogClickListener? = null,
+//    private val leftButtonText: String? = null,
+//    private val leftButtonListener: PopUpDialog.PopUpDialogClickListener? = null,
+//    private val duration: Long? = null,
+//    private val animationType: PopUpDialog.AnimationType? = null
+//): Parcelable {
+//    data class Builder(
+//        var title: String? = null,
+//        var content: String = "",
+//        var rightButtonText: String? = null,
+//        var rightButtonListener: PopUpDialog.PopUpDialogClickListener? = null,
+//        var leftButtonText: String? = null,
+//        var leftButtonListener: PopUpDialog.PopUpDialogClickListener? = null,
+//        var duration: Long? = null,
+//        var animationType: PopUpDialog.AnimationType? = null
+//    ) {
+//        fun title(title: String) = apply { this.title = title }
+//        fun content(content: String) = apply { this.content = content }
+//        fun rightButtonText(rightButtonText: String) = apply { this.rightButtonText = rightButtonText }
+//        fun rightButtonListener(rightButtonListener: PopUpDialog.PopUpDialogClickListener) = apply { this.rightButtonListener = rightButtonListener }
+//        fun leftButtonText(leftButtonText: String) = apply { this.leftButtonText = leftButtonText }
+//        fun leftButtonListener(leftButtonListener: PopUpDialog.PopUpDialogClickListener) = apply { this.leftButtonListener = leftButtonListener }
+//        fun duration(millis: Long) = apply { this.duration = millis }
+//        fun animationType(animationType: PopUpDialog.AnimationType) = apply { this.animationType = animationType }
+//        fun build() =
+//            PopUpDialogSettings(title, content, rightButtonText, rightButtonListener, leftButtonText, leftButtonListener, duration, animationType)
+//    }
+//}

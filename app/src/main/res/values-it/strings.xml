@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">Creeremo ora un database locale basato sul registro delle chiamate.\nQuesto processo richiederà diversi minuti, a seconda della dimensione del registro delle chiamate.\nA questo punto, l\'applicazione può essere ridotta a icona, ma non chiusa.</string>
 
     <string name="update_database">Aggiornamento della banca dati</string>
+    <string name="label_average_duration">Durata media</string>
 </resources>

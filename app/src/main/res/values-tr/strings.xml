@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">Şimdi çağrı kaydına dayalı yerel bir veritabanı oluşturacağız.\nBu işlem, arama kaydının boyutuna bağlı olarak birkaç dakika sürecektir.\nŞu anda uygulama simge durumuna küçültülebilir ancak kapatılamaz.</string>
 
     <string name="update_database">Veritabanı güncellemesi</string>
+    <string name="label_average_duration">Ortalama süre</string>
 </resources>

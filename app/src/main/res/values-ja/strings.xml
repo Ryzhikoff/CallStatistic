@@ -110,4 +110,5 @@
     <string name="pop_up_info_content">次に、通話ログに基づいてローカル データベースを作成します。\n通話ログのサイズに応じて、このプロセスには数分かかります。\n現時点では、アプリケーションを最小化することはできますが、閉じることはできません。</string>
 
     <string name="update_database">データベースの更新</string>
+    <string name="label_average_duration">平均持続時間</string>
 </resources>

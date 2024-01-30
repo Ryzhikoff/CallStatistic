@@ -6,26 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fragmentPlaceholder"
-        android:layout_width="match_parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_nav_graph"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/navigation"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
         style="@style/BottomNavigation"
-        android:id="@+id/navigation"
-        android:visibility="gone"
-        android:elevation="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/navigation_menu"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:itemIconSize="24dp"
         app:itemTextAppearanceActive="@style/TextAppearance.Material3.BodySmall"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation_menu"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
