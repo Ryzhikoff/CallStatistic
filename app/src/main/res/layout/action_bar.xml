@@ -33,8 +33,22 @@
         android:layout_marginTop="@dimen/margin_in_cards"
         android:text="@string/incoming"
         android:textColor="@color/text"
+        app:layout_constrainedWidth="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bannerContainer" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="@dimen/margin_edge"
+        android:background="@drawable/action_bar_icon_background"
+        android:src="@drawable/icon_menu"
+        android:clickable="true"
+        app:tint="@color/text"
+        app:layout_constraintBottom_toBottomOf="@id/caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/caption"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/topArea"
@@ -62,9 +76,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_in_cards"
-                android:visibility="gone"
                 android:text="@string/label_count_calls_with_incoming"
-                android:textColor="@color/text" />
+                android:textColor="@color/text"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/topValue"
@@ -103,17 +117,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_in_cards"
-                android:visibility="gone"
                 android:text="@string/label_total_incoming"
-                android:textColor="@color/text" />
+                android:textColor="@color/text"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/bottomValue"
                 style="@style/TitleSmall"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_in_cards"
+                android:visibility="gone"
                 tools:text="1223" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -125,8 +139,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_edge"
         android:text="@string/label_stat_by"
-        android:visibility="gone"
         android:textColor="@color/text"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/caption" />
 </androidx.constraintlayout.widget.ConstraintLayout>
