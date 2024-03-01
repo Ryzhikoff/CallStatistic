@@ -4,6 +4,9 @@
 
 
 # Android-приложение **Статистика звонков**
+
+[![Rustore Logo](https://apps.rustore.ru/img/logoRustore.svg)](https://apps.rustore.ru/app/evgeniy.ryzhikov.callstatistics)
+
 ---
 ## Основные функции
 - Общая статистика по звонкам
