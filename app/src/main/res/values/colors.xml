@@ -25,10 +25,13 @@
     <color name="gray_medium">#A7B0BA</color>
     <color name="gray_dark">#7B8794</color>
     <color name="primary">#215190</color>
+    <color name="primary_alpha30">#4D215190</color>
+    <color name="primary_dark">#102744</color>
     <color name="secondary">#F0DF67</color>
     <color name="secondary_variant">#C06363</color>
 
     <color name="dark">#1F2933</color>
+    <color name="dark_alpha30">#4D1F2933</color>
     <color name="dark_light">#323F4B</color>
     <color name="background_image_color">#33454545</color>
 

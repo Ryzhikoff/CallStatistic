@@ -52,7 +52,6 @@ class App: Application() {
         return ""
     }
 
-
     companion object {
         lateinit var instance: App
             private set

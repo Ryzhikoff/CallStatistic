@@ -61,6 +61,23 @@
     <string name="update_database">Database update</string>
     <string name="label_average_duration">Average duration</string>
     <string name="backup">Backup</string>
+    <string name="label_save_to_google_drive">Backup on Google Drive</string>
+    <string name="pop_up_overwrite_content">A previous version of the database backup already exists on the disk. Overwrite database file?</string>
+    <string name="no">No</string>
+    <string name="pop_up_saved_success_title">Success</string>
+    <string name="pop_up_saved_success_content">Database backup successfully saved</string>
+    <string name="pop_up_saved_error_title">Error</string>
+    <string name="pop_up_saved_error_content">Error when saving a database backup:</string>
+    <string name="pop_up_backup_error_title">Failed</string>
+    <string name="pop_up_backup_error_content_folder">Failed to load backup: there is no backup folder on the disk</string>
+    <string name="pop_up_backup_error_content_file">Failed to load backup: the backup file is missing on the disk</string>
+    <string name="pop_up_load_success_title">Success</string>
+    <string name="pop_up_load_success_content">Backup uploaded successfully\nLocal database updated</string>
+    <string name="pop_up_load_error_title">Failed</string>
+    <string name="pop_up_load_error_content">An error occurred while loading the backup:</string>
+    <string name="label_save">Save</string>
+    <string name="label_load">Load</string>
+    <string name="text_back">Back</string>
     <string-array name="analyticalPieChartColorArray">
         <item>#E480F4</item>
         <item>#6CC3F3</item>

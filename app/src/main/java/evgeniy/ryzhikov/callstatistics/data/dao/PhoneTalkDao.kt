@@ -32,4 +32,7 @@ interface PhoneTalkDao {
     @Query("SELECT COUNT(*) FROM $TABLE_NAME_PHONE_TALK")
     fun getCountPhoneTalks(): Long
 
+    @Query("SELECT * FROM $TABLE_NAME_PHONE_TALK")
+    fun getAll(): List<PhoneTalk>
+
 }

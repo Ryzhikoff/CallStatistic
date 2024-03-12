@@ -1,5 +1,6 @@
 package evgeniy.ryzhikov.callstatistics.ui.customview
 
+import android.content.DialogInterface
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -27,6 +28,8 @@ class PopUpDialog private constructor(
     private val duration: Long? = null,
     private val animationType: AnimationType? = null
 ) : DialogFragment(R.layout.pop_up_dialog) {
+
+    private var onCanceledListener: OnCanceledListener? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -102,12 +105,29 @@ class PopUpDialog private constructor(
         }
     }
 
-    companion object {
-        const val TAG = "POP_UP_DIALOG"
+    override fun onCancel(dialog: DialogInterface) {
+        onCanceledListener?.onCanceled()
+        super.onCancel(dialog)
+    }
+
+    fun setOnCanceledListener(callback: () -> Unit) {
+        onCanceledListener = object : OnCanceledListener {
+            override fun onCanceled() {
+                callback()
+            }
+        }
+    }
+
+    private interface OnCanceledListener {
+        fun onCanceled()
     }
 
     interface PopUpDialogClickListener {
         fun onClick(popUpDialog: PopUpDialog)
+    }
+
+    companion object {
+        const val TAG = "POP_UP_DIALOG"
     }
 
     data class Builder(

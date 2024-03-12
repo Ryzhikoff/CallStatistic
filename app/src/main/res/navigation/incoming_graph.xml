@@ -8,5 +8,14 @@
         android:id="@+id/incomingFragment"
         android:name="evgeniy.ryzhikov.callstatistics.ui.type_calls.IncomingFragment"
         android:label="IncomingFragment"
-        tools:layout="@layout/fragment_type_calls" />
+        tools:layout="@layout/fragment_type_calls" >
+        <action
+            android:id="@+id/action_incomingFragment_to_backupFragment3"
+            app:destination="@id/backupFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/backupFragment3"
+        android:name="evgeniy.ryzhikov.callstatistics.ui.backup.BackupFragment"
+        android:label="BackupFragment"
+        tools:layout="@layout/fragment_backup"/>
 </navigation>

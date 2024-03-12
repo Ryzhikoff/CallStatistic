@@ -1,9 +1,12 @@
 package evgeniy.ryzhikov.callstatistics.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.animation.AnimationUtils
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentHomeBinding
 import evgeniy.ryzhikov.callstatistics.utils.ANIMATION_DURATION_TO_GRAPHS
@@ -24,16 +27,29 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.consolidatedPhoneNumbers.observe(viewLifecycleOwner) { consolidatedPhoneNumbers ->
             displayStat(consolidatedPhoneNumbers)
         }
+
+        initFabMenu()
+    }
+
+    private fun initFabMenu() = with(binding) {
+        fabMenu.apply {
+            animation = AnimationUtils.loadAnimation(context, R.anim.fall_from_top)
+            animate()
+        }
+        backup.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_backupFragment)
+        }
+
     }
 
     private fun initActionBar() {
         binding.actionBar.apply {
+            isAnimate = true
             setContent(
                 caption = getString(R.string.home_title),
                 topName = getString(R.string.label_total_number),
                 bottomName = getString(R.string.label_total_calls),
             )
-            isAnimate = true
         }
     }
 
@@ -62,7 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 listOfPair.add(Pair(consolidatedPhoneNumbers.answeredExternally, resources.getString(R.string.answered_externally)))
 
             chartCalls.setDataChart(listOfPair)
-            chartCalls.visibility = View.VISIBLE
+            chartsVisible(true)
             chartCalls.startAnimation()
 
             chartDuration.isConvertDuration = true
@@ -73,7 +89,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     Pair(consolidatedPhoneNumbers.durationOut.toInt(), resources.getString(R.string.outgoing)),
                 )
             )
-            chartDuration.visibility = View.VISIBLE
             chartDuration.startAnimation()
 
             if (consolidatedPhoneNumbers.incomingAverageDuration > 0L || consolidatedPhoneNumbers.outgoingAverageDuration > 0) {
@@ -110,6 +125,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             labelAverangeIncoming.text = incoming
             labelAverangeOutgoing.text = outgoing
         }
+    }
+
+    private fun chartsVisible(value: Boolean) = with(binding) {
+        chartCalls.isVisible = value
+        chartDuration.isVisible = value
     }
 
     override fun onDestroyView() {
