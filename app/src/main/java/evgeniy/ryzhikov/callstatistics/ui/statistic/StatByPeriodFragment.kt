@@ -3,8 +3,10 @@ package evgeniy.ryzhikov.callstatistics.ui.statistic
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentStatByPeriodBinding
@@ -34,6 +36,18 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
 
         selectedDay = getFormattedDay(System.currentTimeMillis())
         viewModel.getPhoneTalksByDay(selectedDay)
+        initFabMenu()
+    }
+
+    private fun initFabMenu() = with(binding) {
+        fabMenu.apply {
+            animation = AnimationUtils.loadAnimation(context, R.anim.fall_from_top)
+            animate()
+        }
+        backup.setOnClickListener {
+            findNavController().navigate(R.id.action_statByPeriodFragment_to_backupFragment2)
+        }
+
     }
 
     private fun initActionBar() {

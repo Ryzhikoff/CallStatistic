@@ -19,6 +19,7 @@
 
 
     <style name="BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
         <item name="android:background">@color/bottom_bar_color</item>
         <item name="itemIconTint">@color/bottom_bar_icon_state</item>
         <item name="itemTextColor">@color/bottom_bar_icon_state</item>

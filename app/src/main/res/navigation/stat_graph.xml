@@ -8,5 +8,14 @@
         android:id="@+id/statByPeriodFragment"
         android:name="evgeniy.ryzhikov.callstatistics.ui.statistic.StatByPeriodFragment"
         android:label="fragment_stat_by_period"
-        tools:layout="@layout/fragment_stat_by_period" />
+        tools:layout="@layout/fragment_stat_by_period" >
+        <action
+            android:id="@+id/action_statByPeriodFragment_to_backupFragment2"
+            app:destination="@id/backupFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/backupFragment2"
+        android:name="evgeniy.ryzhikov.callstatistics.ui.backup.BackupFragment"
+        android:label="BackupFragment"
+        tools:layout="@layout/fragment_backup"/>
 </navigation>
