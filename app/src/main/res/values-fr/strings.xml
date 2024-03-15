@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">Statistiques d\'appels</string>
-
     <string name="menu_main">Maison</string>
-
     <string name="menu_total_statistic">Statistiques</string>
+
 
     <string-array name="update_db_text">
 
@@ -20,95 +17,71 @@
     </string-array>
 
     <string name="analyticalPieChartAmount">Total</string>
-
     <string name="header_top_incoming">Top 10 entrants:</string>
-
     <string name="header_top_outgoing">Top 10 sortants:</string>
-
     <string name="header_longest_incoming">Entrée la plus longue:</string>
-
     <string name="header_longest_outgoing">Sortant le plus longtemps:</string>
-
     <string name="hour_short">h</string>
-
     <string name="minute_short">m</string>
-
     <string name="second_short">s</string>
-
     <string name="day_short">d</string>
-
     <string name="label_contact_with_colon">Contact:</string>
-
     <string name="label_phone_number_with_colon">Téléphone:</string>
-
     <string name="label_duration_with_colon">Durée:</string>
-
     <string name="label_type_with_colon">Type de sonnerie:</string>
-
     <string name="label_date_with_colon">Date:</string>
-
     <string name="label_time_with_colon">Temps:</string>
 
     <string name="incoming">Entrant</string>
-
     <string name="outgoing">Sortant</string>
-
     <string name="missed">Manqué</string>
-
     <string name="voice_email">Messagerie vocale</string>
-
     <string name="rejected">Rejeté</string>
-
     <string name="blocked">Bloqué</string>
-
     <string name="answered_externally">Reçu sur un autre appareil</string>
-
     <string name="unknown">Inconnu</string>
 
     <string name="label_total_duration">Durée totale</string>
-
     <string name="label_total_phone_talk">Nombre total d\'appels:</string>
-
     <string name="label_total_time_talk">Temps de conversation:</string>
-
     <string name="label_total_calls">Nombre total d\'appels:</string>
-
     <string name="header_with_longest_incoming">Principaux contacts par durée d\'arrivée:</string>
-
     <string name="header_with_longest_outgoing">Principaux contacts par durée sortante:</string>
-
     <string name="label_count_calls_with_incoming">Nombre de contacts entrants:</string>
-
     <string name="label_total_incoming">Total entrant:</string>
-
     <string name="label_stat_by">pour </string>
-
     <string name="label_choose_day">Choisir le jour</string>
-
     <string name="home_title">Basique</string>
-
     <string name="label_total_number">Chiffres totaux:</string>
-
     <string name="label_of_them">dont:</string>
-
     <string name="label_today">Aujourd\'hui</string>
-
     <string name="label_yesterday">Hier</string>
-
     <string name="label_count_calls_with_outgoing">Nombre de contacts sortants:</string>
-
     <string name="label_total_outgoing">Total sortant:</string>
-
     <string name="label_db_update" tools:ignore="TypographyEllipsis">Mise à jour de la base de données...</string>
-
     <string name="pop_up_launch_title">Important</string>
-
     <string name="pop_up_launch_content">Il vous sera maintenant demandé l\'autorisation d\'accéder au journal des appels.\nCette autorisation est nécessaire au fonctionnement de l\'application, puisque la seule fonction de l\'application est les statistiques d\'appels, pour un fonctionnement ultérieur de l\'application, vous devez fournir cette autorisation.\nToutes les informations sur les appels seront stockées exclusivement sur votre appareil, sans transfert nulle part.</string>
-
     <string name="ok">D\'ACCORD</string>
-
     <string name="pop_up_info_content">Nous allons maintenant créer une base de données locale basée sur le journal des appels.\nCe processus prendra plusieurs minutes, selon la taille du journal des appels.\nÀ ce stade, l\'application peut être réduite, mais pas fermée.</string>
-
     <string name="update_database">Mise à jour de la base de données</string>
     <string name="label_average_duration">Durée moyenne</string>
+
+    <string name="backup">Sauvegarde</string>
+    <string name="label_save_to_google_drive">Sauvegarde sur Google Drive</string>
+    <string name="pop_up_overwrite_content">Une version précédente de la sauvegarde de la base de données existe déjà sur le disque. Voulez-vous remplacer le fichier de la base de données ?</string>
+    <string name="no">Non</string>
+    <string name="pop_up_saved_success_title">Succès</string>
+    <string name="pop_up_saved_success_content">Sauvegarde de la base de données enregistrée avec succès</string>
+    <string name="pop_up_saved_error_title">Erreur</string>
+    <string name="pop_up_saved_error_content">Erreur lors de l\'enregistrement de la sauvegarde de la base de données :</string>
+    <string name="pop_up_backup_error_title">Échec</string>
+    <string name="pop_up_backup_error_content_folder">Échec du chargement de la sauvegarde : il n\'y a pas de dossier de sauvegarde sur le disque</string>
+    <string name="pop_up_backup_error_content_file">Échec du chargement de la sauvegarde : le fichier de sauvegarde est manquant sur le disque</string>
+    <string name="pop_up_load_success_title">Succès</string>
+    <string name="pop_up_load_success_content">Sauvegarde chargée avec succès\nMise à jour de la base de données locale</string>
+    <string name="pop_up_load_error_title">Échec</string>
+    <string name="pop_up_load_error_content">Une erreur s\'est produite lors du chargement de la sauvegarde :</string>
+    <string name="label_save">Enregistrer</string>
+    <string name="label_load">Charger</string>
+    <string name="text_back">Retour</string>
 </resources>

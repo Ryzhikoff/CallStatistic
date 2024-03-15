@@ -11,6 +11,7 @@ import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
 import com.google.api.services.drive.model.File
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import evgeniy.ryzhikov.callstatistics.data.PhoneDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -90,6 +91,7 @@ class GoogleDriveHelper @Inject constructor(
             backupFile.delete()
         } else {
             withContext(Dispatchers.Main) {
+                FirebaseCrashlytics.getInstance().recordException(Throwable("Failed to read data from backup file. phoneNumberList and phoneTalkList is empty"))
                 ActionListener.onLoadError("Failed to read data from backup file.")
             }
         }
@@ -103,6 +105,7 @@ class GoogleDriveHelper @Inject constructor(
                 outputStream.close()
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
+                    FirebaseCrashlytics.getInstance().recordException(e)
                     ActionListener.onLoadError(e.toString())
                 }
             }
@@ -144,16 +147,22 @@ class GoogleDriveHelper @Inject constructor(
             val query = "'root' in parents and mimeType = 'application/vnd.google-apps.folder' and name = '$FOLDER_NAME'"
             val request = driveService.files().list().setQ(query)
 
+
             // Запускаем запрос и получаем список файлов
             val result = request.execute()
             val files = result.files
 
             // Если список файлов не пустой, значит папка существует, возвращаем ее идентификатор
-            if (files != null && files.isNotEmpty()) {
-                return files[0].id
+            return if (files != null && files.isNotEmpty()) {
+                files[0].id
+            } else {
+                println("files null or empty")
+                FirebaseCrashlytics.getInstance().recordException(Throwable("method getFolderIdIfExist(): files null or empty"))
+                null
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
+                FirebaseCrashlytics.getInstance().recordException(e)
                 ActionListener.onSaveError(e.toString())
             }
         }
@@ -183,6 +192,7 @@ class GoogleDriveHelper @Inject constructor(
                 withContext(Dispatchers.Main) {
                     ActionListener.onSaveError(e.toString())
                 }
+                FirebaseCrashlytics.getInstance().recordException(e)
                 return@withContext ""
             }
         }
@@ -209,6 +219,7 @@ class GoogleDriveHelper @Inject constructor(
             withContext(Dispatchers.Main) {
                 ActionListener.onSaveError(e.toString())
             }
+            FirebaseCrashlytics.getInstance().recordException(e)
         }
 
         // Если файл не найден, возвращаем null
@@ -231,6 +242,7 @@ class GoogleDriveHelper @Inject constructor(
             withContext(Dispatchers.Main) {
                 ActionListener.onSaveError(e.toString())
             }
+            FirebaseCrashlytics.getInstance().recordException(e)
         }
 
         if (folderId.isNotEmpty()) {
@@ -241,6 +253,7 @@ class GoogleDriveHelper @Inject constructor(
             withContext(Dispatchers.Main) {
                 ActionListener.onSaveError("Failed to create folder.")
             }
+            FirebaseCrashlytics.getInstance().recordException(Throwable("method copyDatabase(): Failed to create folder."))
         }
     }
 
@@ -275,6 +288,7 @@ class GoogleDriveHelper @Inject constructor(
                     withContext(Dispatchers.Main) {
                         ActionListener.onSaveError("Error saved file to disk")
                     }
+                    FirebaseCrashlytics.getInstance().recordException(Throwable("method copyFileToDrive(): Error saved file to disk, newFile.id is null"))
                 }
             } catch (e: GoogleJsonResponseException) {
                 if (e.statusCode == 404) {
@@ -288,11 +302,13 @@ class GoogleDriveHelper @Inject constructor(
                         ActionListener.onSaveError(e.toString())
                     }
                 }
+                FirebaseCrashlytics.getInstance().recordException(e)
             } catch (e: Exception) {
                 // Обрабатываем другие ошибки
                 withContext(Dispatchers.Main) {
                     ActionListener.onSaveError(e.toString())
                 }
+                FirebaseCrashlytics.getInstance().recordException(e)
             }
         }
     }

@@ -11,7 +11,12 @@ import androidx.core.view.isVisible
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.ActionBarBinding
 
-class ActionBar @JvmOverloads constructor(context: Context, attributeSet: AttributeSet?) : ConstraintLayout(context, attributeSet) {
+class ActionBar @JvmOverloads constructor(
+    context: Context,
+    attributeSet: AttributeSet?,
+    defStyleAttr: Int = 0,
+) : ConstraintLayout(context, attributeSet, defStyleAttr) {
+
     private var _binding: ActionBarBinding? = null
     private val binding: ActionBarBinding get() = _binding!!
     var isAnimate = true
@@ -69,12 +74,25 @@ class ActionBar @JvmOverloads constructor(context: Context, attributeSet: Attrib
         subhead: String? = null
     ) {
         if (caption != null) setTextAndVisible(binding.caption, caption)
-        if (topName != null) setTextAndVisible(binding.topName, topName)
+        if (topName != null) {
+            binding.topArea.isVisible = true
+            binding.topName.apply {
+                isVisible = true
+                setText(topName)
+            }
+        }
         if (topValue != null) setTextAndVisible(binding.topValue, topValue)
-        if (bottomName != null) setTextAndVisible(binding.bottomName, bottomName)
+        if (bottomName != null) {
+            binding.bottomArea.isVisible = true
+            binding.bottomName.apply {
+                isVisible = true
+                setText(bottomName)
+            }
+        }
         if (bottomValue != null) setTextAndVisible(binding.bottomValue, bottomValue)
         if (subhead != null) setTextAndVisible(binding.subhead, subhead)
     }
+
 
     private fun setTextAndVisible(textView: TextView, value: String) {
         textView.apply {

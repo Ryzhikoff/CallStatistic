@@ -1,9 +1,9 @@
 package evgeniy.ryzhikov.callstatistics.ui.type_calls
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import evgeniy.ryzhikov.callstatistics.R
@@ -17,11 +17,11 @@ import evgeniy.ryzhikov.callstatistics.ui.dialogs.DetailPhoneNumberFragment
 import evgeniy.ryzhikov.callstatistics.ui.dialogs.DetailPhoneTalkFragment
 import evgeniy.ryzhikov.callstatistics.ui.extensions.getParcelableCompat
 import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.BottomSpacingItemDecoration
-import evgeniy.ryzhikov.callstatistics.utils.ClickListener
-import evgeniy.ryzhikov.callstatistics.utils.convertDuration
-import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.TopItem
 import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.TopCallsAdapter
+import evgeniy.ryzhikov.callstatistics.ui.type_calls.rv.TopItem
+import evgeniy.ryzhikov.callstatistics.utils.ClickListener
 import evgeniy.ryzhikov.callstatistics.utils.INCOMING_TYPE
+import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 
 open class TypeCallsFragment() : Fragment(R.layout.fragment_type_calls) {
     private var _binding: FragmentTypeCallsBinding? = null
@@ -79,6 +79,7 @@ open class TypeCallsFragment() : Fragment(R.layout.fragment_type_calls) {
                 },
                 topName = when (typeCalls) {
                     INCOMING_TYPE -> getString(R.string.label_count_calls_with_incoming)
+//                    INCOMING_TYPE -> "это достаточно длинный текст, что бы моно было "
                     else -> getString(R.string.label_count_calls_with_outgoing)
                 },
                 bottomName = when (typeCalls) {
@@ -262,6 +263,7 @@ open class TypeCallsFragment() : Fragment(R.layout.fragment_type_calls) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        adapter.clear()
     }
 
     private enum class TypeRecyclerView {
