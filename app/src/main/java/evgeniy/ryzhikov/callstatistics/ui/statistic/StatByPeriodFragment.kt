@@ -145,9 +145,10 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
 
             tvAverageDuration.text = convertDuration(duration = consolidatedPhoneTalks.totalAverageDuration, isSeparated = true)
 
+            incomingAverage.setAnimationLength(ANIMATION_DURATION_TO_GRAPHS)
+            outgoingAverage.setAnimationLength(ANIMATION_DURATION_TO_GRAPHS)
+
             if (consolidatedPhoneTalks.incomingAverageDuration > 0L || consolidatedPhoneTalks.outgoingAverageDuration > 0) {
-                incomingAverage.setAnimationLength(ANIMATION_DURATION_TO_GRAPHS)
-                outgoingAverage.setAnimationLength(ANIMATION_DURATION_TO_GRAPHS)
 
                 if (consolidatedPhoneTalks.incomingAverageDuration > consolidatedPhoneTalks.outgoingAverageDuration) {
                     incomingAverage.setProgressPercentage(100.0, true)
@@ -170,6 +171,9 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
                         incomingAverage.setProgressPercentage(outgoing, true)
                     }
                 }
+            } else {
+                incomingAverage.setProgressPercentage(0.0, true)
+                outgoingAverage.setProgressPercentage(0.0, true)
             }
 
             val incoming =
@@ -181,42 +185,6 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
         }
 
     }
-
-//    private fun createChart(consolidatedPhoneTalks: ConsolidatedPhoneTalks) {
-//
-//        println("day: ${consolidatedPhoneTalks.dateTime} count: ${consolidatedPhoneTalks.count} duration: ${consolidatedPhoneTalks.duration}")
-//
-//        val incoming = mutableListOf<BarEntry>()
-//        val outgoing = mutableListOf<BarEntry>()
-//
-//        repeat(10) { index ->
-//            incoming.add(BarEntry(index.toFloat(), Random.nextInt(0, 20).toFloat()))
-//            outgoing.add(BarEntry(index.toFloat(), Random.nextInt(0, 20).toFloat()))
-//        }
-//        val incomingSet = BarDataSet(incoming, "Входящие").apply {
-//            color = ContextCompat.getColor(requireContext(), R.color.purple_main)
-//        }
-//        val outgoingSet = BarDataSet(outgoing, "Исходящие").apply {
-//            color = ContextCompat.getColor(requireContext(), R.color.blue_main)
-//        }
-//
-//        val groupSpace = 0.06f
-//        val barSpace = 0.02f // x2 dataset
-//        val barWidth = 0.45f // x2 dataset
-//
-//        val barData = BarData(incomingSet, outgoingSet)
-//        barData.barWidth = barWidth
-//        binding.barChartCalls.apply {
-//            data = barData
-//            groupBars(0f, groupSpace, barSpace)
-//            description.text = ""
-//            setNoDataText("На сегодня ни чего нет")
-//            setDrawBorders(false)
-//            legend.textColor = ContextCompat.getColor(requireContext(), R.color.text)
-//            animateY(1000)
-//        }
-//    }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

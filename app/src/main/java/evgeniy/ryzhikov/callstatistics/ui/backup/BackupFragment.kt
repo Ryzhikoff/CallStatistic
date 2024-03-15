@@ -23,6 +23,7 @@ import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.data.PhoneDatabase
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentBackupBinding
 import evgeniy.ryzhikov.callstatistics.domain.GoogleDriveHelper
+import evgeniy.ryzhikov.callstatistics.domain.YandexInterstitialAd
 import evgeniy.ryzhikov.callstatistics.ui.customview.PopUpDialog
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.launch
@@ -55,15 +56,22 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
     @Inject
     lateinit var googleDriveHelper: GoogleDriveHelper
 
+    private val interstitialAd: YandexInterstitialAd by lazy {
+        YandexInterstitialAd(requireActivity())
+    }
+
+    private var interstitialAdIsShow = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentBackupBinding.bind(view)
         App.instance.appComponent.inject(this)
 
+        interstitialAd.initAd()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestScopes(Scope(DriveScopes.DRIVE_FILE))
+            .requestEmail()
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
@@ -87,17 +95,28 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
     }
 
     private fun signAndPermissionCheckAndRunCommand(driveCommand: () -> Unit) {
+        interstitialAdIsShow = false
         enableProgressBar(true)
         account = GoogleSignIn.getLastSignedInAccount(requireContext())
 
-        onSignInSuccess {
-            onPermissionSuccess {
-                account?.let {
-                    googleDriveHelper.init(it)
-                    driveCommand.invoke()
+        onSignInResultListener { isRegisterSuccess ->
+            if (isRegisterSuccess) {
+//                Toast.makeText(requireContext(), "onSignInSuccess", Toast.LENGTH_SHORT).show()
+                onPermissionResultListener { isPermissionSuccess ->
+                    if (isPermissionSuccess) {
+//                    Toast.makeText(requireContext(), "onPermissionSuccess", Toast.LENGTH_SHORT).show()
+                        account?.let {
+                            googleDriveHelper.init(it)
+                            driveCommand.invoke()
+                        }
+                    } else {
+                        enableProgressBar(false)
+                    }
                 }
+                checkPermission()
+            } else {
+                enableProgressBar(false)
             }
-            checkPermission()
         }
         if (account != null) {
             onSignInListener.onSuccess()
@@ -112,6 +131,7 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
     }
 
     private fun onRegisterCallback(result: ActivityResult) {
+//        Toast.makeText(requireContext(), "onRegisterCallback: result.resultCode: ${result.resultCode}", Toast.LENGTH_SHORT).show()
         if (result.resultCode == Activity.RESULT_OK) {
             val intent = result.data
             if (result.data != null) {
@@ -127,6 +147,7 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
     }
 
     private fun checkPermission() {
+//        Toast.makeText(requireContext(), "checkPermission", Toast.LENGTH_SHORT).show()
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         if (GoogleSignIn.hasPermissions(account, Scope(DriveScopes.DRIVE_FILE))) {
             onPermissionListener.onSuccess()
@@ -137,6 +158,7 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
     }
 
     private fun onPermissionCallback(result: ActivityResult) {
+//        Toast.makeText(requireContext(), "onPermissionCallback", Toast.LENGTH_SHORT).show()
         if (result.resultCode == Activity.RESULT_OK) {
             onPermissionListener.onSuccess()
         } else {
@@ -240,6 +262,10 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
         val leftButtonListener = object : PopUpDialog.PopUpDialogClickListener {
             override fun onClick(popUpDialog: PopUpDialog) {
                 popUpDialog.dismiss()
+                if (!interstitialAdIsShow) {
+                    interstitialAdIsShow = true
+                    interstitialAd.showAd()
+                }
             }
 
         }
@@ -257,6 +283,13 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
             enableProgressBar(false)
         }
 
+        dialog.setOnCanceledListener {
+            if (!interstitialAdIsShow) {
+                interstitialAdIsShow = true
+                interstitialAd.showAd()
+            }
+        }
+
     }
 
     private fun enableProgressBar(value: Boolean) {
@@ -267,25 +300,30 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
         super.onDestroyView()
         googleDriveHelper.clear()
         _binding = null
+        interstitialAd.clear()
     }
 
-    private inline fun onPermissionSuccess(crossinline callback: () -> Unit) {
+    private inline fun onPermissionResultListener(crossinline callback: (Boolean) -> Unit) {
         onPermissionListener = object : OnPermissionListener {
             override fun onSuccess() {
-                callback()
+                callback(true)
             }
 
-            override fun onError() {}
+            override fun onError() {
+                callback(false)
+            }
         }
     }
 
-    private inline fun onSignInSuccess(crossinline callback: () -> Unit) {
+    private inline fun onSignInResultListener(crossinline callback: (Boolean) -> Unit) {
         onSignInListener = object : OnSignInListener {
             override fun onSuccess() {
-                callback()
+                callback(true)
             }
 
-            override fun onError() {}
+            override fun onError() {
+                callback(false)
+            }
         }
     }
 

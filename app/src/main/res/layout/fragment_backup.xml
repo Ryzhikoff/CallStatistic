@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/yandex_banner_height"
+        android:background="@color/bottom_bar_color_alpha50"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
+            android:id="@+id/yandexBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/driveContainer"
         android:layout_width="0dp"
@@ -19,7 +35,7 @@
         android:padding="@dimen/margin_edge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/bannerContainer">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/logo"
@@ -34,7 +50,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
                 tools:ignore="UseCompoundDrawables">
@@ -52,7 +68,7 @@
                     style="@style/TitleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_vertical|center_horizontal"
                     android:layout_marginStart="@dimen/margin_in_cards"
                     android:text="@string/label_save_to_google_drive"
                     android:textColor="@color/text" />
@@ -103,14 +119,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_edge"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@drawable/button_backup_background"
         android:layout_marginTop="@dimen/margin_edge"
+        android:background="@drawable/button_backup_background"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:paddingVertical="4dp"
-        app:layout_constraintTop_toBottomOf="@id/driveContainer"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/driveContainer">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -124,13 +140,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/margin_medium"
-            android:textAlignment="center"
-            android:textColor="@color/button_backup_text_color_state"
             android:text="@string/text_back"
-            />
+            android:textAlignment="center"
+            android:textColor="@color/button_backup_text_color_state" />
 
     </LinearLayout>
-
 
 
     <LinearLayout

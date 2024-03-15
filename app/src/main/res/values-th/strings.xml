@@ -111,4 +111,23 @@
 
     <string name="update_database">อัพเดตฐานข้อมูล</string>
     <string name="label_average_duration">ระยะเวลาเฉลี่ย</string>
+    <string name="backup">การสำรองข้อมูล</string>
+    <string name="label_save_to_google_drive">สำรองข้อมูลบน Google Drive</string>
+    <string name="pop_up_overwrite_content">มีเวอร์ชันก่อนหน้าของการสำรองข้อมูลฐานข้อมูลอยู่บนดิสก์แล้ว ต้องการเขียนทับไฟล์ฐานข้อมูลหรือไม่?</string>
+    <string name="no">ไม่</string>
+    <string name="pop_up_saved_success_title">สำเร็จ</string>
+    <string name="pop_up_saved_success_content">การสำรองข้อมูลฐานข้อมูลถูกบันทึกเรียบร้อยแล้ว</string>
+    <string name="pop_up_saved_error_title">ข้อผิดพลาด</string>
+    <string name="pop_up_saved_error_content">เกิดข้อผิดพลาดขณะบันทึกการสำรองข้อมูลฐานข้อมูล:</string>
+    <string name="pop_up_backup_error_title">ล้มเหลว</string>
+    <string name="pop_up_backup_error_content_folder">การโหลดการสำรองข้อมูลล้มเหลว: ไม่มีโฟลเดอร์สำรองข้อมูลบนดิสก์</string>
+    <string name="pop_up_backup_error_content_file">การโหลดการสำรองข้อมูลล้มเหลว: ไฟล์สำรองข้อมูลขาดหายไปบนดิสก์</string>
+    <string name="pop_up_load_success_title">สำเร็จ</string>
+    <string name="pop_up_load_success_content">การสำรองข้อมูลโหลดเรียบร้อยแล้ว\nฐานข้อมูลท้องถิ่นได้รับการอัปเดต</string>
+    <string name="pop_up_load_error_title">ล้มเหลว</string>
+    <string name="pop_up_load_error_content">เกิดข้อผิดพลาดขณะโหลดการสำรองข้อมูล:</string>
+    <string name="label_save">บันทึก</string>
+    <string name="label_load">โหลด</string>
+    <string name="text_back">ย้อนกลับ</string>
+
 </resources>
