@@ -24,7 +24,7 @@ class TopCallsDelegateAdapter : AbsListItemAdapterDelegate<TopItem, TopItemInter
     }
 
     override fun onBindViewHolder(item: TopItem, holder: ViewHolder, payloads: MutableList<Any>) {
-        holder.contactName.text = item.contactName
+        holder.contactName.setText(item.contactName)
         holder.phoneNumber.text = item.phoneNumber
         holder.counterCalls.text = item.value
         holder.binding.itemContainer.setOnClickListener {

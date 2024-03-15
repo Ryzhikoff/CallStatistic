@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 object UpdateProgressLiveData {
-    private val _serviceCompleted = MutableLiveData<Int>()
+    private val _progressLiveData = MutableLiveData<Int>()
 
-    val serviceCompleted: LiveData<Int>
-        get() = _serviceCompleted
+    val progressLiveData: LiveData<Int>
+        get() = _progressLiveData
 
     fun updateProgress(progress: Int) {
-        _serviceCompleted.value = progress
+        _progressLiveData.value = progress
     }
 }

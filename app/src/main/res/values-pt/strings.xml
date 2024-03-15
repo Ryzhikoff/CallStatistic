@@ -110,4 +110,25 @@
     <string name="pop_up_info_content">Agora criaremos um banco de dados local baseado no registro de chamadas.\nEste processo levará vários minutos, dependendo do tamanho do registro de chamadas.\nNeste momento, o aplicativo pode ser minimizado, mas não fechado.</string>
 
     <string name="update_database">Atualização de banco de dados</string>
+    <string name="label_average_duration">Duração média</string>
+
+    <string name="backup">Backup</string>
+    <string name="label_save_to_google_drive">Backup no Google Drive</string>
+    <string name="pop_up_overwrite_content">Uma versão anterior do backup do banco de dados já existe no disco. Substituir o arquivo do banco de dados?</string>
+    <string name="no">Não</string>
+    <string name="pop_up_saved_success_title">Sucesso</string>
+    <string name="pop_up_saved_success_content">Backup do banco de dados salvo com sucesso</string>
+    <string name="pop_up_saved_error_title">Erro</string>
+    <string name="pop_up_saved_error_content">Erro ao salvar o backup do banco de dados:</string>
+    <string name="pop_up_backup_error_title">Falha</string>
+    <string name="pop_up_backup_error_content_folder">Falha ao carregar o backup: não há pasta de backup no disco</string>
+    <string name="pop_up_backup_error_content_file">Falha ao carregar o backup: o arquivo de backup está ausente no disco</string>
+    <string name="pop_up_load_success_title">Sucesso</string>
+    <string name="pop_up_load_success_content">Backup carregado com sucesso\nBanco de dados local atualizado</string>
+    <string name="pop_up_load_error_title">Falha</string>
+    <string name="pop_up_load_error_content">Ocorreu um erro ao carregar o backup:</string>
+    <string name="label_save">Salvar</string>
+    <string name="label_load">Carregar</string>
+    <string name="text_back">Voltar</string>
+
 </resources>

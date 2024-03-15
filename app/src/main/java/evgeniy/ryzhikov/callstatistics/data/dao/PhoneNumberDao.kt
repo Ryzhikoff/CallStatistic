@@ -20,4 +20,7 @@ interface PhoneNumberDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(phoneNumber: PhoneNumber)
+
+    @Query("SELECT * FROM $TABLE_NAME_PHONE_NUMBER")
+    fun getAll(): List<PhoneNumber>
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/outgoing_graph"
+    app:startDestination="@id/outgoingFragment">
+    <fragment
+        android:id="@+id/outgoingFragment"
+        android:name="evgeniy.ryzhikov.callstatistics.ui.type_calls.OutgoingFragment"
+        android:label="OutgoingFragment"
+        tools:layout="@layout/fragment_type_calls" >
+        <action
+            android:id="@+id/action_outgoingFragment_to_backupFragment4"
+            app:destination="@id/backupFragment4" />
+    </fragment>
+    <fragment
+        android:id="@+id/backupFragment4"
+        android:name="evgeniy.ryzhikov.callstatistics.ui.backup.BackupFragment"
+        android:label="BackupFragment"
+        tools:layout="@layout/fragment_backup"/>
+</navigation>

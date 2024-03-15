@@ -110,4 +110,25 @@
     <string name="pop_up_info_content">이제 통화 기록을 기반으로 로컬 데이터베이스를 생성하겠습니다.\n이 프로세스는 통화 기록의 크기에 따라 몇 분 정도 소요됩니다.\n이때 애플리케이션을 최소화할 수는 있지만 종료할 수는 없습니다.</string>
 
     <string name="update_database">데이터베이스 업데이트</string>
+    <string name="label_average_duration">평균 지속 시간</string>
+
+    <string name="backup">백업</string>
+    <string name="label_save_to_google_drive">Google 드라이브에 백업</string>
+    <string name="pop_up_overwrite_content">이전 데이터베이스 백업 버전이 이미 디스크에 있습니다. 데이터베이스 파일을 덮어쓰시겠습니까?</string>
+    <string name="no">아니요</string>
+    <string name="pop_up_saved_success_title">성공</string>
+    <string name="pop_up_saved_success_content">데이터베이스 백업이 성공적으로 저장되었습니다</string>
+    <string name="pop_up_saved_error_title">오류</string>
+    <string name="pop_up_saved_error_content">데이터베이스 백업 저장 중 오류가 발생했습니다:</string>
+    <string name="pop_up_backup_error_title">실패</string>
+    <string name="pop_up_backup_error_content_folder">백업을로드하는 데 실패했습니다. 디스크에 백업 폴더가 없습니다.</string>
+    <string name="pop_up_backup_error_content_file">백업을로드하는 데 실패했습니다. 디스크에 백업 파일이 없습니다.</string>
+    <string name="pop_up_load_success_title">성공</string>
+    <string name="pop_up_load_success_content">백업이 성공적으로 업로드되었습니다. 로컬 데이터베이스가 업데이트되었습니다</string>
+    <string name="pop_up_load_error_title">실패</string>
+    <string name="pop_up_load_error_content">백업을로드하는 중에 오류가 발생했습니다:</string>
+    <string name="label_save">저장</string>
+    <string name="label_load">로드</string>
+    <string name="text_back">뒤로</string>
+
 </resources>

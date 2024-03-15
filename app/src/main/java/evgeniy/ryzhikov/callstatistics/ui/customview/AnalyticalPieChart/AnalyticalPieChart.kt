@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.utils.ANIMATION_DURATION_TO_GRAPHS
 import evgeniy.ryzhikov.callstatistics.utils.convertDuration
 
 /**
@@ -272,7 +273,7 @@ class AnalyticalPieChart @JvmOverloads constructor(
     override fun startAnimation() {
         // Проход значений от 0 до 360 (целый круг), с длительностью - 1.5 секунды
         val animator = ValueAnimator.ofInt(0, 360).apply {
-            duration = 1500
+            duration = ANIMATION_DURATION_TO_GRAPHS
             interpolator = FastOutSlowInInterpolator()
             addUpdateListener { valueAnimator ->
                 animationSweepAngle = valueAnimator.animatedValue as Int

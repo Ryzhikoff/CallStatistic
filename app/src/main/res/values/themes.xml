@@ -3,7 +3,7 @@
     <style name="Base.Theme.CallStatistics" parent="Theme.Material3.DayNight.NoActionBar">
 
         <item name="android:statusBarColor">@color/bottom_bar_color</item>
-        <item name="android:navigationBarColor">@color/bottom_bar_color</item>
+        <item name="android:navigationBarColor">@color/dark_black</item>
         <!-- Each backgrounds initialization -->
         <item name="android:windowBackground">@color/dark_black</item>
         <item name="android:colorBackground">@color/dark_black</item>
@@ -19,6 +19,7 @@
 
 
     <style name="BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
         <item name="android:background">@color/bottom_bar_color</item>
         <item name="itemIconTint">@color/bottom_bar_icon_state</item>
         <item name="itemTextColor">@color/bottom_bar_icon_state</item>

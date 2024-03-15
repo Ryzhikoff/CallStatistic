@@ -14,6 +14,10 @@ data class ConsolidatedPhoneNumbers(
     var blocked: Int = 0,
     var answeredExternally: Int = 0,
 
+    var totalAverageDuration: Long = 0,
+    var incomingAverageDuration: Long = 0,
+    var outgoingAverageDuration: Long = 0,
+
     var duration: Long = 0,
     var durationInc: Long = 0,
     var durationOut: Long = 0
@@ -37,6 +41,12 @@ data class ConsolidatedPhoneNumbers(
                         durationOut += durationOutgoing
                     }
                 }
+            }
+            consolidatedPhoneNumbers.apply {
+                val totalDuration = incoming + outgoing
+                if (totalDuration != 0) totalAverageDuration = duration / totalDuration
+                if (incoming != 0) incomingAverageDuration = durationInc / incoming
+                if (outgoing != 0) outgoingAverageDuration =  durationOut / outgoing
             }
             return consolidatedPhoneNumbers
         }

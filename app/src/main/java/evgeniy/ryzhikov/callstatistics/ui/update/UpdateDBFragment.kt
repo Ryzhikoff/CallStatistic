@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentUpdateDbBinding
 import evgeniy.ryzhikov.callstatistics.ui.MainActivity
-import evgeniy.ryzhikov.callstatistics.ui.home.HomeFragment
 import evgeniy.ryzhikov.callstatistics.ui.services.UpdateProgressLiveData
 import evgeniy.ryzhikov.callstatistics.ui.services.UpdateDBService
 import evgeniy.ryzhikov.callstatistics.ui.services.UpdateDBService.Companion.PROGRESS_MAX
@@ -22,7 +21,7 @@ import kotlinx.coroutines.launch
 class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
     private var _binding: FragmentUpdateDbBinding? = null
     private val binding get() = _binding!!
-    private val scopeLoad = CoroutineScope(Job())
+    private val loadingScope = CoroutineScope(Job())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +34,7 @@ class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
 
     private fun startLoadAnimation() {
         binding.loadingAnimation.playAnimation()
-        scopeLoad.launch(Dispatchers.Main) {
+        loadingScope.launch(Dispatchers.Main) {
             var i = 0
             val texts = resources.getStringArray(R.array.update_db_text)
             while (true) {
@@ -48,7 +47,7 @@ class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
     }
 
     private fun updateProgressListener() {
-        UpdateProgressLiveData.serviceCompleted.observe(viewLifecycleOwner) { progress ->
+        UpdateProgressLiveData.progressLiveData.observe(viewLifecycleOwner) { progress ->
             updateProgressBar(progress)
             if (progress == PROGRESS_MAX) {
                 startHomeFragment()
@@ -57,9 +56,8 @@ class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
     }
 
     private fun startHomeFragment() {
-        scopeLoad.cancel()
-        (requireActivity() as MainActivity).startFragment(HomeFragment())
-        onDestroy()
+        loadingScope.cancel()
+        (requireActivity() as MainActivity).startBottomNavigation()
     }
 
     private fun updateProgressBar(progress: Int) {
@@ -75,7 +73,7 @@ class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        scopeLoad.cancel()
+        loadingScope.cancel()
         _binding = null
     }
 }

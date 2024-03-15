@@ -1,247 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.home.HomeFragment">
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/infoContainer"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/info_container_background"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/margin_edge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".ui.home.HomeFragment">
 
-        <LinearLayout
-            android:id="@+id/bannerContainer"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <evgeniy.ryzhikov.callstatistics.ui.customview.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
-                android:id="@+id/yandexBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
-        <TextView
-            android:id="@+id/mainLabel"
-            style="@style/TitleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_edge"
-            android:layout_marginTop="@dimen/margin_edge"
-            android:text="@string/home_title"
-            android:textColor="@color/text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bannerContainer" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardTotalNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_edge"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/margin_edge"
-            android:elevation="@dimen/cards_elevation"
-            app:cardBackgroundColor="@color/bottom_bar_color"
-            app:cardCornerRadius="@dimen/cards_radius"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mainLabel">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/Headline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_in_cards"
-                    android:text="@string/label_total_number"
-                    android:textColor="@color/text" />
-
-                <TextView
-                    android:id="@+id/tvTotalNumbers"
-                    style="@style/TitleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_in_cards"
-                    tools:text="123" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_edge"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/margin_edge"
-            android:layout_marginBottom="@dimen/margin_edge"
-            android:elevation="@dimen/cards_elevation"
-            app:cardBackgroundColor="@color/bottom_bar_color"
-            app:cardCornerRadius="@dimen/cards_radius"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardTotalNumber">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/Headline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_in_cards"
-                    android:text="@string/label_total_calls"
-                    android:textColor="@color/text" />
-
-                <TextView
-                    android:id="@+id/tvTotalTalk"
-                    style="@style/TitleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_in_cards"
-                    tools:text="1223" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadingEdge="horizontal"
-        android:fadingEdgeLength="10dp"
-        android:orientation="vertical"
-        android:requiresFadingEdge="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/infoContainer">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mainScroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_edge">
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="10dp"
+            android:orientation="vertical"
+            android:requiresFadingEdge="vertical">
 
             <LinearLayout
-                android:id="@+id/chartCallsContainer"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_edge"
-                android:background="@drawable/chart_background"
-                android:elevation="@dimen/cards_elevation"
-                android:padding="@dimen/margin_in_cards"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginBottom="@dimen/margin_in_cards"
+                android:orientation="vertical">
 
-                <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
-                    android:id="@+id/chartCalls"
+                <LinearLayout
+                    android:id="@+id/chartCallsContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:pieChartCircleSectionSpace="2"
-                    app:pieChartCircleStrokeWidth="6dp"
-                    app:pieChartColors="@array/analyticalPieChartColorArray"
-                    app:pieChartTextAmount="@string/label_total_calls"
-                    app:pieChartTextAmountColor="@color/white"
-                    app:pieChartTextDescriptionColor="@color/text"
-                    app:pieChartTextDescriptionSize="14sp"
-                    app:pieChartTextNumberColor="@color/white"
-                    app:pieChartTextNumberSize="16sp"
-                    tools:visibility="visible" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_edge"
-                android:background="@drawable/chart_background"
-                android:elevation="@dimen/cards_elevation"
-                android:orientation="vertical"
-                android:padding="@dimen/margin_in_cards"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chartCallsContainer">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_edge"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="@dimen/margin_edge"
-                    android:layout_marginBottom="@dimen/margin_edge"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="@dimen/margin_in_cards"
+                    android:background="@drawable/chart_background"
                     android:elevation="@dimen/cards_elevation"
-                    app:cardBackgroundColor="@color/primary"
-                    app:cardCornerRadius="@dimen/cards_radius">
+                    android:padding="@dimen/margin_in_cards">
 
-                    <LinearLayout
+                    <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
+                        android:id="@+id/chartCalls"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:pieChartCircleSectionSpace="2"
+                        app:pieChartCircleStrokeWidth="6dp"
+                        app:pieChartColors="@array/analyticalPieChartColorArray"
+                        app:pieChartTextAmount="@string/label_total_calls"
+                        app:pieChartTextAmountColor="@color/white"
+                        app:pieChartTextDescriptionColor="@color/text"
+                        app:pieChartTextDescriptionSize="14sp"
+                        app:pieChartTextNumberColor="@color/white"
+                        app:pieChartTextNumberSize="16sp"
+                        tools:visibility="visible" />
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/labelTotalDuration"
-                            style="@style/Headline"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_in_cards"
-                            android:layout_marginTop="@dimen/margin_in_cards"
-                            android:text="@string/label_total_duration"
-                            android:textColor="@color/text" />
-
-                        <TextView
-                            android:id="@+id/tvTotalDuration"
-                            style="@style/Subhead"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/margin_in_cards"
-                            android:layout_marginTop="@dimen/margin_in_cards"
-                            android:layout_marginBottom="@dimen/margin_in_cards"
-                            tools:text="7д 5ч 1м 24с" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/label_of_them"
-                    style="@style/Subhead"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="@dimen/margin_edge"
-                    android:text="@string/label_of_them" />
-
-                <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
-                    android:id="@+id/chartDuration"
+                <LinearLayout
+                    android:id="@+id/totalDurationContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:pieChartCircleSectionSpace="2"
-                    app:pieChartCircleStrokeWidth="6dp"
-                    app:pieChartColors="@array/analyticalPieChartColorArray"
-                    app:pieChartTextAmount="@string/analyticalPieChartAmount"
-                    app:pieChartTextAmountColor="@color/white"
-                    app:pieChartTextDescriptionColor="@color/text"
-                    app:pieChartTextDescriptionSize="14sp"
-                    app:pieChartTextNumberColor="@color/white"
-                    app:pieChartTextNumberSize="16sp"
-                    tools:visibility="visible" />
+                    android:layout_marginHorizontal="@dimen/margin_edge"
+                    android:layout_marginTop="@dimen/margin_in_cards"
+                    android:background="@drawable/chart_background"
+                    android:elevation="@dimen/cards_elevation"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_in_cards">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_edge"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/margin_edge"
+                        android:layout_marginBottom="@dimen/margin_edge"
+                        android:elevation="@dimen/cards_elevation"
+                        app:cardBackgroundColor="@color/primary"
+                        app:cardCornerRadius="@dimen/cards_radius">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/labelTotalDuration"
+                                style="@style/Headline"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_in_cards"
+                                android:layout_marginTop="@dimen/margin_in_cards"
+                                android:text="@string/label_total_duration"
+                                android:textColor="@color/text" />
+
+                            <TextView
+                                android:id="@+id/tvTotalDuration"
+                                style="@style/Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_in_cards"
+                                android:layout_marginTop="@dimen/margin_in_cards"
+                                android:layout_marginBottom="@dimen/margin_in_cards"
+                                tools:text="7д 5ч 1м 24с" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/label_of_them"
+                        style="@style/Subhead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="@dimen/margin_edge"
+                        android:text="@string/label_of_them" />
+
+                    <evgeniy.ryzhikov.callstatistics.ui.customview.AnalyticalPieChart.AnalyticalPieChart
+                        android:id="@+id/chartDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:pieChartCircleSectionSpace="2"
+                        app:pieChartCircleStrokeWidth="6dp"
+                        app:pieChartColors="@array/analyticalPieChartColorArray"
+                        app:pieChartTextAmount="@string/analyticalPieChartAmount"
+                        app:pieChartTextAmountColor="@color/white"
+                        app:pieChartTextDescriptionColor="@color/text"
+                        app:pieChartTextDescriptionSize="14sp"
+                        app:pieChartTextNumberColor="@color/white"
+                        app:pieChartTextNumberSize="16sp"
+                        tools:visibility="visible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/driveContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_edge"
+                    android:layout_marginTop="@dimen/margin_in_cards"
+                    android:layout_marginBottom="@dimen/margin_in_cards"
+                    android:background="@drawable/chart_background"
+                    android:elevation="@dimen/cards_elevation"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_in_cards">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_edge"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/margin_edge"
+                        android:layout_marginBottom="@dimen/margin_edge"
+                        android:elevation="@dimen/cards_elevation"
+                        app:cardBackgroundColor="@color/primary"
+                        app:cardCornerRadius="@dimen/cards_radius">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/labelAverageDuration"
+                                style="@style/Headline"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_in_cards"
+                                android:layout_marginTop="@dimen/margin_in_cards"
+                                android:text="@string/label_average_duration"
+                                android:textColor="@color/text" />
+
+                            <TextView
+                                android:id="@+id/tvAverageDuration"
+                                style="@style/Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_in_cards"
+                                android:layout_marginTop="@dimen/margin_in_cards"
+                                android:layout_marginBottom="@dimen/margin_in_cards"
+                                tools:text="7д 5ч 1м 24с" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/labelAverangeIncoming"
+                        style="@style/Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/incoming" />
+
+                    <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                        android:id="@+id/incomingAverage"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        app:rpbBackgroundColor="@android:color/transparent"
+                        app:rpbBackgroundTextColor="@color/blue_main"
+                        app:rpbCornerRadius="20dp"
+                        app:rpbProgressColor="@color/blue_main"
+                        app:rpbProgressTextColor="@color/text"
+                        app:rpbShowProgressText="false"
+                        app:rpbTextPadding="12dp" />
+
+                    <TextView
+                        android:id="@+id/labelAverangeOutgoing"
+                        style="@style/Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/outgoing" />
+
+                    <com.mackhartley.roundedprogressbar.RoundedProgressBar
+                        android:id="@+id/outgoingAverage"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:rpbBackgroundColor="@android:color/transparent"
+                        app:rpbBackgroundTextColor="@color/white"
+                        app:rpbCornerRadius="20dp"
+                        app:rpbProgressColor="@color/purple_main"
+                        app:rpbProgressTextColor="@color/text"
+                        app:rpbShowProgressText="false"
+                        app:rpbTextPadding="12dp" />
+                </LinearLayout>
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/actionBar"
+        app:layout_anchorGravity="top|end"
+        app:menu_openDirection="down"
+        android:layout_marginTop="@dimen/yandex_banner_height"
+        app:menu_colorNormal="@color/dark_alpha30"
+        app:menu_colorPressed="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/backup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_backup"
+            app:fab_colorNormal="@color/primary"
+            app:fab_colorPressed="@color/dark" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

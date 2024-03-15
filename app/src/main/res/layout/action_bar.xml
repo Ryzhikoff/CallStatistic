@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/actionBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/info_container_background"
+    android:paddingBottom="@dimen/margin_in_cards">
+
+    <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
+        android:id="@+id/yandexBanner"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/yandex_banner_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/caption"
+        style="@style/TitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:layout_marginTop="@dimen/margin_in_cards"
+        android:text="@string/incoming"
+        android:textColor="@color/text"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yandexBanner" />
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/menu"-->
+    <!--        android:layout_width="24dp"-->
+    <!--        android:layout_height="24dp"-->
+    <!--        android:layout_marginEnd="@dimen/margin_edge"-->
+    <!--        android:background="@drawable/action_bar_icon_background"-->
+    <!--        android:src="@drawable/icon_menu"-->
+    <!--        android:clickable="true"-->
+    <!--        app:tint="@color/text"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/caption"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/caption"/>-->
+
+    <View
+        android:id="@+id/topArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin_edge"
+        android:layout_marginTop="-8dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@drawable/appbar_field_background"
+        android:elevation="@dimen/cards_elevation"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/top_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_name"
+        tools:visibility="visible" />
+
+    <evgeniy.ryzhikov.callstatistics.ui.customview.AutoScrollTextView
+        android:id="@+id/top_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_edge"
+        android:translationZ="@dimen/cards_elevation"
+        android:visibility="gone"
+        app:innerTextColor="@color/text"
+        app:innerTextStyle="@style/Headline"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/topValue"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/topArea"
+        app:layout_constraintTop_toBottomOf="@id/caption" />
+
+    <!--    <HorizontalScrollView-->
+    <!--        android:id="@+id/topScroll"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:translationZ="@dimen/cards_elevation"-->
+    <!--        android:layout_marginStart="@dimen/margin_medium"-->
+    <!--        android:layout_marginTop="@dimen/margin_edge"-->
+    <!--        app:layout_constrainedWidth="true"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/topValue"-->
+    <!--        app:layout_constraintHorizontal_bias="0"-->
+    <!--        app:layout_constraintHorizontal_chainStyle="packed"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/topArea"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/caption">-->
+
+
+    <!--        <androidx.appcompat.widget.AppCompatTextView-->
+    <!--            android:id="@+id/topName"-->
+    <!--            style="@style/Headline"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+
+    <!--            android:text="@string/label_count_calls_with_incoming"-->
+    <!--            android:textColor="@color/text"-->
+    <!--            android:visibility="gone"-->
+    <!--            app:layout_constrainedWidth="true"-->
+    <!--            app:layout_constraintEnd_toStartOf="@id/topValue"-->
+    <!--            app:layout_constraintHorizontal_bias="0"-->
+    <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/topArea"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/caption"-->
+    <!--            tools:visibility="visible" />-->
+
+    <!--    </HorizontalScrollView>-->
+
+    <!--    <androidx.appcompat.widget.AppCompatTextView-->
+    <!--        android:id="@+id/topName"-->
+    <!--        style="@style/Headline"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/margin_medium"-->
+    <!--        android:layout_marginTop="@dimen/margin_edge"-->
+
+    <!--        android:text="@string/label_count_calls_with_incoming"-->
+    <!--        android:textColor="@color/text"-->
+    <!--        android:translationZ="@dimen/cards_elevation"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constrainedWidth="true"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/topValue"-->
+    <!--        app:layout_constraintHorizontal_bias="0"-->
+    <!--        app:layout_constraintHorizontal_chainStyle="packed"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/topArea"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/caption"-->
+    <!--        tools:visibility="visible" />-->
+
+    <TextView
+        android:id="@+id/topValue"
+        style="@style/TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:maxLines="1"
+        android:translationZ="@dimen/cards_elevation"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/top_name"
+        app:layout_constraintEnd_toEndOf="@id/topArea"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/top_name"
+        app:layout_constraintTop_toTopOf="@id/top_name"
+        tools:text="123"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/bottomArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin_edge"
+        android:layout_marginTop="-8dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@drawable/appbar_field_background"
+        android:elevation="@dimen/cards_elevation"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/bottomName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottomName"
+        tools:visibility="visible" />
+
+
+    <evgeniy.ryzhikov.callstatistics.ui.customview.AutoScrollTextView
+        android:id="@+id/bottomName"
+        style="@style/Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="24dp"
+        android:translationZ="@dimen/cards_elevation"
+        android:visibility="gone"
+        app:innerTextColor="@color/text"
+        app:innerTextStyle="@style/Headline"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/bottomValue"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/bottomArea"
+        app:layout_constraintTop_toBottomOf="@id/top_name" />
+
+    <TextView
+        android:id="@+id/bottomValue"
+        style="@style/TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_in_cards"
+        android:translationZ="@dimen/cards_elevation"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/bottomName"
+        app:layout_constraintEnd_toEndOf="@id/bottomArea"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/bottomName"
+        app:layout_constraintTop_toTopOf="@id/bottomName"
+        tools:text="1223"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/subhead"
+        style="@style/TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_edge"
+        android:elevation="@dimen/cards_elevation"
+        android:text="@string/label_stat_by"
+        android:textColor="@color/text"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/caption" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

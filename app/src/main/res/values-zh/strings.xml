@@ -110,4 +110,25 @@
     <string name="pop_up_info_content">我们现在将根据呼叫日志创建一个本地数据库。\n此过程将需要几分钟的时间，具体取决于呼叫日志的大小。\n此时，应用程序可以最小化，但不能关闭。</string>
 
     <string name="update_database">数据库更新</string>
+    <string name="label_average_duration">平均持续时间</string>
+
+    <string name="backup">备份</string>
+    <string name="label_save_to_google_drive">在Google云端硬盘上备份</string>
+    <string name="pop_up_overwrite_content">磁盘上已经存在数据库备份的早期版本。要覆盖数据库文件吗？</string>
+    <string name="no">不</string>
+    <string name="pop_up_saved_success_title">成功</string>
+    <string name="pop_up_saved_success_content">数据库备份成功保存</string>
+    <string name="pop_up_saved_error_title">错误</string>
+    <string name="pop_up_saved_error_content">保存数据库备份时出错：</string>
+    <string name="pop_up_backup_error_title">失败</string>
+    <string name="pop_up_backup_error_content_folder">加载备份失败：磁盘上没有备份文件夹</string>
+    <string name="pop_up_backup_error_content_file">加载备份失败：磁盘上缺少备份文件</string>
+    <string name="pop_up_load_success_title">成功</string>
+    <string name="pop_up_load_success_content">备份成功上传\n本地数据库已更新</string>
+    <string name="pop_up_load_error_title">失败</string>
+    <string name="pop_up_load_error_content">加载备份时发生错误：</string>
+    <string name="label_save">保存</string>
+    <string name="label_load">加载</string>
+    <string name="text_back">返回</string>
+
 </resources>

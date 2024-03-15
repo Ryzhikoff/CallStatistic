@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <string name="app_name">通話統計</string>
-
     <string name="menu_main">家</string>
-
     <string name="menu_total_statistic">統計</string>
+
 
     <string-array name="update_db_text">
 
@@ -20,94 +17,71 @@
     </string-array>
 
     <string name="analyticalPieChartAmount">合計</string>
-
     <string name="header_top_incoming">新着トップ 10:</string>
-
     <string name="header_top_outgoing">発信トップ 10:</string>
-
     <string name="header_longest_incoming">最長の受信:</string>
-
     <string name="header_longest_outgoing">最長発信:</string>
-
     <string name="hour_short">h</string>
-
     <string name="minute_short">メートル</string>
-
     <string name="second_short">s</string>
-
     <string name="day_short">d</string>
-
     <string name="label_contact_with_colon">接触：</string>
-
     <string name="label_phone_number_with_colon">電話：</string>
-
     <string name="label_duration_with_colon">間隔：</string>
-
     <string name="label_type_with_colon">リングタイプ:</string>
-
     <string name="label_date_with_colon">日付：</string>
-
     <string name="label_time_with_colon">時間：</string>
 
     <string name="incoming">着信</string>
-
     <string name="outgoing">発信</string>
-
     <string name="missed">逃した</string>
-
     <string name="voice_email">ボイスメール</string>
-
     <string name="rejected">拒否されました</string>
-
     <string name="blocked">ブロックされました</string>
-
     <string name="answered_externally">別のデバイスで受信した</string>
-
     <string name="unknown">未知</string>
 
     <string name="label_total_duration">合計期間</string>
-
     <string name="label_total_phone_talk">合計通話数:</string>
-
     <string name="label_total_time_talk">連続通話時間：</string>
-
     <string name="label_total_calls">合計通話数:</string>
-
     <string name="header_with_longest_incoming">着信の長さによる上位の連絡先:</string>
-
     <string name="header_with_longest_outgoing">発信時間別の上位コンタクト:</string>
-
     <string name="label_count_calls_with_incoming">着信連絡先の数:</string>
-
     <string name="label_total_incoming">受信合計:</string>
-
     <string name="label_stat_by">のために</string>
-
     <string name="label_choose_day">日を選択してください</string>
-
     <string name="home_title">基本</string>
-
     <string name="label_total_number">合計数:</string>
-
     <string name="label_of_them">そのうちの：</string>
-
     <string name="label_today">今日</string>
-
     <string name="label_yesterday">昨日</string>
-
     <string name="label_count_calls_with_outgoing">発信連絡先の数:</string>
-
     <string name="label_total_outgoing">合計送信:</string>
-
     <string name="label_db_update" tools:ignore="TypographyEllipsis">データベースを更新しています...</string>
-
     <string name="pop_up_launch_title">重要</string>
-
     <string name="pop_up_launch_content">次に、通話記録にアクセスする許可を求められます。\nアプリケーションの唯一の機能は通話統計であるため、アプリケーションが動作するにはこの権限が必要です。アプリケーションをさらに操作するには、この権限を提供する必要があります。\n通話に関するすべての情報は、どこにも転送されることなく、お使いのデバイスにのみ保存されます。</string>
-
     <string name="ok">わかりました</string>
-
     <string name="pop_up_info_content">次に、通話ログに基づいてローカル データベースを作成します。\n通話ログのサイズに応じて、このプロセスには数分かかります。\n現時点では、アプリケーションを最小化することはできますが、閉じることはできません。</string>
-
     <string name="update_database">データベースの更新</string>
+    <string name="label_average_duration">平均持続時間</string>
+
+    <string name="backup">バックアップ</string>
+    <string name="label_save_to_google_drive">Google ドライブにバックアップ</string>
+    <string name="pop_up_overwrite_content">以前のデータベースのバックアップのバージョンはすでにディスクに存在しています。データベース ファイルを上書きしますか？</string>
+    <string name="no">いいえ</string>
+    <string name="pop_up_saved_success_title">成功</string>
+    <string name="pop_up_saved_success_content">データベースのバックアップが正常に保存されました</string>
+    <string name="pop_up_saved_error_title">エラー</string>
+    <string name="pop_up_saved_error_content">データベースのバックアップを保存中にエラーが発生しました:</string>
+    <string name="pop_up_backup_error_title">失敗</string>
+    <string name="pop_up_backup_error_content_folder">バックアップの読み込みに失敗しました: ディスクにバックアップフォルダがありません</string>
+    <string name="pop_up_backup_error_content_file">バックアップの読み込みに失敗しました: ディスク上にバックアップファイルがありません</string>
+    <string name="pop_up_load_success_title">成功</string>
+    <string name="pop_up_load_success_content">バックアップが正常にアップロードされました\nローカルデータベースが更新されました</string>
+    <string name="pop_up_load_error_title">失敗</string>
+    <string name="pop_up_load_error_content">バックアップの読み込み中にエラーが発生しました:</string>
+    <string name="label_save">保存</string>
+    <string name="label_load">読み込み</string>
+    <string name="text_back">戻る</string>
 </resources>

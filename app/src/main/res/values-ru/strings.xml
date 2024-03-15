@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Статистика звонков</string>
     <string name="menu_main">Главная</string>
@@ -60,4 +59,24 @@
     <string name="ok">Хорошо</string>
     <string name="pop_up_info_content">Сейчас будет создание локальной базы данных на основе списка вызовов.\nЭтот процесс займет несколько минут, в зависимости от размера журнала звонков.\nВ это время приложение можно свернуть, но не закрывать.</string>
     <string name="update_database">Обновление базы данных</string>
+    <string name="label_average_duration">Средняя продолжительность</string>
+    <string name="backup">Резервное копирование</string>
+    <string name="label_save_to_google_drive">Резервная копия на Google Диске</string>
+    <string name="pop_up_overwrite_content">Предыдущая версия резервной копии базы данных уже существует на диске. Перезаписать файл базы данных\?</string>
+    <string name="no">Нет</string>
+    <string name="pop_up_saved_success_title">Успех</string>
+    <string name="pop_up_saved_success_content">Резервная копия базы данных успешно сохранена.</string>
+    <string name="pop_up_saved_error_title">Ошибка</string>
+    <string name="pop_up_saved_error_content">Ошибка при сохранении резервной копии базы данных:</string>
+    <string name="pop_up_backup_error_title">Неуспешный</string>
+    <string name="pop_up_backup_error_content_folder">Не удалось загрузить резервную копию: на диске нет папки резервной копии.</string>
+    <string name="pop_up_backup_error_content_file">Не удалось загрузить резервную копию: файл резервной копии отсутствует на диске.</string>
+    <string name="pop_up_load_success_title">Успех</string>
+    <string name="pop_up_load_success_content">Резервная копия успешно загружена\nЛокальная база данных обновлена.</string>
+    <string name="pop_up_load_error_title">Неуспешно</string>
+    <string name="pop_up_load_error_content">При загрузке резервной копии произошла ошибка:</string>
+    <string name="label_save">Сохранить</string>
+    <string name="label_load">Загрузить</string>
+    <string name="text_back">Назад</string>
+
 </resources>

@@ -109,4 +109,24 @@
     <string name="pop_up_info_content">Wir werden nun eine lokale Datenbank basierend auf dem Anrufprotokoll erstellen.\nDieser Vorgang kann je nach Größe des Anrufprotokolls mehrere Minuten dauern.\nZu diesem Zeitpunkt kann die Anwendung minimiert, aber nicht geschlossen werden.</string>
 
     <string name="update_database">Datenbankaktualisierung</string>
+    <string name="label_average_duration">Durchschnittliche Dauer</string>
+
+    <string name="backup">Sicherung</string>
+    <string name="label_save_to_google_drive">Backup auf Google Drive</string>
+    <string name="pop_up_overwrite_content">Eine frühere Version des Datenbanksicherungsdatensatzes befindet sich bereits auf der Festplatte. Möchten Sie die Datenbankdatei überschreiben?</string>
+    <string name="no">Nein</string>
+    <string name="pop_up_saved_success_title">Erfolg</string>
+    <string name="pop_up_saved_success_content">Datenbanksicherung erfolgreich gespeichert</string>
+    <string name="pop_up_saved_error_title">Fehler</string>
+    <string name="pop_up_saved_error_content">Fehler beim Speichern einer Datenbanksicherung:</string>
+    <string name="pop_up_backup_error_title">Fehlgeschlagen</string>
+    <string name="pop_up_backup_error_content_folder">Fehler beim Laden der Sicherung: Es gibt keinen Sicherungsordner auf der Festplatte</string>
+    <string name="pop_up_backup_error_content_file">Fehler beim Laden der Sicherung: Die Sicherungsdatei fehlt auf der Festplatte</string>
+    <string name="pop_up_load_success_title">Erfolg</string>
+    <string name="pop_up_load_success_content">Sicherung erfolgreich hochgeladen\nLokale Datenbank aktualisiert</string>
+    <string name="pop_up_load_error_title">Fehlgeschlagen</string>
+    <string name="pop_up_load_error_content">Beim Laden der Sicherung ist ein Fehler aufgetreten:</string>
+    <string name="label_save">Speichern</string>
+    <string name="label_load">Laden</string>
+    <string name="text_back">Zurück</string>
 </resources>

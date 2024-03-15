@@ -110,4 +110,24 @@
     <string name="pop_up_info_content">Kami sekarang akan membuat database lokal berdasarkan log panggilan.\nProses ini akan memakan waktu beberapa menit, tergantung ukuran log panggilan.\nSaat ini, aplikasi bisa diminimalkan, tapi tidak bisa ditutup.</string>
 
     <string name="update_database">Pembaruan basis data</string>
+    <string name="label_average_duration">Durasi rata-rata</string>
+
+    <string name="backup">Cadangan</string>
+    <string name="label_save_to_google_drive">Cadangkan ke Google Drive</string>
+    <string name="pop_up_overwrite_content">Versi sebelumnya dari cadangan basis data sudah ada di disk. Timpa file basis data?</string>
+    <string name="no">Tidak</string>
+    <string name="pop_up_saved_success_title">Berhasil</string>
+    <string name="pop_up_saved_success_content">Cadangan basis data berhasil disimpan</string>
+    <string name="pop_up_saved_error_title">Kesalahan</string>
+    <string name="pop_up_saved_error_content">Kesalahan saat menyimpan cadangan basis data:</string>
+    <string name="pop_up_backup_error_title">Gagal</string>
+    <string name="pop_up_backup_error_content_folder">Gagal memuat cadangan: tidak ada folder cadangan di disk</string>
+    <string name="pop_up_backup_error_content_file">Gagal memuat cadangan: file cadangan hilang di disk</string>
+    <string name="pop_up_load_success_title">Berhasil</string>
+    <string name="pop_up_load_success_content">Cadangan berhasil diunggah\nBasis data lokal diperbarui</string>
+    <string name="pop_up_load_error_title">Gagal</string>
+    <string name="pop_up_load_error_content">Kesalahan terjadi saat memuat cadangan:</string>
+    <string name="label_save">Simpan</string>
+    <string name="label_load">Muat</string>
+    <string name="text_back">Kembali</string>
 </resources>

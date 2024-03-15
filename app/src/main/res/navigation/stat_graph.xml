@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/stat_graph"
+    app:startDestination="@id/statByPeriodFragment">
+    <fragment
+        android:id="@+id/statByPeriodFragment"
+        android:name="evgeniy.ryzhikov.callstatistics.ui.statistic.StatByPeriodFragment"
+        android:label="fragment_stat_by_period"
+        tools:layout="@layout/fragment_stat_by_period" >
+        <action
+            android:id="@+id/action_statByPeriodFragment_to_backupFragment2"
+            app:destination="@id/backupFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/backupFragment2"
+        android:name="evgeniy.ryzhikov.callstatistics.ui.backup.BackupFragment"
+        android:label="BackupFragment"
+        tools:layout="@layout/fragment_backup"/>
+</navigation>

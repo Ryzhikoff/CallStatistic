@@ -110,4 +110,25 @@
     <string name="pop_up_info_content">Şimdi çağrı kaydına dayalı yerel bir veritabanı oluşturacağız.\nBu işlem, arama kaydının boyutuna bağlı olarak birkaç dakika sürecektir.\nŞu anda uygulama simge durumuna küçültülebilir ancak kapatılamaz.</string>
 
     <string name="update_database">Veritabanı güncellemesi</string>
+    <string name="label_average_duration">Ortalama süre</string>
+
+    <string name="backup">Sauvegarde</string>
+    <string name="label_save_to_google_drive">Sauvegarder sur Google Drive</string>
+    <string name="pop_up_overwrite_content">Une version précédente de la sauvegarde de la base de données existe déjà sur le disque. Voulez-vous écraser le fichier de base de données ?</string>
+    <string name="no">Non</string>
+    <string name="pop_up_saved_success_title">Succès</string>
+    <string name="pop_up_saved_success_content">Sauvegarde de la base de données enregistrée avec succès</string>
+    <string name="pop_up_saved_error_title">Erreur</string>
+    <string name="pop_up_saved_error_content">Erreur lors de l\'enregistrement d\'une sauvegarde de base de données :</string>
+    <string name="pop_up_backup_error_title">Échec</string>
+    <string name="pop_up_backup_error_content_folder">Impossible de charger la sauvegarde : aucun dossier de sauvegarde sur le disque</string>
+    <string name="pop_up_backup_error_content_file">Impossible de charger la sauvegarde : le fichier de sauvegarde est manquant sur le disque</string>
+    <string name="pop_up_load_success_title">Succès</string>
+    <string name="pop_up_load_success_content">Sauvegarde téléchargée avec succès\nBase de données locale mise à jour</string>
+    <string name="pop_up_load_error_title">Échec</string>
+    <string name="pop_up_load_error_content">Une erreur s\'est produite lors du chargement de la sauvegarde :</string>
+    <string name="label_save">Enregistrer</string>
+    <string name="label_load">Charger</string>
+    <string name="text_back">Retour</string>
+
 </resources>

@@ -110,4 +110,24 @@
     <string name="pop_up_info_content">Ahora crearemos una base de datos local basada en el registro de llamadas.\nEste proceso tardará varios minutos, según el tamaño del registro de llamadas.\nEn este momento, la aplicación se puede minimizar, pero no cerrar.</string>
 
     <string name="update_database">Actualización de base de datos</string>
+    <string name="label_average_duration">Duración promedio</string>
+
+    <string name="backup">Respaldo</string>
+    <string name="label_save_to_google_drive">Respaldo en Google Drive</string>
+    <string name="pop_up_overwrite_content">Ya existe una versión anterior de la copia de seguridad de la base de datos en el disco. ¿Desea sobrescribir el archivo de la base de datos?</string>
+    <string name="no">No</string>
+    <string name="pop_up_saved_success_title">Éxito</string>
+    <string name="pop_up_saved_success_content">Copia de seguridad de la base de datos guardada correctamente</string>
+    <string name="pop_up_saved_error_title">Error</string>
+    <string name="pop_up_saved_error_content">Error al guardar una copia de seguridad de la base de datos:</string>
+    <string name="pop_up_backup_error_title">Fallido</string>
+    <string name="pop_up_backup_error_content_folder">Error al cargar la copia de seguridad: no hay una carpeta de copia de seguridad en el disco</string>
+    <string name="pop_up_backup_error_content_file">Error al cargar la copia de seguridad: falta el archivo de copia de seguridad en el disco</string>
+    <string name="pop_up_load_success_title">Éxito</string>
+    <string name="pop_up_load_success_content">Copia de seguridad cargada correctamente\nBase de datos local actualizada</string>
+    <string name="pop_up_load_error_title">Fallido</string>
+    <string name="pop_up_load_error_content">Se produjo un error al cargar la copia de seguridad:</string>
+    <string name="label_save">Guardar</string>
+    <string name="label_load">Cargar</string>
+    <string name="text_back">Atrás</string>
 </resources>

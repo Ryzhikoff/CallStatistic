@@ -18,4 +18,18 @@ object YandexAds {
         } else {
             "R-M-2956905-1"
         }
+//
+    fun getInterstitialAdId(): String =
+        if (BuildConfig.DEBUG) {
+            "demo-interstitial-yandex"
+        } else {
+            "R-M-2956905-2"
+        }
+
+//    fun getBannerAdUnitId(): String =
+//        "demo-banner-yandex"
+//
+//
+//    fun getInterstitialAdId(): String =
+//        "demo-interstitial-yandex"
 }
