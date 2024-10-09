@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.data.YandexAds
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneData
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneNumber
 import evgeniy.ryzhikov.callstatistics.data.entity.PhoneTalk
@@ -41,6 +42,9 @@ open class TypeCallsFragment() : Fragment(R.layout.fragment_type_calls) {
         _binding = FragmentTypeCallsBinding.bind(view)
 
         typeCalls = arguments?.getParcelableCompat<TypeCallsContainer>(KEY_TYPE_CALL)?.typeCalls!!
+
+        val adUnitId = arguments?.getString(AD_UNIT_ID) ?: YandexAds.bannerMain
+        binding.actionBar.setAdUnitId(adUnitId)
 
         initDataMap()
         initActionBar()
@@ -272,8 +276,10 @@ open class TypeCallsFragment() : Fragment(R.layout.fragment_type_calls) {
         TOP_PHONE_NUMBERS_WITH_LONGEST_INCOMING
     }
 
-    private companion object {
-        const val TAG_DETAIL_PHONE_TALK_FRAGMENT = "detail_phone_talk_fragment"
-        const val TAG_DETAIL_PHONE_NUMBER_FRAGMENT = "detail_phone_number_fragment"
+    companion object {
+        private const val TAG_DETAIL_PHONE_TALK_FRAGMENT = "detail_phone_talk_fragment"
+        private const val TAG_DETAIL_PHONE_NUMBER_FRAGMENT = "detail_phone_number_fragment"
+
+        const val AD_UNIT_ID = "ad_unit_id"
     }
 }

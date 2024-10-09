@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.data.YandexAds
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentStatByPeriodBinding
 import evgeniy.ryzhikov.callstatistics.utils.ANIMATION_DURATION_TO_GRAPHS
 import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneTalks
@@ -56,6 +57,7 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
             setContent(
                 caption = getString(R.string.menu_total_statistic),
                 subhead = getString(R.string.label_stat_by))
+            setAdUnitId(YandexAds.bannerStatistic)
         }
     }
 
