@@ -22,14 +22,13 @@ class YandexBanner(context: Context, attributeSet: AttributeSet) :
         val view = LayoutInflater.from(context).inflate(R.layout.yandex_banner, this)
         _binding = YandexBannerBinding.bind(view)
         bannerAdView = binding.bannerAdView
-        loadAds()
     }
 
 
-    private fun loadAds() {
+    fun loadAds(adUnitId: String) {
         val maxWidth =
             (context.resources.displayMetrics.widthPixels / context.resources.displayMetrics.density).toInt()
-        bannerAdView.setAdUnitId(YandexAds.getBannerAdUnitId())
+        bannerAdView.setAdUnitId(adUnitId)
         bannerAdView.setAdSize(
             BannerAdSize.stickySize(
                 context,

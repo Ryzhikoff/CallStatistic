@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.data.YandexAds
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentUpdateDbBinding
 import evgeniy.ryzhikov.callstatistics.ui.MainActivity
 import evgeniy.ryzhikov.callstatistics.ui.services.UpdateProgressLiveData
@@ -26,6 +27,8 @@ class UpdateDBFragment : Fragment(R.layout.fragment_update_db) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentUpdateDbBinding.bind(view)
+
+        binding.yandexBanner.loadAds(YandexAds.bannerUpdateDB)
 
         startLoadAnimation()
         updateProgressListener()

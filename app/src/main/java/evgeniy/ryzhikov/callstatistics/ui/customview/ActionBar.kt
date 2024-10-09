@@ -65,6 +65,10 @@ class ActionBar @JvmOverloads constructor(
 //        }
 //    }
 
+    fun setAdUnitId(adUnitId: String) {
+        binding.yandexBanner.loadAds(adUnitId)
+    }
+
     fun setContent(
         caption: String? = null,
         topName: String? = null,

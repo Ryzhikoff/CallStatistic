@@ -13,9 +13,9 @@
         android:layout_marginTop="50dp"
         android:text="@string/label_db_update"
         android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loadingAnimation"
@@ -23,29 +23,45 @@
         android:layout_height="0dp"
         android:clickable="false"
         android:focusable="true"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/lottie_update_db"
-        app:layout_constraintTop_toBottomOf="@id/tvLoad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvLoad"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/lottie_update_db" />
 
     <com.mackhartley.roundedprogressbar.RoundedProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toTopOf="@id/bannerContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loadingAnimation"
         app:rpbBackgroundColor="@color/gray_dark"
         app:rpbBackgroundTextColor="@color/white"
         app:rpbCornerRadius="20dp"
         app:rpbProgressColor="@color/primary"
         app:rpbProgressTextColor="@color/text"
         app:rpbTextPadding="12dp"
-        app:rpbTextSize="18sp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:rpbTextSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/yandex_banner_height"
+        android:background="@color/bottom_bar_color_alpha50"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loadingAnimation"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent">
+
+        <evgeniy.ryzhikov.callstatistics.ui.customview.YandexBanner
+            android:id="@+id/yandexBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

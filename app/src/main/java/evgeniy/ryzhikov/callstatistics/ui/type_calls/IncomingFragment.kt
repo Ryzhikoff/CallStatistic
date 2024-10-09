@@ -8,13 +8,19 @@ import androidx.navigation.fragment.findNavController
 import com.github.clans.fab.FloatingActionButton
 import com.github.clans.fab.FloatingActionMenu
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.data.YandexAds
 import evgeniy.ryzhikov.callstatistics.models.TypeCallsContainer
 import evgeniy.ryzhikov.callstatistics.ui.MainActivity
 import evgeniy.ryzhikov.callstatistics.utils.INCOMING_TYPE
 
 class IncomingFragment: TypeCallsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.setArguments(bundleOf(Pair(MainActivity.KEY_TYPE_CALL, TypeCallsContainer(INCOMING_TYPE))))
+        super.setArguments(
+            bundleOf(
+                MainActivity.KEY_TYPE_CALL to TypeCallsContainer(INCOMING_TYPE),
+                AD_UNIT_ID to YandexAds.bannerIncoming
+            )
+        )
         super.onViewCreated(view, savedInstanceState)
         initFabMenu()
     }

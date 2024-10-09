@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import evgeniy.ryzhikov.callstatistics.R
+import evgeniy.ryzhikov.callstatistics.data.YandexAds
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentHomeBinding
 import evgeniy.ryzhikov.callstatistics.utils.ANIMATION_DURATION_TO_GRAPHS
 import evgeniy.ryzhikov.callstatistics.utils.ConsolidatedPhoneNumbers
@@ -50,6 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 topName = getString(R.string.label_total_number),
                 bottomName = getString(R.string.label_total_calls),
             )
+            setAdUnitId(YandexAds.bannerMain)
         }
     }
 

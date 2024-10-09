@@ -21,6 +21,7 @@ import com.google.api.services.drive.DriveScopes
 import evgeniy.ryzhikov.callstatistics.App
 import evgeniy.ryzhikov.callstatistics.R
 import evgeniy.ryzhikov.callstatistics.data.PhoneDatabase
+import evgeniy.ryzhikov.callstatistics.data.YandexAds
 import evgeniy.ryzhikov.callstatistics.databinding.FragmentBackupBinding
 import evgeniy.ryzhikov.callstatistics.domain.GoogleDriveHelper
 import evgeniy.ryzhikov.callstatistics.domain.YandexInterstitialAd
@@ -68,6 +69,7 @@ class BackupFragment : Fragment(R.layout.fragment_backup) {
         App.instance.appComponent.inject(this)
 
         interstitialAd.initAd()
+        binding.yandexBanner.loadAds(YandexAds.bannerBackup)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestScopes(Scope(DriveScopes.DRIVE_FILE))
