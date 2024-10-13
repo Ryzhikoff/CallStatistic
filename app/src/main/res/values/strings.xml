@@ -46,6 +46,7 @@
     <string name="label_total_incoming">Total incoming:</string>
     <string name="label_stat_by">"for "</string>
     <string name="label_choose_day">Choose day</string>
+    <string name="label_choose_period">Choose period</string>
     <string name="home_title">Basic</string>
     <string name="label_total_number">Total numbers:</string>
     <string name="label_of_them">of which:</string>

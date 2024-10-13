@@ -87,6 +87,10 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
                 selectButton(it)
                 chooseDay()
             }
+
+            choosePeriod.setOnClickListener {
+                selectPeriod()
+            }
         }
     }
 
@@ -117,6 +121,21 @@ class StatByPeriodFragment : Fragment(R.layout.fragment_stat_by_period) {
             viewModel.getPhoneTalksByDay(selectedDay)
         }
     }
+
+    private fun selectPeriod() {
+        val datePicker = MaterialDatePicker.Builder.dateRangePicker()
+            .setTitleText(resources.getString(R.string.label_choose_period))
+            .setTheme(R.style.DatePicker)
+            .build()
+        datePicker.show(childFragmentManager, TAG_DATE_PICKER)
+        datePicker.addOnPositiveButtonClickListener { period ->
+            viewModel.getPhoneTalksByPeriod(
+                getFormattedDay(period.first),
+                getFormattedDay(period.second)
+            )
+        }
+    }
+
 
     private fun displayStatByDay(consolidatedPhoneTalks: ConsolidatedPhoneTalks) {
         val pairOfCount = listOf(

@@ -85,6 +85,7 @@
 
     <string name="label_choose_day">요일 선택</string>
 
+    <string name="label_choose_period">기간 선택</string>
     <string name="home_title">기초적인</string>
 
     <string name="label_total_number">총 수:</string>

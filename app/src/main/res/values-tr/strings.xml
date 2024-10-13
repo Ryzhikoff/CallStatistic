@@ -85,6 +85,7 @@
 
     <string name="label_choose_day">Günü seçin</string>
 
+    <string name="label_choose_period">Dönem seçin</string>
     <string name="home_title">Temel</string>
 
     <string name="label_total_number">Toplam sayılar:</string>

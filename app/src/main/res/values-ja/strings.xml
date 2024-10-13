@@ -51,6 +51,7 @@
     <string name="label_total_incoming">受信合計:</string>
     <string name="label_stat_by">のために</string>
     <string name="label_choose_day">日を選択してください</string>
+    <string name="label_choose_period">期間を選択してください</string>
     <string name="home_title">基本</string>
     <string name="label_total_number">合計数:</string>
     <string name="label_of_them">そのうちの：</string>

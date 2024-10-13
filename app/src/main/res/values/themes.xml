@@ -116,13 +116,13 @@
         <item name="materialCalendarDayOfWeekLabel">@style/DatePicker.DayOfWeekLabel</item>
         <item name="materialCalendarYearNavigationButton">@style/DatePicker.YearNavigationButton</item>
         <item name="daySelectedStyle">@style/DatePicker.DaySelected</item>
-
         <item name="colorSurfaceContainerHigh">@color/bottom_bar_color</item>
+        <item name="colorSecondaryContainer">@color/primary</item>
     </style>
 
     <style name="DatePicker.DaySelected" parent="Widget.Material3.MaterialCalendar.Day.Selected">
         <item name="itemFillColor">@color/primary</item>
-        <item name="itemTextColor">@color/text</item>
+        <item name="itemTextColor">@color/secondary</item>
     </style>
 
     <style name="DatePicker.YearNavigationButton" parent="Widget.Material3.MaterialCalendar.YearNavigationButton">

@@ -16,41 +16,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_edge"
             android:layout_marginTop="@dimen/margin_in_cards"
-            android:layout_marginEnd="@dimen/margin_edge"
-            android:elevation="@dimen/cards_elevation"
-            android:weightSum="0.3">
+            android:layout_marginEnd="@dimen/margin_edge">
 
-            <Button
-                android:id="@+id/today"
-                style="@style/ButtonGroup"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="@string/label_today" />
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/yesterday"
-                style="@style/ButtonGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="@string/label_yesterday" />
+                <Button
+                    android:id="@+id/today"
+                    style="@style/ButtonGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_today" />
 
-            <Button
-                android:id="@+id/chooseDay"
-                style="@style/ButtonGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:text="@string/label_choose_day" />
+                <Space
+                    android:layout_width="8dp"
+                    android:layout_height="8dp" />
 
+                <Button
+                    android:id="@+id/yesterday"
+                    style="@style/ButtonGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_yesterday" />
 
-        </com.google.android.material.button.MaterialButtonToggleGroup>
+                <Space
+                    android:layout_width="8dp"
+                    android:layout_height="8dp" />
+
+                <Button
+                    android:id="@+id/chooseDay"
+                    style="@style/ButtonGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_choose_day" />
+
+                <Space
+                    android:layout_width="8dp"
+                    android:layout_height="8dp" />
+
+                <Button
+                    android:id="@+id/choosePeriod"
+                    style="@style/ButtonGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text="@string/label_choose_period" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -242,14 +264,14 @@
         android:id="@+id/fabMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/yandex_banner_height"
         app:layout_anchor="@id/actionBar"
         app:layout_anchorGravity="top|end"
-        app:menu_openDirection="down"
-        android:layout_marginTop="@dimen/yandex_banner_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:menu_colorNormal="@color/dark_alpha30"
         app:menu_colorPressed="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:menu_openDirection="down">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/backup"

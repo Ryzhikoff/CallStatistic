@@ -85,6 +85,7 @@
 
     <string name="label_choose_day">Pilih hari</string>
 
+    <string name="label_choose_period">Pilih periode</string>
     <string name="home_title">Dasar</string>
 
     <string name="label_total_number">Jumlah keseluruhan:</string>

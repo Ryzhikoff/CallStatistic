@@ -47,6 +47,9 @@ class MainRepository(
        return phoneTalkDao.getPhoneTalksByDay(day)
     }
 
+    fun getPhoneTalksByPeriod(start: String, end: String) =
+        phoneTalkDao.getPhoneTalksByPeriod(start, end)
+
     fun getPhoneTalksByType(typeCalls: Int): List<PhoneTalk> = phoneTalkDao.getPhoneTalksByType(typeCalls)
 
     fun getCountPhoneTalk(): Long = phoneTalkDao.getCountPhoneTalks()

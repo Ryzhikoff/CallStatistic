@@ -51,6 +51,7 @@
     <string name="label_total_incoming">Entrate totali:</string>
     <string name="label_stat_by">per </string>
     <string name="label_choose_day">Scegli il giorno</string>
+    <string name="label_choose_period">Seleziona periodo</string>
     <string name="home_title">Di base</string>
     <string name="label_total_number">Numeri totali:</string>
     <string name="label_of_them">di cui:</string>

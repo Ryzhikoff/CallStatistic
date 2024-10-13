@@ -20,6 +20,9 @@ interface PhoneTalkDao {
     @Query("SELECT * FROM $TABLE_NAME_PHONE_TALK WHERE date(dateTime) = :day")
     fun getPhoneTalksByDay(day: String): List<PhoneTalk>
 
+    @Query("SELECT * FROM $TABLE_NAME_PHONE_TALK WHERE date(dateTime) BETWEEN :start AND :end")
+    fun getPhoneTalksByPeriod(start: String, end: String): List<PhoneTalk>
+
     @Query("SELECT * FROM $TABLE_NAME_PHONE_TALK WHERE type LIKE :typeCalls ORDER BY duration DESC")
     fun getPhoneTalksByType(typeCalls: Int): List<PhoneTalk>
 

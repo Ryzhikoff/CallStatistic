@@ -46,6 +46,7 @@
     <string name="label_total_incoming">Всего входящих:</string>
     <string name="label_stat_by">"за "</string>
     <string name="label_choose_day">Выбрать день</string>
+    <string name="label_choose_period">Выбрать период</string>
     <string name="home_title">Основное</string>
     <string name="label_total_number">Всего номеров:</string>
     <string name="label_of_them">из них:</string>

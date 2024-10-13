@@ -85,6 +85,7 @@
 
     <string name="label_choose_day">Elige el día</string>
 
+    <string name="label_choose_period">Seleccionar periodo</string>
     <string name="home_title">Básico</string>
 
     <string name="label_total_number">Números totales:</string>
